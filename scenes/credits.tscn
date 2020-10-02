@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/credits.gd" type="Script" id=1]
+[ext_resource path="res://resources/fonts/squarebit-40px.tres" type="DynamicFont" id=2]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelsContainer" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PreviewLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -206.0
+margin_top = -20.0
+margin_right = 206.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 2 )
+text = "Contributor name preview"
+__meta__ = {
+"_editor_description_": "This will be deleted on ready. Contributors name will be created by the script"
+}
