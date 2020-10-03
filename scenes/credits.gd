@@ -1,8 +1,9 @@
 extends Control
 
-# add your name to this list to appear in the game credits
+# add your name (or username) to this list if you want to appear in the game credits!
 var contributors = [
-	"davcri"
+	"Sop-S",
+	"Vittorio Del Bianco",
 ]
 
 onready var labels_container = $LabelsContainer
