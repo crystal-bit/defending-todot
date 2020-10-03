@@ -32,3 +32,4 @@ text = "Contributor name preview"
 __meta__ = {
 "_editor_description_": "This will be deleted on ready. Contributors name will be created by the script"
 }
+[connection signal="credits_ended" from="." to="." method="_on_Credits_credits_ended"]

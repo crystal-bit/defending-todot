@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/fonts/squarebit/squarebit.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scenes/menu/play-button.gd" type="Script" id=2]
-[ext_resource path="res://scenes/menu/exit-button.gd" type="Script" id=3]
-[ext_resource path="res://resources/fonts/squarebit-40px.tres" type="DynamicFont" id=4]
+[ext_resource path="res://resources/fonts/squarebit-40px.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/menu/play-button.gd" type="Script" id=3]
+[ext_resource path="res://scenes/menu/exit-button.gd" type="Script" id=4]
+[ext_resource path="res://scenes/menu/credit-button.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -61,9 +62,9 @@ __meta__ = {
 margin_right = 200.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 200, 80 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 2 )
 text = "START"
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -73,11 +74,21 @@ margin_top = 96.0
 margin_right = 200.0
 margin_bottom = 176.0
 rect_min_size = Vector2( 200, 80 )
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 2 )
 text = "EXIT"
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CreditButton" type="Button" parent="VBoxContainer"]
+margin_top = 192.0
+margin_right = 200.0
+margin_bottom = 272.0
+rect_min_size = Vector2( 200, 80 )
+custom_fonts/font = ExtResource( 2 )
+text = "CREDITS"
+script = ExtResource( 5 )
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="VBoxContainer/ExitButton" method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditButton" to="VBoxContainer/CreditButton" method="_on_CreditButton_pressed"]
