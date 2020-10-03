@@ -2,7 +2,8 @@ extends Control
 
 # add your name to this list to appear in the game credits
 var contributors = [
-	"davcri"
+	"davcri",
+	"veonazzo"
 ]
 
 onready var labels_container = $LabelsContainer
@@ -51,3 +52,7 @@ func create_contributor_label(name: String) -> Label:
 	var label = Label.new()
 	label.text = name
 	return label
+
+
+func _on_Credits_credits_ended():
+	Game.change_scene("res://scenes/main.tscn")
