@@ -24,10 +24,9 @@ You can:
 
 I hope these rules will help everyone having an enjoyable Hacktoberfest.
 
-## Reference Kingdom Rush gameplay
+## How to appear in the game credits
 
-- https://www.youtube.com/watch?v=kHcO2NFInuY
-- https://www.youtube.com/watch?v=dZ56Y2FYYU0
+Before making a pull request, consider adding yourself to the [credits.gd](https://github.com/crystal-bit/hacktoberfest-2020/blob/master/scenes/credits.gd) script so that you will appear in the game credits!
 
 ## Project conventions
 
@@ -62,6 +61,11 @@ For the order of variables, signals, functions, please follow this order (simpli
 8.  Signal callbacks (eg: on_button_pressed, on_area_entered, on_body_entered, ...)
 9.  Methods
 ```
+ 
+## Reference Kingdom Rush gameplay
+
+- https://www.youtube.com/watch?v=kHcO2NFInuY
+- https://www.youtube.com/watch?v=dZ56Y2FYYU0
 
 # License
 
