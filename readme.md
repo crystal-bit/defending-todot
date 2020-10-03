@@ -36,6 +36,11 @@ I hope these rules will help everyone having an enjoyable Hacktoberfest.
 To avoid issues when multiple contributors are working on the same project across various
 file systems and operating systems. See more details [here](https://github.com/crystal-bit/godot-game-template#lower-case-letters-only).
 
+### Node names
+
+Use `CamelCase` style for node names.  
+This is the default style used in Godot and, moreover, it's easier to reference node names which don't have dash symbol or whitespaces in their name (see [this comment](https://github.com/crystal-bit/hacktoberfest-2020/pull/21#issuecomment-703162481))
+
 ### Code style
 
 There are no strict requirements on code style, but try to be consistent with the code that you'll find.
@@ -61,5 +66,7 @@ For the order of variables, signals, functions, please follow this order (simpli
 # License
 
 - **Code**: GPLv3
-- CC0 - https://www.kenney.nl/assets/topdown-tanks-redux
-- CC0 - https://www.kenney.nl/assets/tower-defense-top-down
+- **Assets** [CC-BY](https://creativecommons.org/licenses/by/4.0/) 
+- Kenney assets are released under CC0 
+   - https://www.kenney.nl/assets/topdown-tanks-redux
+   - https://www.kenney.nl/assets/tower-defense-top-down
