@@ -5,12 +5,12 @@
 [ext_resource path="res://assets/sprites/top-down-tanks-redux/png/tank_red.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/top-down-tanks-redux/png/tank_sand.png" type="Texture" id=4]
 
-[node name="strategic-point-menu" type="Control"]
+[node name="StrategicPointMenu" type="Control"]
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="slot-top-left" type="Control" parent="."]
+[node name="SlotTopLeft" type="Control" parent="."]
 margin_left = -100.0
 margin_top = -100.0
 margin_right = -100.0
@@ -19,7 +19,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="placeholder" type="Panel" parent="slot-top-left"]
+[node name="placeholder" type="Panel" parent="SlotTopLeft"]
 margin_left = -35.0
 margin_top = -35.0
 margin_right = 35.0
@@ -28,7 +28,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="slot-top-left/placeholder"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SlotTopLeft/placeholder"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -41,7 +41,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="slot-top-left/placeholder/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SlotTopLeft/placeholder/VBoxContainer"]
 margin_right = 42.0
 margin_bottom = 46.0
 texture = ExtResource( 2 )
@@ -49,7 +49,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="slot-top-left/placeholder/VBoxContainer"]
+[node name="Label" type="Label" parent="SlotTopLeft/placeholder/VBoxContainer"]
 margin_top = 50.0
 margin_right = 42.0
 margin_bottom = 64.0
@@ -59,7 +59,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="slot-top-right" type="Control" parent="."]
+[node name="SlotTopRight" type="Control" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = 100.0
@@ -70,7 +70,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="placeholder" type="Panel" parent="slot-top-right"]
+[node name="placeholder" type="Panel" parent="SlotTopRight"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -83,7 +83,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="slot-top-right/placeholder"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SlotTopRight/placeholder"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -96,7 +96,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="slot-top-right/placeholder/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SlotTopRight/placeholder/VBoxContainer"]
 margin_right = 42.0
 margin_bottom = 46.0
 texture = ExtResource( 4 )
@@ -104,7 +104,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="slot-top-right/placeholder/VBoxContainer"]
+[node name="Label" type="Label" parent="SlotTopRight/placeholder/VBoxContainer"]
 margin_top = 50.0
 margin_right = 42.0
 margin_bottom = 64.0
@@ -114,7 +114,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="slot-bottom-left" type="Control" parent="."]
+[node name="SlotBottomLeft" type="Control" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = -100.0
@@ -125,7 +125,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="placeholder" type="Panel" parent="slot-bottom-left"]
+[node name="placeholder" type="Panel" parent="SlotBottomLeft"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -138,7 +138,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="slot-bottom-left/placeholder"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SlotBottomLeft/placeholder"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -151,7 +151,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="slot-bottom-left/placeholder/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SlotBottomLeft/placeholder/VBoxContainer"]
 margin_right = 42.0
 margin_bottom = 46.0
 texture = ExtResource( 1 )
@@ -159,7 +159,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="slot-bottom-left/placeholder/VBoxContainer"]
+[node name="Label" type="Label" parent="SlotBottomLeft/placeholder/VBoxContainer"]
 margin_top = 50.0
 margin_right = 42.0
 margin_bottom = 64.0
@@ -169,7 +169,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="slot-bottom-right" type="Control" parent="."]
+[node name="SlotBottomRight" type="Control" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -182,7 +182,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="placeholder" type="Panel" parent="slot-bottom-right"]
+[node name="placeholder" type="Panel" parent="SlotBottomRight"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -195,7 +195,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="slot-bottom-right/placeholder"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SlotBottomRight/placeholder"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -208,7 +208,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="slot-bottom-right/placeholder/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="SlotBottomRight/placeholder/VBoxContainer"]
 margin_right = 42.0
 margin_bottom = 46.0
 texture = ExtResource( 3 )
@@ -216,7 +216,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="slot-bottom-right/placeholder/VBoxContainer"]
+[node name="Label" type="Label" parent="SlotBottomRight/placeholder/VBoxContainer"]
 margin_top = 50.0
 margin_right = 42.0
 margin_bottom = 64.0
