@@ -1,8 +1,12 @@
 extends Control
 
-# add your name to this list to appear in the game credits
+# add your name (or username) to this list if you want to appear in the game credits!
+# Contributors are listed in chronological order of pull requests from the first 
+# to the last.
 var contributors = [
-	"davcri"
+	"Sop-S",
+	"Vittorio Del Bianco",
+	"veonazzo",
 ]
 
 onready var labels_container = $LabelsContainer
@@ -51,3 +55,7 @@ func create_contributor_label(name: String) -> Label:
 	var label = Label.new()
 	label.text = name
 	return label
+
+
+func _on_Credits_credits_ended():
+	Game.change_scene("res://scenes/main.tscn")
