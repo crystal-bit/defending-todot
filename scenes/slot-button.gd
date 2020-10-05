@@ -1,6 +1,5 @@
 tool
 extends Control
-class_name SlotButton
 
 signal pressed(tower_name, tower_cost)
 
