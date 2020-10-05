@@ -18,6 +18,6 @@ func _ready() -> void:
 	
 	
 func show_at_position(position : Vector2):
+		self.popup()
 		self.set_anchors_and_margins_preset(Control.PRESET_CENTER, Control.PRESET_MODE_MINSIZE)
 		self.rect_global_position = position
-		self.popup()
