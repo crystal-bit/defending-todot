@@ -2,10 +2,10 @@
 
 [ext_resource path="res://scenes/slot-button.gd" type="Script" id=1]
 
-[node name="SlotButton" type="Control"]
-margin_right = 70.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 70, 70 )
+[node name="SlotButton" type="Button"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+toggle_mode = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -13,17 +13,11 @@ __meta__ = {
 
 [node name="Decoration" type="ColorRect" parent="."]
 visible = false
+show_behind_parent = true
 margin_left = -5.0
 margin_top = -5.0
 margin_right = 75.0
 margin_bottom = 75.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -40,14 +34,14 @@ __meta__ = {
 }
 
 [node name="TowerName" type="Label" parent="VBoxContainer"]
-margin_right = 64.0
+margin_right = 1594.0
 margin_bottom = 14.0
 align = 1
 valign = 1
 
 [node name="TowerIcon" type="TextureRect" parent="VBoxContainer"]
 margin_top = 18.0
-margin_right = 64.0
+margin_right = 1594.0
 margin_bottom = 18.0
 stretch_mode = 6
 __meta__ = {
@@ -56,20 +50,11 @@ __meta__ = {
 
 [node name="TowerCost" type="Label" parent="VBoxContainer"]
 margin_top = 22.0
-margin_right = 64.0
+margin_right = 1594.0
 margin_bottom = 36.0
 text = "0"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Button" type="Button" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-toggle_mode = true
-flat = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="toggled" from="Button" to="." method="_on_Button_toggled"]
+[connection signal="toggled" from="." to="." method="_on_SlotButton_toggled"]
