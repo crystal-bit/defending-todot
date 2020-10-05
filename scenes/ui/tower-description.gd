@@ -10,7 +10,9 @@ onready var tower_description_label : Label = $MarginContainer/VBoxContainer/VBo
 onready var attack_power_label : Label = $MarginContainer/VBoxContainer/HBoxContainer/AttackPowerContainer/Value
 onready var attack_speed_label : Label = $MarginContainer/VBoxContainer/HBoxContainer/AttackSpeedContainer/Value
 
+
 func _ready() -> void:
+	yield(get_tree(),"idle_frame") #workaround for play scene
 	tower_name_label.text = tower_name
 	tower_description_label.text = tower_description
 	attack_power_label.text = attack_power
@@ -18,6 +20,6 @@ func _ready() -> void:
 	
 	
 func show_at_position(position : Vector2):
-		popup()
-		set_as_minsize()
-		rect_global_position = position
+	popup()
+	set_as_minsize()
+	rect_global_position = position
