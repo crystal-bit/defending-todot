@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="HitArea" type="Area2D"]
+__meta__ = {
+"_editor_description_": "TODO: when an enemy enters the hit area,  the player loses 1 HP"
+}

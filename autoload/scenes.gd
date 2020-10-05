@@ -35,6 +35,8 @@ func _force_load():
 	# reparent played scene under main_node
 	main.active_scene_container.get_child(0).queue_free()
 	main.active_scene_container.add_child(played_scene)
+	if played_scene.has_method("pre_start"):
+		played_scene.pre_start({})
 	if played_scene.has_method("start"):
 		played_scene.start()
 	played_scene.owner = main
@@ -56,10 +58,10 @@ func _change_scene(new_scene: String, params= {}):
 	yield(transitions.anim, "animation_finished")
 	var loading_start_time = OS.get_ticks_msec()
 	current_scene.queue_free()
-	var instanced_scn = scn.instance()
-	main.active_scene_container.add_child(instanced_scn)
+	var instanced_scn = scn.instance() # triggers _init
+	main.active_scene_container.add_child(instanced_scn) # triggers _ready
 	var load_time = OS.get_ticks_msec() - loading_start_time # ms
-	print("🕑🕑🕑🕑🕑🕑{scn} loaded in {elapsed}ms".format({ 'scn': new_scene, 'elapsed': load_time }))
+	print("{scn} loaded in {elapsed}ms".format({ 'scn': new_scene, 'elapsed': load_time }))
 	# artificially wait some time in order to have a gentle game transition
 	if load_time < minimum_load_time:
 		yield(get_tree().create_timer((minimum_load_time - load_time) / 1000.0), "timeout")
