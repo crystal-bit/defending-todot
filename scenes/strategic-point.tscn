@@ -17,6 +17,5 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="StrategicPointMenu" parent="." instance=ExtResource( 2 )]
-visible = false
 [connection signal="mouse_entered" from="." to="." method="_on_StrategicPoint_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_StrategicPoint_mouse_exited"]
