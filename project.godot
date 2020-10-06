@@ -14,6 +14,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/main.gd"
 }, {
+"base": "Node2D",
+"class": "Tower",
+"language": "GDScript",
+"path": "res://scenes/tower/tower.gd"
+}, {
+"base": "Reference",
+"class": "TowerType",
+"language": "GDScript",
+"path": "res://scenes/tower/tower_type.gd"
+}, {
+"base": "Resource",
+"class": "Tower_Resource",
+"language": "GDScript",
+"path": "res://scenes/tower/tower_resource.gd"
+}, {
 "base": "CanvasLayer",
 "class": "Transitions",
 "language": "GDScript",
@@ -21,6 +36,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Main": "",
+"Tower": "",
+"TowerType": "",
+"Tower_Resource": "",
 "Transitions": ""
 }
 
@@ -36,6 +54,7 @@ config/icon="res://assets/sprites/icon.png"
 
 Scenes="*res://autoload/scenes.gd"
 Game="*res://autoload/game.gd"
+TowerManager="*res://autoload/tower_manager.gd"
 
 [display]
 
