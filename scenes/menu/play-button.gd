@@ -16,4 +16,4 @@ func _on_Button_pressed():
 			"val": 15
 		},
 	}
-	Game.change_scene("res://scenes/gameplay/gameplay.tscn", params)
+	Game.change_scene("res://scenes/gameplay/map/map.tscn", params)
