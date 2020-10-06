@@ -6,6 +6,6 @@
 [node name="Gameplay" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="LevelPlaceholder" parent="." instance_placeholder="res://scenes/gameplay/levels/level1.tscn"]
+[node name="Level" type="Node2D" parent="."]
 
 [node name="PauseLayer" parent="." instance=ExtResource( 1 )]
