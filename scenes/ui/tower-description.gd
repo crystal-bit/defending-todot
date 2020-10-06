@@ -23,3 +23,4 @@ func show_at_position(position : Vector2):
 	set_as_minsize()
 	rect_global_position = position
 	popup()
+	minimum_size_changed()
