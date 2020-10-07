@@ -12,7 +12,7 @@ const base_level : int = 1
 
 func _ready() -> void:
 	var tower_resource : Tower_Resource = TowerManager.towers_by_level[base_level][tower_name]
-	_set_icon(tower_resource.sprite)
+	_set_icon(tower_resource.texture)
 	_set_cost(tower_resource.cost)
 	_set_tower_name(tower_resource.tower_type)
 	

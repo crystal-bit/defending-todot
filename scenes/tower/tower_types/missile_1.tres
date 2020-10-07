@@ -7,7 +7,7 @@
 script = ExtResource( 1 )
 tower_type = 1
 level = 1
-sprite = ExtResource( 2 )
+texture = ExtResource( 2 )
 attack_radius = 70
 damage = 30
 armor_piercing = 65
