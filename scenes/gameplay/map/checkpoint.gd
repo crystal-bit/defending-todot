@@ -1,15 +1,22 @@
 extends Node2D
 
 export var sceneLoad = 1
+export var checkState = 0
+var isSceneLock = true
 
 
 func _ready():
-	pass
+	if checkState == 0:
+		$Area2D/icon0.visible = true
+	elif checkState == 1:
+		$Area2D/icon1.visible = true
+	elif checkState == 2:
+		$Area2D/icon2.visible = true
 	
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
-		if event.pressed:
+		if event.pressed and checkState != 0:
 			print(sceneLoad)
 			var params = {
 				"level_idx": sceneLoad,
