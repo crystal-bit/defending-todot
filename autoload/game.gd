@@ -1,7 +1,7 @@
 extends Node
 
 
-var user_money : int = 0
+var user_money : int = 10000
 
 var size := Vector2.ZERO
 

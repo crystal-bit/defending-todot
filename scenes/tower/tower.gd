@@ -38,8 +38,8 @@ func _draw() -> void:
 	
 	
 func initialise(_type, _level):
-	tower_type = _type
-	level = _level
+	tower_type = _type # TowerType.Type
+	level = _level # int
 	
 	
 func set_rally_point(position : Vector2):

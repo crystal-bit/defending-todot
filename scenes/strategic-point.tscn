@@ -22,3 +22,5 @@ shape = SubResource( 1 )
 visible = false
 mouse_filter = 1
 [connection signal="input_event" from="." to="." method="_on_StrategicPoint_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_StrategicPoint_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_StrategicPoint_mouse_exited"]

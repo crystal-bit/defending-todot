@@ -16,22 +16,17 @@ atlas = ExtResource( 1 )
 region = Rect2( 481, 323, 32, 32 )
 
 [node name="TowerDescriptionPopup" type="PopupPanel"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_min_size = Vector2( 200, 200 )
 theme = ExtResource( 2 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
 margin_left = 33.0
 margin_top = 33.0
-margin_right = -33.0
-margin_bottom = -33.0
+margin_right = 1567.0
+margin_bottom = 867.0
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10

@@ -5,6 +5,7 @@
 [node name="SlotButton" type="Button"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+toggle_mode = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -60,4 +61,4 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="." to="." method="_on_SlotButton_pressed"]
+[connection signal="toggled" from="." to="." method="_on_SlotButton_toggled"]
