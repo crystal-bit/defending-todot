@@ -7,7 +7,7 @@ var contributors = [
 	"Sop-S",
 	"Vittorio Del Bianco",
 	"veonazzo",
-	"Karbb"
+	"Karbb",
 	"Gaarco",
 ]
 
