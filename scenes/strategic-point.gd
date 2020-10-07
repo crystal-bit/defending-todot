@@ -18,7 +18,6 @@ func _on_slot_activated(slot: Slot):
 		"300",
 		"20"
 	)
-	print(tower_description_popup.rect_size.x)
 	var description_appear_pos = slot.rect_global_position
 	if slot.rect_position.x > 0:
 		description_appear_pos.x += slot.rect_size.x

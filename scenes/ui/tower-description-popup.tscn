@@ -16,7 +16,6 @@ atlas = ExtResource( 1 )
 region = Rect2( 481, 323, 32, 32 )
 
 [node name="TowerDescriptionPopup" type="PopupPanel"]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 200, 200 )
