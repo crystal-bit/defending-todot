@@ -5,7 +5,6 @@
 [node name="SlotButton" type="Button"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-toggle_mode = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -18,6 +17,7 @@ margin_left = -5.0
 margin_top = -5.0
 margin_right = 75.0
 margin_bottom = 75.0
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,19 +42,22 @@ valign = 1
 [node name="TowerIcon" type="TextureRect" parent="VBoxContainer"]
 margin_top = 18.0
 margin_right = 1594.0
-margin_bottom = 18.0
+margin_bottom = 872.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
 stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TowerCost" type="Label" parent="VBoxContainer"]
-margin_top = 22.0
+margin_top = 876.0
 margin_right = 1594.0
-margin_bottom = 36.0
+margin_bottom = 890.0
 text = "0"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="toggled" from="." to="." method="_on_SlotButton_toggled"]
+[connection signal="pressed" from="." to="." method="_on_SlotButton_pressed"]

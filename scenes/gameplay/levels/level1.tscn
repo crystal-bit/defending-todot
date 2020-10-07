@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/sprites/tower-defense-top-down/spritesheet/tower-defense_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://entities/hit-area/hit-area.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/strategic-point.tscn" type="PackedScene" id=3]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tower-defense_spritesheet.png 0"
@@ -64,4 +65,20 @@ __meta__ = {
 "_gizmo_extents_": 32.0
 }
 
+[node name="StrategicPoint" parent="." instance=ExtResource( 3 )]
+position = Vector2( 465.08, 535.259 )
+
+[node name="SlotTopRight" parent="StrategicPoint/StrategicPointMenu" index="1"]
+tower_name = 1
+
+[node name="SlotBottomLeft" parent="StrategicPoint/StrategicPointMenu" index="2"]
+margin_top = 66.4983
+margin_bottom = 136.498
+tower_name = 2
+[connection signal="tower_selected" from="StrategicPoint/StrategicPointMenu" to="StrategicPoint" method="_on_StrategicPointMenu_tower_selected"]
+
 [editable path="HitArea"]
+
+[editable path="StrategicPoint"]
+
+[editable path="StrategicPoint/StrategicPointMenu"]

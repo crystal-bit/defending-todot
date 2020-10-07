@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/tower/tower.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile249.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24.8515, 28.2729 )
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
@@ -14,14 +17,10 @@ texture = ExtResource( 2 )
 
 [node name="AttackRange" type="Node2D" parent="."]
 
-[node name="AttackRangeShowArea" type="Control" parent="AttackRange"]
-margin_left = -26.5795
-margin_top = -29.1591
-margin_right = 27.4205
-margin_bottom = 27.8409
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="AttackRangeShowArea" type="Area2D" parent="AttackRange"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange/AttackRangeShowArea"]
+shape = SubResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="AttackRange"]
 
