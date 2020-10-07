@@ -14,9 +14,20 @@ texture = ExtResource( 2 )
 
 [node name="AttackRange" type="Node2D" parent="."]
 
+[node name="AttackRangeShowArea" type="Control" parent="AttackRange"]
+margin_left = -26.5795
+margin_top = -29.1591
+margin_right = 27.4205
+margin_bottom = 27.8409
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Area2D" type="Area2D" parent="AttackRange"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange/Area2D"]
 shape = SubResource( 1 )
 
 [node name="RallyPoint" type="Position2D" parent="."]
+[connection signal="mouse_entered" from="AttackRange/AttackRangeShowArea" to="." method="_on_AttackRangeShowArea_mouse_entered"]
+[connection signal="mouse_exited" from="AttackRange/AttackRangeShowArea" to="." method="_on_AttackRangeShowArea_mouse_exited"]
