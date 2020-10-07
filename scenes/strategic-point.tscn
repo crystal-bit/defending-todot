@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile039.png" type="Texture" id=1]
 [ext_resource path="res://scenes/strategic-point-menu.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
+
+[sub_resource type="ButtonGroup" id=2]
 
 [node name="StrategicPoint" type="Area2D"]
 script = ExtResource( 3 )
@@ -17,5 +19,19 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="StrategicPointMenu" parent="." instance=ExtResource( 2 )]
+
+[node name="SlotTopLeft" parent="StrategicPointMenu" index="0"]
+group = SubResource( 2 )
+
+[node name="SlotTopRight" parent="StrategicPointMenu" index="1"]
+group = SubResource( 2 )
+
+[node name="SlotBottomLeft" parent="StrategicPointMenu" index="2"]
+group = SubResource( 2 )
+
+[node name="SlotBottomRight" parent="StrategicPointMenu" index="3"]
+group = SubResource( 2 )
 [connection signal="mouse_entered" from="." to="." method="_on_StrategicPoint_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_StrategicPoint_mouse_exited"]
+
+[editable path="StrategicPointMenu"]

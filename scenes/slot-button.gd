@@ -1,7 +1,9 @@
 tool
+class_name Slot
 extends Button
 
-signal slot_pressed(tower_name, tower_cost)
+
+signal slot_activated(slot)
 
 onready var decoration = $Decoration
 
@@ -11,14 +13,14 @@ export (int) var tower_cost : int = 0 setget _set_cost, _get_cost
 
 
 func _on_SlotButton_toggled(button_pressed: bool) -> void:
-	emit_signal("slot_pressed", tower_name, tower_cost)
+	if button_pressed:
+		emit_signal("slot_activated", self)
 	decoration.visible = button_pressed
 
 
 func _set_icon(texture : Texture) -> void:
 	get_node("VBoxContainer/TowerIcon").texture = texture
-	if Engine.is_editor_hint():
-		tower_icon = texture
+	tower_icon = texture
 
 
 func _get_icon() -> Texture:
@@ -27,8 +29,7 @@ func _get_icon() -> Texture:
 
 func _set_cost(cost : int) -> void:
 	get_node("VBoxContainer/TowerCost").text = str(cost)
-	if Engine.is_editor_hint():
-		tower_cost = cost
+	tower_cost = cost
 
 
 func _get_cost() -> int:
@@ -37,8 +38,7 @@ func _get_cost() -> int:
 
 func _set_tower_name(name : String) -> void:
 	get_node("VBoxContainer/TowerName").text = name
-	if Engine.is_editor_hint():
-		tower_name = name
+	tower_name = name
 
 
 func _get_tower_name() -> String:

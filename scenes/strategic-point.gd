@@ -1,16 +1,35 @@
 extends Area2D
 
 onready var strategic_point_menu = $StrategicPointMenu
+onready var tower_description_popup = get_parent().get_node("TowerDescriptionPopup")
 
 var mouse_inside_area : bool = false
 
 
 func _ready() -> void:
-	pass
+	for slot in $StrategicPointMenu.get_children():
+		slot.connect("slot_activated", self, "_on_slot_activated")
+		
 
+func _on_slot_activated(slot: Slot):
+	tower_description_popup.set_tower_data(
+		slot.tower_name, 
+		"inventarmi una descrizione tanto per provare se sta roba funziona",
+		"300",
+		"20"
+	)
+	print(tower_description_popup.rect_size.x)
+	var description_appear_pos = slot.rect_global_position
+	if slot.rect_position.x > 0:
+		description_appear_pos.x += slot.rect_size.x
+	else:
+		description_appear_pos.x -= tower_description_popup.rect_size.x
+	tower_description_popup.show_at_position(description_appear_pos)
+	
 
-func _process(delta: float) -> void:
-	if Input.is_mouse_button_pressed(1):
+func _unhandled_input(event: InputEvent) -> void:
+#	if event is InputEventMouseButton:
+	if event.is_action_pressed("ui_accept"):
 		if mouse_inside_area:
 			strategic_point_menu.visible = true
 		else:
