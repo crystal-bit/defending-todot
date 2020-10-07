@@ -68,13 +68,9 @@ __meta__ = {
 [node name="StrategicPoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 465.08, 535.259 )
 
-[node name="SlotTopRight" parent="StrategicPoint/StrategicPointMenu" index="1"]
-tower_name = 1
-
 [node name="SlotBottomLeft" parent="StrategicPoint/StrategicPointMenu" index="2"]
 margin_top = 66.4983
 margin_bottom = 136.498
-tower_name = 2
 [connection signal="tower_selected" from="StrategicPoint/StrategicPointMenu" to="StrategicPoint" method="_on_StrategicPointMenu_tower_selected"]
 
 [editable path="HitArea"]

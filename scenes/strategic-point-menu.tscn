@@ -20,12 +20,14 @@ margin_left = 65.0
 margin_top = -135.0
 margin_right = 135.0
 margin_bottom = -65.0
+tower_name = 1
 
 [node name="SlotBottomLeft" parent="." instance=ExtResource( 1 )]
 margin_left = -135.0
 margin_top = 65.0
 margin_right = -65.0
 margin_bottom = 135.0
+tower_name = 2
 
 [node name="SlotBottomRight" parent="." instance=ExtResource( 1 )]
 margin_left = 65.0
