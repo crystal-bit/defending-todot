@@ -6,6 +6,16 @@
 - [Story](#story)
 - [Gameplay](#gameplay)
 - [Mechanics](#mechanics)
+  - [**Towers**](#towers)
+    - [**Bunker**](#bunker)
+    - [**Missile Tower**](#missile-tower)
+    - [**Sniper Tower**](#sniper-tower)
+  - [**Enemies**](#enemies)
+    - [**Soldier**](#soldier)
+    - [**Commando**](#commando)
+    - [**Armored Transport**](#armored-transport)
+    - [**Tank**](#tank)
+    - [**Aircraft**](#aircraft)
 
 # Pitch
 

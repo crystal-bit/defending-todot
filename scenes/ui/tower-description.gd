@@ -12,14 +12,28 @@ onready var attack_speed_label : Label = $MarginContainer/VBoxContainer/HBoxCont
 
 
 func _ready() -> void:
-	yield(get_tree(),"idle_frame") # workaround for play scene
-	tower_name_label.text = tower_name
-	tower_description_label.text = tower_description
-	attack_power_label.text = attack_power
-	attack_speed_label.text = attack_speed
+	get_tree().connect("screen_resized", self, "_on_screen_resize")
+	set_tower_data(tower_name, tower_description, attack_power, attack_speed)
+
+
+func set_tower_data(t_name, t_description, t_atk, t_spd):
+	tower_name_label.text = str(t_name)
+	tower_description_label.text = t_description
+	attack_power_label.text = str(t_atk)
+	attack_speed_label.text = str(t_spd)
+	yield(get_tree(), "idle_frame")
+	update_size()
+
+
+func _on_screen_resize():
+	update_size()
+
+
+func update_size():
+	set_as_minsize()
+	minimum_size_changed()
 
 
 func show_at_position(position : Vector2):
-	set_as_minsize()
 	rect_global_position = position
 	popup()

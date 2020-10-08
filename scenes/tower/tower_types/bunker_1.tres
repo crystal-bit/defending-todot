@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://scenes/tower/tower_resource.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile227.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+tower_type = 0
+level = 1
+texture = ExtResource( 2 )
+attack_radius = 40
+damage = 20
+armor_piercing = 20
+fire_rate = 2.0
+slow_effect = 30
+damage_area = 0
+cost = 100

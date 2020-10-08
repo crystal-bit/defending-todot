@@ -1,6 +1,8 @@
 extends Node
 
 
+var user_money : int = 10000
+
 var size := Vector2.ZERO
 
 
@@ -15,7 +17,7 @@ func _on_screen_resized():
 
 func register_size():
 	size = get_viewport().get_visible_rect().size
-	
+
 
 func set_main_node(node: Main):
 	Scenes.main = node

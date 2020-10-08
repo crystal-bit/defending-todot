@@ -1,7 +1,7 @@
 extends Control
 
 # add your name (or username) to this list if you want to appear in the game credits!
-# Contributors are listed in chronological order of pull requests from the first 
+# Contributors are listed in chronological order of pull requests from the first
 # to the last.
 var contributors = [
 	"Sop-S",
@@ -9,6 +9,7 @@ var contributors = [
 	"veonazzo",
 	"Karbb",
 	"LiNuX4EvEr",
+	"Gaarco",
 ]
 
 onready var labels_container = $LabelsContainer
@@ -22,7 +23,7 @@ func _ready() -> void:
 	get_tree().connect("screen_resized", self, "_on_screen_resized")
 	var font_res = $PreviewLabel.get_font("font")
 	$PreviewLabel.queue_free()
-	
+
 	var idx = 0
 	for contrib_name in contributors:
 		var label: Label = create_contributor_label(contrib_name)
