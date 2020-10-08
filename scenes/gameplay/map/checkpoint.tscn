@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/gameplay/map/checkpoint.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/map/checkToDo.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/map/checkDone.png" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/map/checkLock.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -17,17 +15,6 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="icon0" type="Sprite" parent="Area2D"]
-visible = false
 position = Vector2( 18.3848, -2.82843 )
 texture = ExtResource( 4 )
-
-[node name="icon1" type="Sprite" parent="Area2D"]
-visible = false
-position = Vector2( 18.3848, -2.82843 )
-texture = ExtResource( 3 )
-
-[node name="icon2" type="Sprite" parent="Area2D"]
-visible = false
-position = Vector2( 18.3848, -2.82843 )
-texture = ExtResource( 2 )
 [connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

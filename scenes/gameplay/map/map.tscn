@@ -13,13 +13,13 @@ texture = ExtResource( 3 )
 
 [node name="CheckPoint1" parent="." instance=ExtResource( 2 )]
 position = Vector2( 918.838, 716.381 )
-checkState = 2
+check_state = 2
 
 [node name="CheckPoint2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1162.38, 569.419 )
-sceneLoad = 2
-checkState = 1
+scene_load = 2
+check_state = 1
 
 [node name="CheckPoint3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1431.41, 736.421 )
-sceneLoad = 3
+scene_load = 3
