@@ -8,8 +8,8 @@ var contributors = [
 	"Vittorio Del Bianco",
 	"veonazzo",
 	"Karbb",
-	"LiNuX4EvEr",
 	"Gaarco",
+	"LiNuX4EvEr",
 ]
 
 onready var labels_container = $LabelsContainer

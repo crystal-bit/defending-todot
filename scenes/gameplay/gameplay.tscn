@@ -7,7 +7,7 @@
 [node name="Gameplay" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="Level" type="Node2D" parent="."]
+[node name="Level" parent="." instance_placeholder="res://scenes/gameplay/levels/level1.tscn"]
 
 [node name="TowerDescriptionPopup" parent="." instance=ExtResource( 3 )]
 margin_right = 350.0

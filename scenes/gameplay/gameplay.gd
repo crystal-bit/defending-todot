@@ -1,6 +1,8 @@
 extends Node2D
 
-const levelPath = "res://scenes/gameplay/levels/level%d.tscn"
+onready var level = $Level
+const level_path = "res://scenes/gameplay/levels/level%d.tscn"
+
 
 func _ready() -> void:
 	pass
@@ -18,5 +20,4 @@ func start():
 
 
 func load_level(level_idx):
-	var levelLoad = load(levelPath % level_idx).instance()
-	$Level.add_child(levelLoad)
+	level.replace_by_instance(load(level_path % level_idx))

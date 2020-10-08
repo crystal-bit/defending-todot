@@ -2,7 +2,6 @@ extends Node2D
 
 export var scene_load = 1
 export var check_state = 0
-var isSceneLock = true
 
 
 func _ready():
@@ -17,7 +16,6 @@ func _ready():
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed and check_state != 0:
-			print(scene_load)
 			var params = {
 				"level_idx": scene_load,
 			}
