@@ -7,7 +7,8 @@ var contributors = [
 	"Sop-S",
 	"Vittorio Del Bianco",
 	"veonazzo",
-	"Karbb"
+	"Karbb",
+	"LiNuX4EvEr",
 ]
 
 onready var labels_container = $LabelsContainer
