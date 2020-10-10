@@ -3,6 +3,10 @@ extends Node
 
 var user_money : int = 10000
 
+# Add num. elements by num. levels [num. stars];
+# TODO: Load form save file
+var n_stars_level = [2,0,0,0,0,0,0,0,0,0] # 10 Levels
+
 var size := Vector2.ZERO
 
 
