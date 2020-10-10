@@ -7,19 +7,19 @@
 [node name="Map" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="SpriteMap" type="Sprite" parent="."]
+[node name="Map" type="Sprite" parent="."]
 position = Vector2( 800, 450 )
 texture = ExtResource( 3 )
 
-[node name="CheckPoint1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 918.838, 716.381 )
-check_state = 2
+[node name="CheckPoint1" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 118.838, 266.381 )
 
-[node name="CheckPoint2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1162.38, 569.419 )
+[node name="CheckPoint2" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 362.38, 119.419 )
 scene_load = 2
 check_state = 1
 
-[node name="CheckPoint3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1431.41, 736.421 )
+[node name="CheckPoint3" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 631.41, 286.421 )
 scene_load = 3
+check_state = 0
