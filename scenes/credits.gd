@@ -10,12 +10,15 @@ var contributors = [
 	"Karbb",
 	"Gaarco",
 	"LiNuX4EvEr",
+	"Andrea1141",
 ]
 
 onready var labels_container = $LabelsContainer
 const vspacing = 60
 var speed = 150
 var state = "idle"
+var press_start_time = 0
+var pressed = false
 signal credits_ended
 
 
@@ -45,7 +48,18 @@ func _process(delta: float) -> void:
 				if label.rect_global_position.y < -200:
 					state = "ended"
 					emit_signal("credits_ended")
+	
+	if pressed and OS.get_ticks_msec() - press_start_time >= 300:
+		Game.change_scene("res://scenes/main.tscn")
 
+func _input(event):
+	if event is InputEventKey or event is InputEventMouseButton:
+		if event.is_pressed():
+			pressed = true
+			press_start_time = OS.get_ticks_msec()
+		else:
+			pressed = false
+			press_start_time = 0
 
 func _on_screen_resized():
 	for label in labels_container.get_children():
