@@ -13,8 +13,8 @@ var contributors = [
 ]
 
 onready var labels_container = $LabelsContainer
-const vspacing = 60
-var speed = 150
+const vspacing = 110
+var speed = 110
 var state = "idle"
 signal credits_ended
 
