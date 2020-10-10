@@ -50,7 +50,7 @@ func _process(delta: float) -> void:
 					emit_signal("credits_ended")
 	
 	if pressed and OS.get_ticks_msec() - press_start_time >= 300:
-		Game.change_scene("res://scenes/main.tscn")
+		Game.change_scene("res://scenes/menu/menu.tscn")
 
 func _input(event):
 	if event is InputEventKey or event is InputEventMouseButton:
@@ -75,4 +75,4 @@ func create_contributor_label(name: String) -> Label:
 
 
 func _on_Credits_credits_ended():
-	Game.change_scene("res://scenes/main.tscn")
+	Game.change_scene("res://scenes/menu/menu.tscn")
