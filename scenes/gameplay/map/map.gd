@@ -11,3 +11,5 @@ func _on_screen_resized():
 	scale_map.y = Game.size.y / map_container.texture.get_size().y
 	map_container.set_position(Vector2(Game.size.x/2, Game.size.y/2))
 	map_container.set_scale(Vector2(scale_map.x, scale_map.y))
+	
+	
