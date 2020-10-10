@@ -54,9 +54,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	# if event is InputEventMouseButton:
 	if event.is_action_pressed("ui_accept"):
 		if mouse_inside_area:
-			strategic_point_menu.visible = true
+			strategic_point_menu.show()
 		else:
-			strategic_point_menu.visible = false
+			strategic_point_menu.hide()
 
 
 func _on_StrategicPoint_mouse_entered() -> void:
