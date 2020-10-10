@@ -13,15 +13,7 @@ var mouse_inside_area = false
 
 func _ready() -> void:
 	for slot in $StrategicPointMenu.get_children():
-		slot.connect("slot_activated", self, "_on_slot_activated")
-
-
-func _on_StrategicPointMenu_tower_selected(tower_name) -> void:
-	Utils.delete_children_from_node(tower_container)
-	var tower: Tower = tower_scene.instance()
-	tower.initialise(tower_name, 1)
-	tower_container.add_child(tower)
-	$Sprite.hide()
+		slot.connect("pressed", self, "_on_slot_pressed", [slot])
 
 
 func _on_StrategicPoint_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -34,7 +26,7 @@ func _on_StrategicPoint_input_event(viewport: Node, event: InputEvent, shape_idx
 					$StrategicPointMenu.show()
 
 
-func _on_slot_activated(slot: Slot):
+func _on_slot_pressed(slot: Slot):
 	tower_description_popup.set_tower_data(
 		slot.tower_name,
 		"Missing description", # TODO: add tower description https://github.com/crystal-bit/hacktoberfest-2020/issues/33
@@ -47,8 +39,17 @@ func _on_slot_activated(slot: Slot):
 	else:
 		description_appear_pos.x -= tower_description_popup.rect_size.x
 	tower_description_popup.show_at_position(description_appear_pos)
+	place_tower(slot.tower_name)
 	
 
+func place_tower(tower_name) -> void:
+	Utils.delete_children_from_node(tower_container)
+	var tower: Tower = tower_scene.instance()
+	tower.initialise(tower_name, 1)
+	tower_container.add_child(tower)
+	$Sprite.hide()
+	
+	
 func _unhandled_input(event: InputEvent) -> void:
 	# if event is InputEventMouseButton:
 	if event.is_action_pressed("ui_accept"):

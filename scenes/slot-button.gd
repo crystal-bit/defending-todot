@@ -2,9 +2,6 @@ tool
 class_name Slot
 extends Button
 
-
-signal slot_activated(slot)
-
 onready var decoration = $Decoration
 
 export (Texture) var tower_icon
@@ -15,6 +12,7 @@ var tower_resource: Tower_Resource
 
 const base_level : int = 1
 
+signal slot_activated(is_already_active, slot)
 
 func _ready() -> void:
 	tower_resource = TowerManager.towers_by_level[base_level][tower_name]
@@ -25,7 +23,7 @@ func _ready() -> void:
 
 func _on_SlotButton_toggled(button_pressed: bool) -> void:
 	if button_pressed:
-		emit_signal("slot_activated", self)
+		emit_signal("slot_activated", decoration.visible, self)
 	decoration.visible = button_pressed
 
 
