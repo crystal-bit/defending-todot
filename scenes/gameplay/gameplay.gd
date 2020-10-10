@@ -1,7 +1,7 @@
 extends Node2D
 
-
-onready var level_placeholder = $LevelPlaceholder
+onready var level = $Level
+const level_path = "res://scenes/gameplay/levels/level%d.tscn"
 
 
 func _ready() -> void:
@@ -11,6 +11,8 @@ func _ready() -> void:
 func pre_start(params):
 	if not params.has("level_idx"):
 		load_level(1)
+	else:
+		load_level(params.level_idx)
 
 
 func start():
@@ -18,5 +20,4 @@ func start():
 
 
 func load_level(level_idx):
-	# TODO: update to honor level_idx
-	level_placeholder.replace_by_instance()
+	level.replace_by_instance(load(level_path % level_idx))

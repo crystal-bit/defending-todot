@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/gameplay/map/checkpoint.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/map/star0.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/map/checkDone.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 50.0
+
+[node name="CheckPoint" type="Node2D"]
+script = ExtResource( 1 )
+check_state = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="TouchInput" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="IconCP" type="Sprite" parent="Area2D"]
+position = Vector2( 18.3848, -2.82843 )
+texture = ExtResource( 3 )
+
+[node name="StarsCP" type="Sprite" parent="Area2D"]
+position = Vector2( -22, 56 )
+texture = ExtResource( 2 )
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

@@ -1,18 +1,24 @@
 extends Control
 
 # add your name (or username) to this list if you want to appear in the game credits!
-# Contributors are listed in chronological order of pull requests from the first 
+# Contributors are listed in chronological order of pull requests from the first
 # to the last.
 var contributors = [
 	"Sop-S",
 	"Vittorio Del Bianco",
 	"veonazzo",
+	"Karbb",
+	"Gaarco",
+	"LiNuX4EvEr",
+	"Andrea1141",
 ]
 
 onready var labels_container = $LabelsContainer
-const vspacing = 60
-var speed = 150
+const vspacing = 110
+var speed = 110
 var state = "idle"
+var press_start_time = 0
+var pressed = false
 signal credits_ended
 
 
@@ -20,7 +26,7 @@ func _ready() -> void:
 	get_tree().connect("screen_resized", self, "_on_screen_resized")
 	var font_res = $PreviewLabel.get_font("font")
 	$PreviewLabel.queue_free()
-	
+
 	var idx = 0
 	for contrib_name in contributors:
 		var label: Label = create_contributor_label(contrib_name)
@@ -42,7 +48,18 @@ func _process(delta: float) -> void:
 				if label.rect_global_position.y < -200:
 					state = "ended"
 					emit_signal("credits_ended")
+	
+	if pressed and OS.get_ticks_msec() - press_start_time >= 300:
+		Game.change_scene("res://scenes/menu/menu.tscn")
 
+func _input(event):
+	if event is InputEventKey or event is InputEventMouseButton:
+		if event.is_pressed():
+			pressed = true
+			press_start_time = OS.get_ticks_msec()
+		else:
+			pressed = false
+			press_start_time = 0
 
 func _on_screen_resized():
 	for label in labels_container.get_children():
@@ -58,4 +75,4 @@ func create_contributor_label(name: String) -> Label:
 
 
 func _on_Credits_credits_ended():
-	Game.change_scene("res://scenes/main.tscn")
+	Game.change_scene("res://scenes/menu/menu.tscn")
