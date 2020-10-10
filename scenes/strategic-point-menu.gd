@@ -14,8 +14,9 @@ func _on_Slot_pressed(is_slot_active, slot: Slot):
 
 
 func buy_tower(slot):
-	if Game.user_money >= slot.tower_cost: # This is a placeholder, I don't know how should I get the user money, as it isn't defined yet
-		emit_signal("tower_selected", slot.tower_name)
+	if Game.user_money >= slot.tower_cost:
+		# TODO
+		pass
 	else:
 		print("Not enough money")
 
@@ -27,4 +28,5 @@ func hide():
 	visible = false
 	for slot in get_children():
 		slot.decoration.visible = false
+		slot.pressed = false
 	
