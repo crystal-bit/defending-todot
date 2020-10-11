@@ -1,6 +1,7 @@
 extends Control
 
 signal tower_selected(tower_name)
+signal tower_bought(tower)
 
 
 func _ready() -> void:
@@ -13,10 +14,10 @@ func _on_Slot_pressed(is_slot_active, slot: Slot):
 		buy_tower(slot)
 
 
-func buy_tower(slot):
+func buy_tower(slot: Slot):
 	if Game.user_money >= slot.tower_cost:
-		# TODO
-		pass
+		emit_signal("tower_bought", slot.tower_name)
+		hide()
 	else:
 		print("Not enough money")
 

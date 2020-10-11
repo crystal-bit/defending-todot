@@ -8,7 +8,6 @@ var attack_radius: int setget _set_attack_radius
 var damage: int
 var armor_piercing: int
 var fire_rate: int
-
 # optional attributes
 var slow_effect: int
 var damage_area: int
@@ -19,10 +18,16 @@ onready var sprite = $Sprite
 
 var alpha_area_show : float = .5
 var alpha_area_hide : float = 0
-
 var alpha_area = alpha_area_hide
 
-	
+enum TOWER_STATES {
+	PREVIEW,
+	GAMEPLAY
+}
+
+var state = TOWER_STATES.PREVIEW
+
+
 func _ready() -> void:
 	assert(level != 0, "level cannot be 0. Use initialise method before adding this scene to the tree.")
 	var tower_resource: Tower_Resource = TowerManager.towers_by_level[level][tower_type]
@@ -41,6 +46,11 @@ func initialise(_type, _level):
 	tower_type = _type # TowerType.Type
 	level = _level # int
 	
+	
+func change_state(new_state: int):
+	assert(new_state in TOWER_STATES.values(), "Tower state not in TOWER_STATES list")
+	state = new_state
+
 	
 func set_rally_point(position : Vector2):
 	rally_point.global_position = position
