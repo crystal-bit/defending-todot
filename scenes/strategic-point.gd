@@ -45,9 +45,7 @@ func _on_slot_pressed(slot: Slot):
 	if slot != last_slot_pressed:
 		show_tower_description_popup(slot)
 		last_slot_pressed = slot
-	if get_tower() == null:
 		place_tower(slot.tower_name) # preview tower
-	
 
 
 func show_tower_description_popup(slot: Slot):
