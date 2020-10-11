@@ -21,6 +21,10 @@ anchor_bottom = 1.0
 rect_min_size = Vector2( 200, 200 )
 theme = ExtResource( 2 )
 script = ExtResource( 3 )
+tower_name = null
+tower_description = null
+attack_power = null
+attack_speed = null
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_left = 33.0
