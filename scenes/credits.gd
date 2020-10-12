@@ -14,10 +14,12 @@ var contributors = [
 ]
 
 onready var labels_container = $LabelsContainer
+onready var texture_progress = $TextureProgress
 const vspacing = 110
 var speed = 110
 var state = "idle"
 var press_start_time = 0
+var press_time = 0
 var pressed = false
 signal credits_ended
 
@@ -49,17 +51,23 @@ func _process(delta: float) -> void:
 					state = "ended"
 					emit_signal("credits_ended")
 	
-	if pressed and OS.get_ticks_msec() - press_start_time >= 300:
-		Game.change_scene("res://scenes/menu/menu.tscn")
+	if pressed:
+		press_time = OS.get_ticks_msec() - press_start_time
+		texture_progress.value = press_time
+		if press_time >= 300:
+			Game.change_scene("res://scenes/menu/menu.tscn")
 
 func _input(event):
 	if event is InputEventKey or event is InputEventMouseButton:
 		if event.is_pressed():
 			pressed = true
 			press_start_time = OS.get_ticks_msec()
+			texture_progress.show()
 		else:
 			pressed = false
 			press_start_time = 0
+			texture_progress.value = 0
+			texture_progress.hide()
 
 func _on_screen_resized():
 	for label in labels_container.get_children():
