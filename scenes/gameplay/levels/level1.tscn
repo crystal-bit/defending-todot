@@ -66,7 +66,7 @@ __meta__ = {
 }
 
 [node name="StrategicPoint" parent="." instance=ExtResource( 3 )]
-position = Vector2( 465.08, 535.259 )
+position = Vector2( 448.08, 535.259 )
 
 [node name="StrategicPoint2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1088, 352 )

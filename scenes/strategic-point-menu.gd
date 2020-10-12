@@ -6,7 +6,8 @@ signal tower_bought(tower)
 
 func _ready() -> void:
 	for node in get_children():
-		node.connect("slot_activated", self, "_on_Slot_pressed")
+		if not node is Sprite :
+			node.connect("slot_activated", self, "_on_Slot_pressed")
 
 
 func _on_Slot_pressed(is_slot_active, slot: Slot):
@@ -28,6 +29,7 @@ func show():
 func hide():
 	visible = false
 	for slot in get_children():
-		slot.decoration.visible = false
-		slot.pressed = false
+		if not slot is Sprite :
+			slot.decoration.visible = false
+			slot.pressed = false
 	
