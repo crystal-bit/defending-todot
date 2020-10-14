@@ -23,11 +23,11 @@ func buy_tower(slot: Slot):
 
 func show():
 	visible = true
-	
-	
+
+
 func hide():
 	visible = false
 	for slot in get_children():
 		slot.decoration.visible = false
 		slot.pressed = false
-	
+
