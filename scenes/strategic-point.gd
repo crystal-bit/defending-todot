@@ -24,7 +24,7 @@ func _on_StrategicPoint_input_event(viewport: Node, event: InputEvent, shape_idx
 		# currently we don't show anything if there is a tower placed.
 		# This may change in the future to allow tower upgrades
 		return
-	
+
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			if event.pressed:
@@ -40,6 +40,7 @@ func hide_strategic_point_menu():
 	if tower and tower.state == tower.TOWER_STATES.PREVIEW:
 		Utils.delete_children_from_node(tower_container)
 		sprite.show()
+	last_slot_pressed = null
 
 
 func _on_slot_pressed(slot: Slot):
@@ -62,7 +63,7 @@ func show_tower_description_popup(slot: Slot):
 	else:
 		description_appear_pos.x -= tower_description_popup.rect_size.x
 	tower_description_popup.show_at_position(description_appear_pos)
-	
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:

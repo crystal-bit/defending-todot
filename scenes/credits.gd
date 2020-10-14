@@ -11,6 +11,7 @@ var contributors = [
 	"Gaarco",
 	"LiNuX4EvEr",
 	"Andrea1141",
+	"davtur19"
 ]
 
 onready var labels_container = $LabelsContainer
@@ -50,7 +51,7 @@ func _process(delta: float) -> void:
 				if label.rect_global_position.y < -200:
 					state = "ended"
 					emit_signal("credits_ended")
-	
+
 	if pressed:
 		press_time = OS.get_ticks_msec() - press_start_time
 		texture_progress.value = press_time
