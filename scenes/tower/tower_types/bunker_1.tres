@@ -12,6 +12,7 @@ attack_radius = 40
 damage = 20
 armor_piercing = 20
 fire_rate = 2.0
+description = "Prova"
 slow_effect = 30
 damage_area = 0
 cost = 100

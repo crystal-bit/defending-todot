@@ -12,6 +12,7 @@ attack_radius = 60
 damage = 30
 armor_piercing = 35
 fire_rate = 2.5
+description = ""
 slow_effect = 50
 damage_area = 0
 cost = 300

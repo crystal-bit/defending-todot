@@ -51,7 +51,7 @@ func _on_slot_pressed(slot: Slot):
 func show_tower_description_popup(slot: Slot):
 	tower_description_popup.set_tower_data(
 		slot.tower_name,
-		"Missing description", # TODO: add tower description https://github.com/crystal-bit/hacktoberfest-2020/issues/33
+		slot.tower_resource.description, # TODO: add tower description https://github.com/crystal-bit/hacktoberfest-2020/issues/33
 		slot.tower_resource.damage,
 		slot.tower_resource.fire_rate
 	)
