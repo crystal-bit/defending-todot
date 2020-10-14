@@ -39,6 +39,7 @@ func hide_strategic_point_menu():
 	if tower and tower.state == tower.TOWER_STATES.PREVIEW:
 		Utils.delete_children_from_node(tower_container)
 		sprite.show()
+	last_slot_pressed = null
 
 
 func _on_slot_pressed(slot: Slot):
