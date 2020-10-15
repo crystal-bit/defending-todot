@@ -3,7 +3,6 @@
 [ext_resource path="res://assets/sprites/tower-defense-top-down/spritesheet/tower-defense_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://scenes/gameplay/hit-area/hit-area.tscn" type="PackedScene" id=2]
 
-
 [sub_resource type="TileSet" id=1]
 0/name = "tower-defense_spritesheet.png 0"
 0/texture = ExtResource( 1 )
