@@ -80,6 +80,12 @@ pause={
  ]
 }
 
+[locale]
+
+fallback="it"
+locale_filter=[ 0, [  ] ]
+translations=PoolStringArray(  )
+
 [rendering]
 
 quality/2d/use_pixel_snap=true
