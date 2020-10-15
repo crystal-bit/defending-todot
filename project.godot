@@ -78,7 +78,7 @@ config/icon="res://assets/sprites/icon.png"
 
 Scenes="*res://autoload/scenes.gd"
 Game="*res://autoload/game.gd"
-TowerManager="*res://autoload/tower_manager.gd"
+ResourceManager="*res://autoload/resource_manager.gd"
 
 [display]
 

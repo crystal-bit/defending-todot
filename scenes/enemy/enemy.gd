@@ -12,7 +12,7 @@ func initialise(_type, _grade):
 	
 
 func _ready():
-	var enemy_resource: EnemyResource = TowerManager.enemies_by_type[type][grade]
+	var enemy_resource: EnemyResource = ResourceManager.enemies_by_type[type][grade]
 	load_resource_data(enemy_resource)
 
 
@@ -34,5 +34,5 @@ func set_grade(value):
 	
 	
 func _update_enemy_resource():
-	var enemy_resource: EnemyResource = TowerManager.enemies_by_type[type][grade]
+	var enemy_resource: EnemyResource = ResourceManager.enemies_by_type[type][grade]
 	load_resource_data(enemy_resource)

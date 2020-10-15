@@ -31,7 +31,7 @@ var state = TOWER_STATES.PREVIEW
 
 func _ready() -> void:
 	assert(level != 0, "level cannot be 0. Use initialise method before adding this scene to the tree.")
-	var tower_resource: Tower_Resource = TowerManager.towers_by_level[level][tower_type]
+	var tower_resource: Tower_Resource = ResourceManager.towers_by_level[level][tower_type]
 	_set_tower_attributes(tower_resource)
 	_set_attack_radius(tower_resource.attack_radius)
 	sprite.texture = tower_resource.texture
@@ -59,7 +59,7 @@ func set_rally_point(position : Vector2):
 	
 func upgrade():
 	level = level + 1
-	var tower_resource : Tower_Resource = TowerManager.towers_by_level[level][tower_type]
+	var tower_resource : Tower_Resource = ResourceManager.towers_by_level[level][tower_type]
 	_set_tower_attributes(tower_resource)
 	sprite.texture = tower_resource.texture
 	
