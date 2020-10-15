@@ -1,13 +1,14 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/fonts/squarebit/squarebit.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://resources/fonts/squarebit-40px.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/luckiest-guy/luckiest-guy-regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://resources/fonts/boogaloo-40px.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/menu/play-button.gd" type="Script" id=3]
 [ext_resource path="res://scenes/menu/exit-button.gd" type="Script" id=4]
 [ext_resource path="res://scenes/menu/credit-button.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 64
+size = 100
+use_mipmaps = true
 font_data = ExtResource( 1 )
 
 [node name="Menu" type="Control"]
@@ -34,10 +35,10 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="CenterContainer"]
-margin_left = 626.0
-margin_top = 248.0
-margin_right = 974.0
-margin_bottom = 312.0
+margin_left = 417.0
+margin_top = 230.0
+margin_right = 1182.0
+margin_bottom = 331.0
 custom_fonts/font = SubResource( 1 )
 text = "VIDEOGAME TITLE"
 __meta__ = {
