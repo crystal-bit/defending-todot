@@ -11,6 +11,7 @@ var fire_rate: int
 # optional attributes
 var slow_effect: int
 var damage_area: int
+var description: String
 
 onready var attack_area_shape = $AttackRange/Area2D/CollisionShape2D
 onready var rally_point = $RallyPoint
@@ -71,7 +72,7 @@ func _set_tower_attributes(tower_resource : Tower_Resource):
 	fire_rate = tower_resource.fire_rate
 	slow_effect = tower_resource.slow_effect
 	damage_area = tower_resource.damage_area
-	
+	description = tower_resource.description
 	
 
 func _set_attack_radius(radius: int):
