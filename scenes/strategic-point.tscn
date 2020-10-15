@@ -8,6 +8,7 @@
 extents = Vector2( 39.4755, 39.7502 )
 
 [node name="StrategicPoint" type="Area2D"]
+z_index = 1
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
