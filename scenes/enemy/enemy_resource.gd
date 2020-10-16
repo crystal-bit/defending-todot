@@ -10,5 +10,11 @@ func get_name():
 	match type:
 		EnemyTypes.ENEMY_TYPES.SOLDIER:
 			return "Soldier"
-		_:
-			return "Unknown"
+		EnemyTypes.ENEMY_TYPES.COMMANDO:
+			return "Commando"
+		EnemyTypes.ENEMY_TYPES.ARMORED_TRANSPORT:
+			return "Armoted Transport"
+		EnemyTypes.ENEMY_TYPES.TANK:
+			return "Tank"
+		EnemyTypes.ENEMY_TYPES.AIRCRAFT:
+			return "Aircraft"
