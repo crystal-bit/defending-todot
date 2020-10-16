@@ -1,5 +1,4 @@
 extends Node
-tool
 const Util = preload("res://scenes/commons/utils.gd")
 
 var _load_path: String = "res://scenes/tower/tower_types/"
