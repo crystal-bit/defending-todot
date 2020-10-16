@@ -27,14 +27,13 @@ func _ready():
 			stars_cp.visible = false
 		CHECKPOINT_STATE.DONE:
 			icon_cp.texture = load(check_done)
+			if Game.n_stars_level.size() >= scene_load:
+				stars_cp.texture = load(n_star % Game.n_stars_level[scene_load - 1])
+				stars_cp.visible = true
 		_:
 			pass
 	
-	if Game.n_stars_level.size() >= scene_load:
-		stars_cp.texture = load(n_star % Game.n_stars_level[scene_load - 1])
-		stars_cp.visible = true
 	
-
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed and check_state != 0:

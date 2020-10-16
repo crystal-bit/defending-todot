@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://scenes/enemy/enemy_resource.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile245.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+type = 0
+grade = 0
+texture = ExtResource( 2 )

@@ -14,7 +14,8 @@ var last_slot_pressed = null
 
 func _ready() -> void:
 	for slot in strategic_point_menu.get_children():
-		slot.connect("pressed", self, "_on_slot_pressed", [slot])
+		if not slot is Sprite :
+			slot.connect("pressed", self, "_on_slot_pressed", [slot])
 
 
 func _on_StrategicPoint_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -52,7 +53,7 @@ func _on_slot_pressed(slot: Slot):
 func show_tower_description_popup(slot: Slot):
 	tower_description_popup.set_tower_data(
 		slot.tower_name,
-		"Missing description", # TODO: add tower description https://github.com/crystal-bit/hacktoberfest-2020/issues/33
+		slot.tower_resource.description,
 		slot.tower_resource.damage,
 		slot.tower_resource.fire_rate
 	)

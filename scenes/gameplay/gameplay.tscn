@@ -11,11 +11,7 @@ script = ExtResource( 5 )
 
 [node name="TowerDescriptionPopup" parent="." instance=ExtResource( 3 )]
 margin_right = 350.0
-margin_bottom = 226.0
+margin_bottom = 302.0
 rect_min_size = Vector2( 350, 0 )
-tower_name = "Bombard"
-tower_description = "Bombards ground enemies dealing area damage"
-attack_power = "8-15"
-attack_speed = "very low"
 
 [node name="PauseLayer" parent="." instance=ExtResource( 1 )]
