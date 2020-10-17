@@ -5,7 +5,7 @@ signal tower_bought(tower)
 
 
 func _ready() -> void:
-	for node in get_children():
+	for node in get_slots():
 		if node is Slot :
 			node.connect("slot_activated", self, "_on_Slot_pressed")
 
@@ -13,6 +13,10 @@ func _ready() -> void:
 func _on_Slot_pressed(is_slot_active, slot: Slot):
 	if is_slot_active:
 		buy_tower(slot)
+
+
+func get_slots():
+	return $RadialContainer.get_children()
 
 
 func buy_tower(slot: Slot):
