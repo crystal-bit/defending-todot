@@ -58,14 +58,14 @@ func _on_AttackRangeShowArea_mouse_exited() -> void:
 	update()
 
 func _on_Area2D_body_entered(body):
-	if body is Enemy:
-		change_state(2)
+	if target == null and body is Enemy:
+		change_state(TOWER_STATES.ATTACKING)
 		target = body
 		fire_timer.start()
 
 func _on_Area2D_body_exited(body):
 	if body == target:
-		change_state(1)
+		change_state(TOWER_STATES.GAMEPLAY)
 		target = null
 
 func _on_FireTimer_timeout():
