@@ -15,7 +15,7 @@ const base_level : int = 1
 signal slot_activated(is_already_active, slot)
 
 func _ready() -> void:
-	tower_resource = TowerManager.towers_by_level[base_level][tower_name]
+	tower_resource = ResourceManager.towers_by_level[base_level][tower_name]
 	_set_icon(tower_resource.texture)
 	_set_cost(tower_resource.cost)
 	_set_tower_name(tower_resource.tower_type)
