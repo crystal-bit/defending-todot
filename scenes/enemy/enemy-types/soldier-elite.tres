@@ -8,3 +8,4 @@ script = ExtResource( 1 )
 type = 0
 grade = 1
 texture = ExtResource( 2 )
+hp = 60

@@ -4,7 +4,7 @@ class_name EnemyResource
 export(EnemyTypes.ENEMY_TYPES) var type
 export(EnemyTypes.GRADE) var grade
 export(Texture) var texture
-
+export(int) var hp
 
 func get_name():
 	match type:
