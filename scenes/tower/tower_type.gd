@@ -3,5 +3,6 @@ class_name TowerType
 enum Type {
 	BUNKER,
 	MISSILE,
-	SNIPER
+	SNIPER,
+	LOCKED
 }

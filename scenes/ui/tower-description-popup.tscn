@@ -47,12 +47,12 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 1514.0
-margin_bottom = 765.0
+margin_bottom = 772.0
 size_flags_vertical = 3
 
 [node name="TowerName" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 margin_right = 1514.0
-margin_bottom = 56.0
+margin_bottom = 48.0
 custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.886275, 1, 0.27451, 1 )
 text = "Bombard"
@@ -62,27 +62,27 @@ __meta__ = {
 }
 
 [node name="TowerDescription" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
-margin_top = 60.0
+margin_top = 52.0
 margin_right = 1514.0
-margin_bottom = 99.0
+margin_bottom = 66.0
 text = "Bombards ground enemies dealing area damage."
 valign = 1
 autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 775.0
+margin_top = 782.0
 margin_right = 1514.0
 margin_bottom = 814.0
 custom_constants/separation = 5
 
 [node name="AttackPowerContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_right = 754.0
-margin_bottom = 39.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/AttackPowerContainer"]
 margin_right = 32.0
-margin_bottom = 39.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
 texture = SubResource( 1 )
 expand = true
@@ -91,7 +91,7 @@ stretch_mode = 6
 [node name="Value" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/AttackPowerContainer"]
 margin_left = 36.0
 margin_right = 754.0
-margin_bottom = 39.0
+margin_bottom = 14.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_colors/font_color = Color( 0.886275, 1, 0.27451, 1 )
@@ -100,12 +100,12 @@ text = "8-15"
 [node name="AttackSpeedContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 759.0
 margin_right = 1514.0
-margin_bottom = 39.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/AttackSpeedContainer"]
 margin_right = 32.0
-margin_bottom = 39.0
+margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
 texture = SubResource( 2 )
 expand = true
@@ -117,7 +117,7 @@ __meta__ = {
 [node name="Value" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/AttackSpeedContainer"]
 margin_left = 36.0
 margin_right = 755.0
-margin_bottom = 39.0
+margin_bottom = 14.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 custom_colors/font_color = Color( 0.886275, 1, 0.27451, 1 )
