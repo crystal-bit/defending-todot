@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name Enemy
 
 onready var path_follow = get_parent()
-onready var speed = 0.0 
+onready var speed = 0
 
 export(EnemyTypes.ENEMY_TYPES) var type setget set_type
 export(EnemyTypes.GRADE) var grade setget set_grade
