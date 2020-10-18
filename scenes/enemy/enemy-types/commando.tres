@@ -8,3 +8,4 @@ script = ExtResource( 1 )
 type = 1
 grade = 0
 texture = ExtResource( 2 )
+speed = 20.0
