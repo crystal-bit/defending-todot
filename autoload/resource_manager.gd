@@ -1,3 +1,4 @@
+tool
 extends Node
 const Util = preload("res://scenes/commons/utils.gd")
 

@@ -4,6 +4,7 @@ class_name EnemyResource
 export(EnemyTypes.ENEMY_TYPES) var type
 export(EnemyTypes.GRADE) var grade
 export(Texture) var texture
+export(float) var speed
 
 
 func get_name():

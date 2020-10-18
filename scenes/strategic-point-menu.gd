@@ -59,3 +59,4 @@ func hide():
 		if slot is Slot:
 			slot.decoration.visible = false
 			slot.pressed = false
+	
