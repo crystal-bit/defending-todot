@@ -31,11 +31,14 @@ func _on_StrategicPoint_input_event(viewport: Node, event: InputEvent, shape_idx
 				if strategic_point_menu.visible:
 					hide_strategic_point_menu()
 				else:
-					strategic_point_menu.show()
+					strategic_point_menu.show_menu()
 
 
 func hide_strategic_point_menu():
-	strategic_point_menu.hide()
+	strategic_point_menu.hide_menu()
+	
+	
+	
 	var tower: Tower = get_tower()
 	if tower and tower.state == tower.TOWER_STATES.PREVIEW:
 		Utils.delete_children_from_node(tower_container)

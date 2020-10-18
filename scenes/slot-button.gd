@@ -3,6 +3,7 @@ class_name Slot
 extends Button
 
 onready var decoration = $Decoration
+onready var initial_position: Vector2 = rect_position
 
 export (Texture) var tower_icon
 export (TowerType.Type) var tower_name
@@ -11,6 +12,8 @@ export(bool) var locked = false
 
 var tower_resource: Tower_Resource
 var tower_locked: Tower_Resource = preload("res://scenes/tower/tower_types/locked.tres")
+
+
 
 const base_level : int = 1
 
@@ -30,6 +33,7 @@ func _ready() -> void:
 
 func get_readable_name():
 	return TowerType.Type.keys()[tower_name].capitalize()
+
 
 func _on_SlotButton_toggled(button_pressed: bool) -> void:
 	if locked:
