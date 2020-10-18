@@ -4,8 +4,12 @@ class_name EnemyResource
 export(EnemyTypes.ENEMY_TYPES) var type
 export(EnemyTypes.GRADE) var grade
 export(Texture) var texture
-export(float) var speed
-
+export(int) var hp
+export(int) var armor
+export(int) var regen
+export(int) var speed
+export(int) var damage
+export(int) var money_dropped
 
 func get_name():
 	match type:
