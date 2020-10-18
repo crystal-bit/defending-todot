@@ -7,24 +7,20 @@
 script = ExtResource( 1 )
 
 [node name="EnemyCallButton" parent="." instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 65.9033, 76.808 )
 direction = 329
 
 [node name="EnemyCallButton2" parent="." instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 1519.11, 72.0512 )
 id = 1
 direction = 41
 
 [node name="EnemyCallButton3" parent="." instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 58.7681, 823.63 )
 id = 2
 direction = 217
 
 [node name="EnemyCallButton4" parent="." instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 1526.25, 833.144 )
 id = 3
 direction = 126
