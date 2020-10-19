@@ -35,5 +35,7 @@ func update_size():
 
 
 func show_at_position(position : Vector2):
+	show()
+	yield(get_tree(), "idle_frame")
 	rect_global_position = position
 	popup()

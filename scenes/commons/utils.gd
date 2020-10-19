@@ -1,6 +1,6 @@
 extends Node
 
-static func load_resources_from_directory(path : String) -> Array:
+static func load_resources_from_directory(path: String) -> Array:
 	var result := []
 	var dir := Directory.new()
 	dir.open(path)
@@ -18,7 +18,7 @@ static func load_resources_from_directory(path : String) -> Array:
 	return result
 	
 	
-static func delete_children_from_node(node : Node) -> void:
+static func delete_children_from_node(node: Node) -> void:
 	for n in node.get_children():
 		node.remove_child(n)
 		n.queue_free()

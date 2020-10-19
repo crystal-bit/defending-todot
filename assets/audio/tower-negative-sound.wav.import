@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tower-negative-sound.wav-74eedc58dc7f07f699240a7f8ad919ee.sample"
+
+[deps]
+
+source_file="res://assets/audio/tower-negative-sound.wav"
+dest_files=[ "res://.import/tower-negative-sound.wav-74eedc58dc7f07f699240a7f8ad919ee.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

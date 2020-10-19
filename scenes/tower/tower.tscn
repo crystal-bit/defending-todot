@@ -29,5 +29,11 @@ shape = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="RallyPoint" type="Position2D" parent="."]
+
+[node name="FireTimer" type="Timer" parent="."]
+one_shot = true
 [connection signal="mouse_entered" from="AttackRange/AttackRangeShowArea" to="." method="_on_AttackRangeShowArea_mouse_entered"]
 [connection signal="mouse_exited" from="AttackRange/AttackRangeShowArea" to="." method="_on_AttackRangeShowArea_mouse_exited"]
+[connection signal="body_entered" from="AttackRange/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="AttackRange/Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]

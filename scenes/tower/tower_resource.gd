@@ -9,6 +9,7 @@ export(int) var attack_radius
 export(int) var damage
 export(int, 0, 100) var armor_piercing
 export(float) var fire_rate
+export(String) var description
 
 #optional attributes
 export(int, 0, 100) var slow_effect

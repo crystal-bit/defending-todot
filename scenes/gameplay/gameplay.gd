@@ -6,7 +6,7 @@ const level_path = "res://scenes/gameplay/levels/level%d.tscn"
 
 func _ready() -> void:
 	pass
-	
+
 
 func pre_start(params):
 	if not params.has("level_idx"):

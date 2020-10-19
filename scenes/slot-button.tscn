@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/slot-button.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile227.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/ui/png/ok.png" type="Texture" id=3]
 
 [node name="SlotButton" type="Button"]
 anchor_right = 1.0
@@ -10,15 +12,25 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+tower_icon = ExtResource( 2 )
+tower_name = 2
+tower_cost = 100
 
-[node name="Decoration" type="ColorRect" parent="."]
+[node name="Decoration" type="Sprite" parent="."]
 visible = false
+position = Vector2( 35, 35 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 1
+texture = ExtResource( 3 )
+
+[node name="DecorationBG" type="ColorRect" parent="Decoration"]
 show_behind_parent = true
-margin_left = -5.0
-margin_top = -5.0
+margin_left = -75.0
+margin_top = -75.0
 margin_right = 75.0
 margin_bottom = 75.0
 mouse_filter = 1
+color = Color( 0.188235, 0.188235, 0.188235, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -37,6 +49,7 @@ __meta__ = {
 [node name="TowerName" type="Label" parent="VBoxContainer"]
 margin_right = 1594.0
 margin_bottom = 14.0
+text = "Bunker"
 align = 1
 valign = 1
 
@@ -46,6 +59,7 @@ margin_right = 1594.0
 margin_bottom = 872.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
 __meta__ = {
@@ -56,7 +70,7 @@ __meta__ = {
 margin_top = 876.0
 margin_right = 1594.0
 margin_bottom = 890.0
-text = "0"
+text = "100"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
