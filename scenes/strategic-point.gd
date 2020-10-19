@@ -3,7 +3,7 @@ extends Area2D
 const Utils = preload("res://scenes/commons/utils.gd")
 
 onready var strategic_point_menu = $StrategicPointMenu
-onready var tower_description_popup = get_node("../../TowerDescriptionPopup")
+onready var tower_description_popup = get_node("../../CanvasLayer/TowerDescriptionPopup")
 
 onready var tower_container = $TowerContainer
 onready var tower_scene = preload("res://scenes/tower/tower.tscn")
@@ -13,8 +13,8 @@ var mouse_inside_area = false
 var last_slot_pressed = null
 
 func _ready() -> void:
-	for slot in strategic_point_menu.get_children():
-		if not slot is Sprite :
+	for slot in strategic_point_menu.get_slots():
+		if not slot is Sprite and not slot.locked:
 			slot.connect("pressed", self, "_on_slot_pressed", [slot])
 
 
@@ -31,11 +31,14 @@ func _on_StrategicPoint_input_event(viewport: Node, event: InputEvent, shape_idx
 				if strategic_point_menu.visible:
 					hide_strategic_point_menu()
 				else:
-					strategic_point_menu.show()
+					strategic_point_menu.show_menu()
 
 
 func hide_strategic_point_menu():
-	strategic_point_menu.hide()
+	strategic_point_menu.hide_menu()
+	
+	
+	
 	var tower: Tower = get_tower()
 	if tower and tower.state == tower.TOWER_STATES.PREVIEW:
 		Utils.delete_children_from_node(tower_container)
@@ -52,7 +55,7 @@ func _on_slot_pressed(slot: Slot):
 
 func show_tower_description_popup(slot: Slot):
 	tower_description_popup.set_tower_data(
-		slot.tower_name,
+		slot.get_readable_name(),
 		slot.tower_resource.description,
 		slot.tower_resource.damage,
 		slot.tower_resource.fire_rate

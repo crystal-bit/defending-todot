@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/sprites/tower-defense-top-down/spritesheet/tower-defense_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://scenes/gameplay/hit-area/hit-area.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile137.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile132.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile133.png" type="Texture" id=9]
+[ext_resource path="res://scenes/enemy/enemy.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tower-defense_spritesheet.png 0"
@@ -41,6 +42,11 @@ vertices = PoolVector2Array( 832, 352, 832, -64, 1024, -64, 1024, 448, 736, 640,
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 8, 4, 7 ), PoolIntArray( 8, 7, 9, 10 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 11, 9, 12, 3 ), PoolIntArray( 0, 3, 12 ) ]
 outlines = [ PoolVector2Array( 832, 352, 800, 384, 512, 384, 512, 768, 1664, 768, 1664, 640, 736, 640, 704, 608, 704, 480, 736, 448, 1024, 448, 1024, -64, 832, -64 ) ]
 
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 971.838, -44.6035, 7, -36, -7, 36, 922.449, 92.8849, -4, -45, 4, 45, 917.11, 219.695, -12, -29.5, 12, 29.5, 951.815, 286.437, 13.2433, -23.8379, -13.2433, 23.8379, 939.802, 363.857, 0, 0, 0, 0, 857.042, 409.242, 0, 0, 0, 0, 682.178, 431.934, 21.1893, -45.5569, -21.1893, 45.5569, 590.074, 501.346, -15.5, -34, 15.5, 34, 590.074, 610.803, 0, 0, 0, 0, 664.289, 679.012, -53.3289, -2.35969, 53.3289, 2.35969, 771.318, 720.634, -54.8008, 3.18198, 54.8008, -3.18198, 998.457, 708.742, -67.5287, -2.12132, 67.5287, 2.12132, 1145.92, 689.715, 0, 0, 0, 0, 1295.76, 703.985, -67.6922, -0.420448, 67.6922, 0.420448, 1424.19, 728.959, -48.3515, 2.52269, 48.3515, -2.52269, 1577.6, 686.147, 0, 0, 0, 0, 1665.6, 717.067 )
+}
+
 [node name="Level1" type="Node2D"]
 __meta__ = {
 "_edit_lock_": true
@@ -63,8 +69,36 @@ shape = SubResource( 2 )
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
-position = Vector2( 0, 4.11902 )
+position = Vector2( 0, 5.45386 )
 navpoly = SubResource( 3 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 4 )
+
+[node name="PathEnemy1" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 971.838, -44.6035 )
+rotation = 1.96354
+loop = false
+
+[node name="Enemy" parent="Path2D/PathEnemy1" instance=ExtResource( 10 )]
+
+[node name="PathEnemy2" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 971.838, -44.6035 )
+rotation = 1.96354
+loop = false
+
+[node name="Enemy" parent="Path2D/PathEnemy2" instance=ExtResource( 10 )]
+position = Vector2( -11.8495, -20.8354 )
+type = 1
+
+[node name="PathEnemy3" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 971.838, -44.6035 )
+rotation = 1.96354
+loop = false
+
+[node name="Enemy" parent="Path2D/PathEnemy3" instance=ExtResource( 10 )]
+position = Vector2( 2.68341, 29.7816 )
+type = 4
 
 [node name="SpawnPoint" type="Position2D" parent="."]
 position = Vector2( 928, -34 )

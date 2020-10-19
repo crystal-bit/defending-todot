@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Enemy
-tool
+
+onready var path_follow = get_parent()
+onready var speed = 0
 
 export(EnemyTypes.ENEMY_TYPES) var type setget set_type
 export(EnemyTypes.GRADE) var grade setget set_grade
@@ -21,6 +23,7 @@ func load_resource_data(enemy_resource: EnemyResource):
 	if sprite == null:
 		return
 	sprite.texture = enemy_resource.texture
+	speed = enemy_resource.speed * 2
 
 
 func set_type(value):
@@ -36,3 +39,7 @@ func set_grade(value):
 func _update_enemy_resource():
 	var enemy_resource: EnemyResource = ResourceManager.enemies_by_type[type][grade]
 	load_resource_data(enemy_resource)
+
+
+func _physics_process(delta):
+	path_follow.set_offset(path_follow.get_offset() + speed * delta)
