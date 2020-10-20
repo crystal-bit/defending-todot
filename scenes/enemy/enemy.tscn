@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/enemy/enemy.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile245.png" type="Texture" id=2]
+[ext_resource path="res://scenes/enemy/enemy-types/aircraft-elite.tres" type="Resource" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 15.0598 )
@@ -10,6 +11,7 @@ extents = Vector2( 10, 15.0598 )
 "enemies",
 ]]
 script = ExtResource( 1 )
+enemy_resource = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

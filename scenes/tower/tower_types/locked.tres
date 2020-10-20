@@ -13,6 +13,7 @@ damage = 60
 armor_piercing = 0
 fire_rate = 0.75
 description = "locked_description"
+locked = true
 slow_effect = 0
 damage_area = 0
 cost = 0

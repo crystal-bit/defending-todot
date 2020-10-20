@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/sprites/tower-defense-top-down/spritesheet/tower-defense_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://scenes/gameplay/hit-area/hit-area.tscn" type="PackedScene" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile132.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile133.png" type="Texture" id=9]
 [ext_resource path="res://scenes/enemy/enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/enemy/enemy-types/soldier.tres" type="Resource" id=11]
+[ext_resource path="res://scenes/enemy/enemy-types/commando.tres" type="Resource" id=12]
+[ext_resource path="res://scenes/enemy/enemy-types/tank.tres" type="Resource" id=13]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tower-defense_spritesheet.png 0"
@@ -81,24 +84,26 @@ rotation = 1.96354
 loop = false
 
 [node name="Enemy" parent="Path2D/PathEnemy1" instance=ExtResource( 10 )]
+position = Vector2( 28.4219, 35.6766 )
+enemy_resource = ExtResource( 13 )
 
 [node name="PathEnemy2" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 971.838, -44.6035 )
 rotation = 1.96354
 loop = false
 
-[node name="Enemy" parent="Path2D/PathEnemy2" instance=ExtResource( 10 )]
-position = Vector2( -11.8495, -20.8354 )
-type = 1
+[node name="Enemy2" parent="Path2D/PathEnemy2" instance=ExtResource( 10 )]
+position = Vector2( -8.31989, -53.014 )
+enemy_resource = ExtResource( 11 )
 
 [node name="PathEnemy3" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 971.838, -44.6035 )
 rotation = 1.96354
 loop = false
 
-[node name="Enemy" parent="Path2D/PathEnemy3" instance=ExtResource( 10 )]
-position = Vector2( 2.68341, 29.7816 )
-type = 4
+[node name="Enemy3" parent="Path2D/PathEnemy3" instance=ExtResource( 10 )]
+position = Vector2( -25.6362, -11.2032 )
+enemy_resource = ExtResource( 12 )
 
 [node name="SpawnPoint" type="Position2D" parent="."]
 position = Vector2( 928, -34 )
@@ -113,6 +118,7 @@ position = Vector2( 448.08, 535.259 )
 position = Vector2( 1090.67, 352 )
 
 [node name="Details" type="Node2D" parent="."]
+visible = false
 
 [node name="BushRound" type="Sprite" parent="Details"]
 position = Vector2( 800.45, 5.67276 )

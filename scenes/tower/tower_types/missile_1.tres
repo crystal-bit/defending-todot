@@ -13,6 +13,7 @@ damage = 30
 armor_piercing = 65
 fire_rate = 1.0
 description = "missile1_description"
+locked = false
 slow_effect = 0
 damage_area = 15
 cost = 300

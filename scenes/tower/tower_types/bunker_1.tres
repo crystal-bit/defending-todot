@@ -13,6 +13,7 @@ damage = 20
 armor_piercing = 20
 fire_rate = 2.0
 description = "bunker1_description"
+locked = false
 slow_effect = 30
 damage_area = 0
 cost = 100

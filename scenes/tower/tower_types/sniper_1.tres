@@ -13,6 +13,7 @@ damage = 45
 armor_piercing = 0
 fire_rate = 0.5
 description = "sniper1_description"
+locked = false
 slow_effect = 0
 damage_area = 0
 cost = 200

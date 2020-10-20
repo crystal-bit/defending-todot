@@ -1,8 +1,10 @@
 extends Node2D
 class_name Tower
 
-export(TowerType.Type) var tower_type
-export(int) var level
+var tower_type: int # TowerType.Type
+var level: int
+
+export(Resource) var tower_resource
 
 var attack_radius: int setget _set_attack_radius
 var damage: int
@@ -33,9 +35,11 @@ enum TOWER_STATES {
 var state = TOWER_STATES.PREVIEW
 
 
+func initialise(_resource: Resource):
+	tower_resource = _resource
+
+
 func _ready() -> void:
-	assert(level != 0, "level cannot be 0. Use initialise method before adding this scene to the tree.")
-	var tower_resource: Tower_Resource = ResourceManager.towers_by_level[level][tower_type]
 	_set_tower_attributes(tower_resource)
 	_set_attack_radius(tower_resource.attack_radius)
 	sprite.texture = tower_resource.texture
@@ -73,10 +77,6 @@ func _on_FireTimer_timeout():
 		fire()
 		fire_timer.start()
 
-func initialise(_type, _level):
-	tower_type = _type # TowerType.Type
-	level = _level # int
-
 
 func change_state(new_state: int):
 	assert(new_state in TOWER_STATES.values(), "Tower state not in TOWER_STATES list")
@@ -103,6 +103,7 @@ func _set_tower_attributes(tower_resource : Tower_Resource):
 	slow_effect = tower_resource.slow_effect
 	damage_area = tower_resource.damage_area
 	description = tower_resource.description
+	sprite.texture = tower_resource.texture
 
 
 func _set_attack_radius(radius: int):
