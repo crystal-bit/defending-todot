@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/enemy/enemy.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile245.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/ui/png/green_button06.png" type="Texture" id=2]
 [ext_resource path="res://scenes/enemy/enemy-types/aircraft-elite.tres" type="Resource" id=3]
+[ext_resource path="res://assets/sprites/ui/png/grey_button01.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 15.0598 )
@@ -18,3 +19,21 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TextureProgress" type="TextureProgress" parent="Node2D"]
+margin_left = -24.0
+margin_top = -45.0
+margin_right = 166.0
+margin_bottom = 4.0
+rect_scale = Vector2( 0.25, 0.25 )
+max_value = 100.0
+value = 100.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 4 )
+tint_under = Color( 1, 0, 0, 1 )
+tint_progress = Color( 0.12549, 1, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

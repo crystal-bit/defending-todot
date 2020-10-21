@@ -12,6 +12,7 @@ var alpha_area_show : float = .5
 var alpha_area_hide : float = 0
 var alpha_area = alpha_area_hide
 
+var bodies_in_range = []
 var target
 
 enum TOWER_STATES {
@@ -47,15 +48,21 @@ func _on_AttackRangeShowArea_mouse_exited() -> void:
 	update()
 
 func _on_Area2D_body_entered(body):
-	if target == null and body is Enemy:
-		change_state(TOWER_STATES.ATTACKING)
-		target = body
-		fire_timer.start()
+	if body is Enemy:
+		bodies_in_range.append(body)
+		if target == null:
+			change_state(TOWER_STATES.ATTACKING)
+			target = body
+			fire_timer.start()
 
 func _on_Area2D_body_exited(body):
-	if body == target:
-		change_state(TOWER_STATES.GAMEPLAY)
-		target = null
+	if body is Enemy:
+		bodies_in_range.erase(body)
+		if bodies_in_range.size() > 0: #if the array isn't empty
+			target = bodies_in_range.front()
+		else:
+			change_state(TOWER_STATES.GAMEPLAY)
+			target = null
 
 func _on_FireTimer_timeout():
 	if state == TOWER_STATES.ATTACKING:
