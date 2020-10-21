@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/slot-button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/strategic-point-menu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/ui/radial-control.gd" type="Script" id=3]
-[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile249.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/ui/png/red_cross.png" type="Texture" id=5]
+[ext_resource path="res://scenes/tower/tower_types/locked.tres" type="Resource" id=4]
+[ext_resource path="res://scenes/tower/tower_types/sniper_1.tres" type="Resource" id=5]
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/buy_area.png" type="Texture" id=6]
+[ext_resource path="res://scenes/tower/tower_types/bunker_1.tres" type="Resource" id=7]
+[ext_resource path="res://scenes/tower/tower_types/missile_1.tres" type="Resource" id=8]
 
 [sub_resource type="ButtonGroup" id=1]
 
@@ -34,8 +36,7 @@ margin_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 group = SubResource( 1 )
-tower_icon = ExtResource( 4 )
-tower_cost = 200
+tower_resource = ExtResource( 7 )
 
 [node name="SlotTopLeft" parent="RadialControl" instance=ExtResource( 1 )]
 margin_left = -35.0
@@ -43,9 +44,7 @@ margin_top = -35.0
 margin_right = 35.0003
 margin_bottom = 35.0
 group = SubResource( 1 )
-tower_icon = ExtResource( 4 )
-tower_name = 1
-tower_cost = 200
+tower_resource = ExtResource( 8 )
 
 [node name="SlotTopRight" parent="RadialControl" instance=ExtResource( 1 )]
 margin_left = -35.0
@@ -53,8 +52,7 @@ margin_top = -35.0
 margin_right = 35.0
 margin_bottom = 35.0003
 group = SubResource( 1 )
-tower_icon = ExtResource( 4 )
-tower_cost = 200
+tower_resource = ExtResource( 5 )
 
 [node name="SlotTopRight2" parent="RadialControl" instance=ExtResource( 1 )]
 margin_left = -35.0
@@ -63,10 +61,7 @@ margin_right = 35.0
 margin_bottom = 35.0003
 disabled = true
 group = SubResource( 1 )
-tower_icon = ExtResource( 5 )
-tower_name = 3
-tower_cost = 0
-locked = true
+tower_resource = ExtResource( 4 )
 
 [node name="SlotTopRight3" parent="RadialControl" instance=ExtResource( 1 )]
 margin_left = -35.0
@@ -75,9 +70,6 @@ margin_right = 35.0003
 margin_bottom = 35.0
 disabled = true
 group = SubResource( 1 )
-tower_icon = ExtResource( 5 )
-tower_name = 3
-tower_cost = 0
-locked = true
+tower_resource = ExtResource( 4 )
 
 [node name="Tween" type="Tween" parent="RadialControl"]

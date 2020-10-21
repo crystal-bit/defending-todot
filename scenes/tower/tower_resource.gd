@@ -10,8 +10,14 @@ export(int) var damage
 export(int, 0, 100) var armor_piercing
 export(float) var fire_rate
 export(String) var description
+export(bool) var locked
 
 #optional attributes
 export(int, 0, 100) var slow_effect
 export(int, 0, 100) var damage_area
 export(int) var cost
+
+
+func get_readable_name():
+	return TowerType.Type.keys()[tower_type]
+

@@ -22,15 +22,15 @@ func get_slots() -> Array:
 	for child in radial_control.get_children():
 		if child is Slot and child.visible:
 			slots.append(child)
-	
+
 	return slots
-	
-	
+
+
 func reset_slots():
 	for slot in get_slots():
 		slot.pressed = false
-	
-	
+
+
 func show_menu():
 	show()
 	radial_control.show_radial_menu()
@@ -42,8 +42,8 @@ func hide_menu():
 	reset_slots()
 
 func buy_tower(slot: Slot):
-	if Game.user_money >= slot.tower_cost:
-		emit_signal("tower_bought", slot.tower_name)
+	if Game.user_money >= slot.tower_resource.cost:
+		emit_signal("tower_bought", slot.tower_resource.tower_type)
 		hide()
 	else:
 		print("Not enough money")
@@ -59,4 +59,4 @@ func hide():
 		if slot is Slot:
 			slot.decoration.visible = false
 			slot.pressed = false
-	
+

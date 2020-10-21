@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/tower/tower.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile249.png" type="Texture" id=2]
+[ext_resource path="res://scenes/tower/tower_types/sniper_1.tres" type="Resource" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24.8515, 28.2729 )
@@ -11,7 +12,7 @@ radius = 16.0
 
 [node name="Tower" type="Node2D"]
 script = ExtResource( 1 )
-level = 1
+tower_resource = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
