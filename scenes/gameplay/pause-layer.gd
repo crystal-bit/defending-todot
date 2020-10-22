@@ -2,7 +2,11 @@ extends CanvasLayer
 
 onready var pause_screen := $Pause
 onready var resume_option := $Pause/VBoxOptions/Resume
+onready var menu_option := $"Pause/VBoxOptions/Main Menu"
 
+func _ready():
+	resume_option.text = tr('RESUME')
+	menu_option.text = tr('MAIN MENU')
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
