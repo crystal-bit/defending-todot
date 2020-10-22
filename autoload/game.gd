@@ -11,6 +11,7 @@ var size := Vector2.ZERO
 
 
 func _ready() -> void:
+	TranslationServer.set_locale('en')
 	get_tree().connect("screen_resized", self, "_on_screen_resized")
 	register_size()
 
