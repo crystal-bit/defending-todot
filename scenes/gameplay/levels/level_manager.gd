@@ -12,9 +12,9 @@ func _on_CallEnemiesButton_pressed():
 	$CallEnemiesButton.disabled = true
 
 
-func _on_WaveManager_spawn_enemy(enemy_type, enemy_grade):
+func _on_WaveManager_spawn_enemy(enemy_resource):
 	var enemy = enemy_scene.instance()
-	enemy.initialise(enemy_type, enemy_grade)
+	enemy.initialise(enemy_resource)
 	var path_foll = PathFollow2D.new()
 	path_foll.loop = false
 	path_foll.position = $SpawnPoint.position

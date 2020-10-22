@@ -17,12 +17,11 @@ signal last_enemy_spawned()
 signal last_enemy_in_actual_wave_spawned()
 
 # Emitted when an enemy from a wave need to be spawn.
-signal spawn_enemy(enemy_type, enemy_grade)
+signal spawn_enemy(enemy_resource)
 
 var waves := []
 var wave_counter := -1
 var is_last_wave := false
-
 
 
 # Called when the node enters the scene tree for the first time.
@@ -42,9 +41,8 @@ func _on_EnemyWave_last_enemy_spawned():
 		emit_signal("last_enemy_spawned")
 		
 	
-func _on_EnemyWave_spawn_enemy(enemy_type, enemy_grade):
-	emit_signal("spawn_enemy", enemy_type, enemy_grade)
-
+func _on_EnemyWave_spawn_enemy(enemy_resource):
+	emit_signal("spawn_enemy", enemy_resource)
 
 
 # As start next wave (see below) but for signal
@@ -88,8 +86,6 @@ func get_next_wave_description() -> String:
 		return "No wave"
 		
 		
-# To know if there is a wave ready to go		
+# To know if there is a wave ready to go
 func does_next_wave_exists() -> bool:
 	return (wave_counter + 1) < waves.size()
-	
-	

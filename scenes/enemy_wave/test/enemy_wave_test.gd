@@ -12,8 +12,8 @@ func _on_Button_pressed():
 
 # WaveManager say you when instantiate a new enemy (spawn at start point 
 # and begin to following the path: say you the type and rank (grade).
-func _on_WaveManager_spawn_enemy(enemy_type, enemy_grade):
-	var enemy_text := "Spawn " + get_enemy_name(enemy_type) + ", rank " + get_enemy_rank(enemy_grade)
+func _on_WaveManager_spawn_enemy(enemy_resource: EnemyResource):
+	var enemy_text = "Spawn "  + enemy_resource.get_name() + " " + str(enemy_resource.grade)
 	$RichTextLabel.text += "\n"
 	$RichTextLabel.text += enemy_text
 

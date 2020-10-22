@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/enemy_wave/enemy_group.gd" type="Script" id=1]
+[ext_resource path="res://scenes/enemy/enemy-types/soldier.tres" type="Resource" id=2]
 
 [node name="EnemyGroup" type="Node2D"]
 script = ExtResource( 1 )
+enemy_resource = ExtResource( 2 )

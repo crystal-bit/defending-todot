@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://resources/fonts/luckiest-guy-30px.tres" type="DynamicFont" id=1]
 [ext_resource path="res://resources/fonts/boogaloo-40px.tres" type="DynamicFont" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/enemy_wave/enemy_group.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/enemy_wave/enemy_wave.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/enemy_wave/test/enemy_wave_test.gd" type="Script" id=6]
+[ext_resource path="res://scenes/enemy/enemy-types/aircraft.tres" type="Resource" id=7]
 
 [node name="LevelRoot" type="Node2D"]
 script = ExtResource( 6 )
@@ -17,19 +18,17 @@ delay_in_sec = 3.0
 description = "Simple Wave... for noobs!"
 
 [node name="Wave1Group1" parent="WaveManager/EnemyWave1" instance=ExtResource( 4 )]
-num_of_enemies = 8
+enemy_resource = ExtResource( 7 )
+num_of_enemies = 2
 delay_in_sec = 0.5
 
 [node name="Wave1Group2" parent="WaveManager/EnemyWave1" instance=ExtResource( 4 )]
-enemy_grade = 1
 num_of_enemies = 6
 delay_in_sec = 0.5
 
 [node name="Wave1Group3" parent="WaveManager/EnemyWave1" instance=ExtResource( 4 )]
-enemy_type = 1
 
 [node name="Wave1Group4" parent="WaveManager/EnemyWave1" instance=ExtResource( 4 )]
-enemy_grade = 1
 num_of_enemies = 8
 delay_in_sec = 0.5
 
@@ -41,31 +40,22 @@ num_of_enemies = 8
 delay_in_sec = 0.5
 
 [node name="Wave2Group2" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
-enemy_type = 1
-enemy_grade = 1
 delay_in_sec = 2.0
 
 [node name="Wave2Group3" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
-enemy_type = 1
 num_of_enemies = 2
 delay_in_sec = 4.0
 
 [node name="Wave2Group4" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
-enemy_type = 2
 num_of_enemies = 2
 delay_in_sec = 5.0
 
 [node name="Wave2Group5" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
-enemy_type = 3
 
 [node name="Wave2Group6" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
-enemy_type = 2
-enemy_grade = 1
 delay_in_sec = 5.0
 
 [node name="Wave2Group7" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
-enemy_type = 3
-enemy_grade = 1
 num_of_enemies = 2
 delay_in_sec = 4.0
 
@@ -77,27 +67,20 @@ num_of_enemies = 16
 delay_in_sec = 0.4
 
 [node name="Wave3Group2" parent="WaveManager/EnemyWave3" instance=ExtResource( 4 )]
-enemy_type = 1
-enemy_grade = 1
 num_of_enemies = 4
 delay_in_sec = 4.0
 
 [node name="Wave3Group3" parent="WaveManager/EnemyWave3" instance=ExtResource( 4 )]
-enemy_type = 3
 
 [node name="Wave3Group4" parent="WaveManager/EnemyWave3" instance=ExtResource( 4 )]
-enemy_type = 4
 num_of_enemies = 2
 delay_in_sec = 3.0
 
 [node name="Wave3Group5" parent="WaveManager/EnemyWave3" instance=ExtResource( 4 )]
-enemy_type = 2
-enemy_grade = 1
 num_of_enemies = 3
 delay_in_sec = 4.0
 
 [node name="Wave3Group6" parent="WaveManager/EnemyWave3" instance=ExtResource( 4 )]
-enemy_grade = 1
 num_of_enemies = 20
 delay_in_sec = 0.3
 

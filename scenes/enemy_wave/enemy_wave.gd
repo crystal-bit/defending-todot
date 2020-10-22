@@ -1,7 +1,7 @@
 extends Node2D
 class_name EnemyWave
 
-signal spawn_enemy(enemy_type, enemy_grade)
+signal spawn_enemy(enemy_resource)
 signal last_enemy_spawned()
 
 
@@ -48,8 +48,8 @@ func _on_EnemyGroup_last_enemy_spawned():
 		emit_signal("last_enemy_spawned")
 	
 	
-func _on_EnemyGroup_spawn_enemy(enemy_type, enemy_grade):
-	emit_signal("spawn_enemy", enemy_type, enemy_grade)
+func _on_EnemyGroup_spawn_enemy(enemy_resource):
+	emit_signal("spawn_enemy", enemy_resource)
 	
 	
 func start_wave():
