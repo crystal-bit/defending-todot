@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/enemy/enemy.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile245.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/ui/png/green_button06.png" type="Texture" id=2]
 [ext_resource path="res://scenes/enemy/enemy-types/aircraft-elite.tres" type="Resource" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
