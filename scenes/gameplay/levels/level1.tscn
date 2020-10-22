@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/sprites/tower-defense-top-down/spritesheet/tower-defense_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://scenes/gameplay/hit-area/hit-area.tscn" type="PackedScene" id=2]
@@ -9,7 +9,11 @@
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile137.png" type="Texture" id=7]
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile132.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile133.png" type="Texture" id=9]
-[ext_resource path="res://scenes/enemy/enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/enemy_wave/enemy_waves_manager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/gameplay/levels/level_manager.gd" type="Script" id=11]
+[ext_resource path="res://scenes/enemy_wave/enemy_group.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/enemy_wave/enemy_wave.tscn" type="PackedScene" id=13]
+[ext_resource path="res://resources/fonts/luckiest-guy-30px.tres" type="DynamicFont" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tower-defense_spritesheet.png 0"
@@ -48,9 +52,83 @@ _data = {
 }
 
 [node name="Level1" type="Node2D"]
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="WaveManager" parent="." instance=ExtResource( 10 )]
+
+[node name="EnemyWave" parent="WaveManager" instance=ExtResource( 13 )]
+delay_in_sec = 5.0
+description = "For train your skill..."
+
+[node name="EnemyGroup" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
+num_of_enemies = 8
+delay_in_sec = 1.0
+
+[node name="EnemyGroup2" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
+num_of_enemies = 8
+delay_in_sec = 1.0
+
+[node name="EnemyGroup3" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
+enemy_grade = 1
+num_of_enemies = 6
+delay_in_sec = 1.5
+
+[node name="EnemyGroup4" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
+enemy_type = 1
+
+[node name="EnemyGroup5" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
+enemy_type = 1
+num_of_enemies = 2
+delay_in_sec = 3.5
+
+[node name="EnemyGroup6" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
+enemy_type = 2
+
+[node name="EnemyGroup7" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
+enemy_grade = 1
+num_of_enemies = 8
+delay_in_sec = 0.6
+
+[node name="EnemyWave2" parent="WaveManager" instance=ExtResource( 13 )]
+delay_in_sec = 4.0
+description = "Things get hard"
+
+[node name="EnemyGroup" parent="WaveManager/EnemyWave2" instance=ExtResource( 12 )]
+num_of_enemies = 12
+delay_in_sec = 1.0
+
+[node name="EnemyGroup2" parent="WaveManager/EnemyWave2" instance=ExtResource( 12 )]
+enemy_grade = 1
+num_of_enemies = 12
+delay_in_sec = 1.0
+
+[node name="EnemyGroup3" parent="WaveManager/EnemyWave2" instance=ExtResource( 12 )]
+enemy_type = 1
+enemy_grade = 1
+num_of_enemies = 4
+delay_in_sec = 5.0
+
+[node name="EnemyGroup4" parent="WaveManager/EnemyWave2" instance=ExtResource( 12 )]
+enemy_type = 2
+num_of_enemies = 2
+delay_in_sec = 4.0
+
+[node name="EnemyGroup5" parent="WaveManager/EnemyWave2" instance=ExtResource( 12 )]
+enemy_type = 3
+delay_in_sec = 3.5
+
+[node name="EnemyGroup6" parent="WaveManager/EnemyWave2" instance=ExtResource( 12 )]
+enemy_grade = 1
+num_of_enemies = 12
+delay_in_sec = 0.8
+
+[node name="EnemyGroup7" parent="WaveManager/EnemyWave2" instance=ExtResource( 12 )]
+enemy_type = 3
+num_of_enemies = 3
+delay_in_sec = 6.0
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -74,31 +152,6 @@ navpoly = SubResource( 3 )
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 4 )
-
-[node name="PathEnemy1" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 971.838, -44.6035 )
-rotation = 1.96354
-loop = false
-
-[node name="Enemy" parent="Path2D/PathEnemy1" instance=ExtResource( 10 )]
-
-[node name="PathEnemy2" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 971.838, -44.6035 )
-rotation = 1.96354
-loop = false
-
-[node name="Enemy" parent="Path2D/PathEnemy2" instance=ExtResource( 10 )]
-position = Vector2( -11.8495, -20.8354 )
-type = 1
-
-[node name="PathEnemy3" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 971.838, -44.6035 )
-rotation = 1.96354
-loop = false
-
-[node name="Enemy" parent="Path2D/PathEnemy3" instance=ExtResource( 10 )]
-position = Vector2( 2.68341, 29.7816 )
-type = 4
 
 [node name="SpawnPoint" type="Position2D" parent="."]
 position = Vector2( 928, -34 )
@@ -358,5 +411,25 @@ texture = ExtResource( 7 )
 [node name="RockMedium3" type="Sprite" parent="Details"]
 position = Vector2( 723.87, 477.064 )
 texture = ExtResource( 7 )
+
+[node name="CallEnemiesButton" type="Button" parent="."]
+margin_left = 536.35
+margin_top = 14.2378
+margin_right = 716.35
+margin_bottom = 92.2378
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.878431, 0.0705882, 0.0509804, 1 )
+custom_colors/font_color_hover = Color( 0.686275, 0.615686, 0.0392157, 1 )
+custom_colors/font_color_pressed = Color( 0.968627, 0.968627, 0.968627, 1 )
+text = "Call Enemies"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="last_enemy_in_actual_wave_spawned" from="WaveManager" to="." method="_on_WaveManager_last_enemy_in_actual_wave_spawned"]
+[connection signal="last_enemy_spawned" from="WaveManager" to="." method="_on_WaveManager_last_enemy_spawned"]
+[connection signal="last_wave" from="WaveManager" to="." method="_on_WaveManager_last_wave"]
+[connection signal="spawn_enemy" from="WaveManager" to="." method="_on_WaveManager_spawn_enemy"]
+[connection signal="pressed" from="CallEnemiesButton" to="." method="_on_CallEnemiesButton_pressed"]
 
 [editable path="HitArea"]

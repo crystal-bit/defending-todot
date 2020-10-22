@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://resources/fonts/luckiest-guy-30px.tres" type="DynamicFont" id=1]
+[ext_resource path="res://resources/fonts/boogaloo-40px.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/enemy_wave/enemy_waves_manager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/enemy_wave/enemy_group.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/enemy_wave/enemy_wave.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/enemy_wave/test/enemy_wave_test.gd" type="Script" id=6]
+
+[node name="LevelRoot" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="WaveManager" parent="." instance=ExtResource( 3 )]
+
+[node name="EnemyWave1" parent="WaveManager" instance=ExtResource( 5 )]
+delay_in_sec = 3.0
+description = "Simple Wave... for noobs!"
+
+[node name="Wave1Group1" parent="WaveManager/EnemyWave1" instance=ExtResource( 4 )]
+num_of_enemies = 8
+delay_in_sec = 0.5
+
+[node name="Wave1Group2" parent="WaveManager/EnemyWave1" instance=ExtResource( 4 )]
+enemy_grade = 1
+num_of_enemies = 6
+delay_in_sec = 0.5
+
+[node name="Wave1Group3" parent="WaveManager/EnemyWave1" instance=ExtResource( 4 )]
+enemy_type = 1
+
+[node name="Wave1Group4" parent="WaveManager/EnemyWave1" instance=ExtResource( 4 )]
+enemy_grade = 1
+num_of_enemies = 8
+delay_in_sec = 0.5
+
+[node name="EnemyWave2" parent="WaveManager" instance=ExtResource( 5 )]
+description = "Intermediate Wave"
+
+[node name="Wave2Group1" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
+num_of_enemies = 8
+delay_in_sec = 0.5
+
+[node name="Wave2Group2" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
+enemy_type = 1
+enemy_grade = 1
+delay_in_sec = 2.0
+
+[node name="Wave2Group3" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
+enemy_type = 1
+num_of_enemies = 2
+delay_in_sec = 4.0
+
+[node name="Wave2Group4" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
+enemy_type = 2
+num_of_enemies = 2
+delay_in_sec = 5.0
+
+[node name="Wave2Group5" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
+enemy_type = 3
+
+[node name="Wave2Group6" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
+enemy_type = 2
+enemy_grade = 1
+delay_in_sec = 5.0
+
+[node name="Wave2Group7" parent="WaveManager/EnemyWave2" instance=ExtResource( 4 )]
+enemy_type = 3
+enemy_grade = 1
+num_of_enemies = 2
+delay_in_sec = 4.0
+
+[node name="EnemyWave3" parent="WaveManager" instance=ExtResource( 5 )]
+description = "Only for Pro Wave!"
+
+[node name="Wave3Group1" parent="WaveManager/EnemyWave3" instance=ExtResource( 4 )]
+num_of_enemies = 16
+delay_in_sec = 0.4
+
+[node name="Wave3Group2" parent="WaveManager/EnemyWave3" instance=ExtResource( 4 )]
+enemy_type = 1
+enemy_grade = 1
+num_of_enemies = 4
+delay_in_sec = 4.0
+
+[node name="Wave3Group3" parent="WaveManager/EnemyWave3" instance=ExtResource( 4 )]
+enemy_type = 3
+
+[node name="Wave3Group4" parent="WaveManager/EnemyWave3" instance=ExtResource( 4 )]
+enemy_type = 4
+num_of_enemies = 2
+delay_in_sec = 3.0
+
+[node name="Wave3Group5" parent="WaveManager/EnemyWave3" instance=ExtResource( 4 )]
+enemy_type = 2
+enemy_grade = 1
+num_of_enemies = 3
+delay_in_sec = 4.0
+
+[node name="Wave3Group6" parent="WaveManager/EnemyWave3" instance=ExtResource( 4 )]
+enemy_grade = 1
+num_of_enemies = 20
+delay_in_sec = 0.3
+
+[node name="Button" type="Button" parent="."]
+margin_left = 55.539
+margin_top = 53.4051
+margin_right = 279.539
+margin_bottom = 153.405
+custom_fonts/font = ExtResource( 1 )
+text = "Call Enemies Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 352.0
+margin_top = 48.0
+margin_right = 1442.0
+margin_bottom = 851.0
+custom_fonts/normal_font = ExtResource( 2 )
+text = "Press the left button to call the wave
+"
+scroll_following = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="last_enemy_in_actual_wave_spawned" from="WaveManager" to="." method="_on_WaveManager_last_enemy_in_actual_wave_spawned"]
+[connection signal="last_enemy_spawned" from="WaveManager" to="." method="_on_WaveManager_last_enemy_spawned"]
+[connection signal="last_wave" from="WaveManager" to="." method="_on_WaveManager_last_wave"]
+[connection signal="spawn_enemy" from="WaveManager" to="." method="_on_WaveManager_spawn_enemy"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
