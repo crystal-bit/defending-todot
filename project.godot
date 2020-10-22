@@ -120,7 +120,7 @@ pause={
 
 fallback="it"
 locale_filter=[ 0, [  ] ]
-translations=PoolStringArray(  )
+translations=PoolStringArray( "res://resources/localization.en.translation", "res://resources/localization.it.translation" )
 
 [rendering]
 
