@@ -5,6 +5,7 @@ tool
 export(Resource) var enemy_resource setget set_resource
 
 onready var path_follow = get_parent()
+onready var texture_progress = $Node2D/TextureProgress
 
 
 func initialise(enemy_res):
@@ -18,6 +19,8 @@ func set_resource(res):
 
 func _ready():
 	load_resource_data(enemy_resource)
+	texture_progress.max_value = enemy_resource.hp
+	texture_progress.value = enemy_resource.hp
 
 
 func load_resource_data(enemy_resource: EnemyResource):
@@ -37,4 +40,10 @@ func set_grade(value):
 
 func _physics_process(delta):
 	if not Engine.is_editor_hint():
+		$Node2D.global_rotation = 0
 		path_follow.set_offset(path_follow.get_offset() + enemy_resource.speed * delta)
+
+
+#func set_hp():
+#	texture_progress.value = hp
+#	This is an example to update the TextureProgress with the hp value.
