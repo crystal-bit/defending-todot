@@ -20,6 +20,11 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 30, 0 )
+collide_with_areas = true
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="TextureProgress" type="TextureProgress" parent="Node2D"]
@@ -28,8 +33,8 @@ margin_top = -45.0
 margin_right = 166.0
 margin_bottom = 4.0
 rect_scale = Vector2( 0.25, 0.25 )
-max_value = 100.0
-value = 100.0
+max_value = 300.0
+value = 300.0
 texture_under = ExtResource( 4 )
 texture_progress = ExtResource( 4 )
 tint_under = Color( 1, 0, 0, 1 )
