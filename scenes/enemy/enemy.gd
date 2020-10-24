@@ -6,12 +6,9 @@ export(Resource) var enemy_resource setget set_resource
 
 onready var path_follow = get_parent()
 onready var texture_progress = $Node2D/TextureProgress
+onready var raycast = $RayCast2D
 
-func _process(delta):
-	if $RayCast2D.is_colliding():
-		var collision = $RayCast2D.get_collider()
-		if "HitArea" in collision.name:
-			self.queue_free()
+signal arrived_to_hit_area(enemy)
 
 
 func initialise(enemy_res):
@@ -48,6 +45,12 @@ func _physics_process(delta):
 	if not Engine.is_editor_hint():
 		$Node2D.global_rotation = 0
 		path_follow.set_offset(path_follow.get_offset() + enemy_resource.speed * delta)
+		
+	if raycast.is_colliding():
+		var collision = raycast.get_collider()
+		if "HitArea" in collision.name:
+			emit_signal("arrived_to_hit_area", self)
+			queue_free()
 
 
 #func set_hp():
