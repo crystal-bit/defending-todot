@@ -7,6 +7,12 @@ export(Resource) var enemy_resource setget set_resource
 onready var path_follow = get_parent()
 onready var texture_progress = $Node2D/TextureProgress
 
+func _process(delta):
+	if $RayCast2D.is_colliding():
+		var collision = $RayCast2D.get_collider()
+		if "HitArea" in collision.name:
+			self.queue_free()
+
 
 func initialise(enemy_res):
 	self.enemy_resource = enemy_res
