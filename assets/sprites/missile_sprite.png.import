@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/smoke_cloud_sprite.png-e4d79bdaa0d020a361cf278abc42258d.stex"
+path="res://.import/missile_sprite.png-195d8bf5fcb195d544b6c8374b50765c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/ammo/missile/smoke_cloud_sprite.png"
-dest_files=[ "res://.import/smoke_cloud_sprite.png-e4d79bdaa0d020a361cf278abc42258d.stex" ]
+source_file="res://assets/sprites/missile_sprite.png"
+dest_files=[ "res://.import/missile_sprite.png-195d8bf5fcb195d544b6c8374b50765c.stex" ]
 
 [params]
 

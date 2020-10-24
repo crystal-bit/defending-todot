@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Ammo
 
 var velocity = Vector2(0.0, 0.0)
 var acceleration = Vector2(0.0, 0.0)

@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
+"class": "Ammo",
+"language": "GDScript",
+"path": "res://scenes/ammo/ammo.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://scenes/enemy/enemy.gd"
@@ -70,6 +75,7 @@ _global_script_classes=[ {
 "path": "res://scenes/transitions/transitions.gd"
 } ]
 _global_script_class_icons={
+"Ammo": "",
 "Enemy": "",
 "EnemyCallButton": "",
 "EnemyGroup": "",
