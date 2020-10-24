@@ -9,6 +9,9 @@ extents = Vector2( 8.71297, 22.9291 )
 
 [node name="missile" type="KinematicBody2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
