@@ -115,6 +115,7 @@ func dismount():
 	yield(tween, "tween_all_completed")
 	visible = false
 	modulate = Color(1, 1, 1, 1)
+	scale = Vector2(1, 1)
 
 
 func on_dir_changed(new_direction: int):
