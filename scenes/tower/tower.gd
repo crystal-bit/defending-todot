@@ -14,6 +14,7 @@ var alpha_area = alpha_area_hide
 
 var bodies_in_range = []
 var target
+var shot_direction
 
 enum TOWER_STATES {
 	PREVIEW,
@@ -26,6 +27,9 @@ var state = TOWER_STATES.PREVIEW
 
 func initialise(_resource: Resource):
 	tower_resource = _resource
+
+#Preload missle scene
+onready var missile_scene = preload("res://scenes/ammo/missile/missile.tscn")
 
 
 func _ready() -> void:
@@ -92,5 +96,21 @@ func load_resource_data(tower_resource : Tower_Resource):
 
 
 func fire():
-	print("firing")
-	# add fire method
+	#print("firing")
+	#searching for closest target
+	var enemies = get_tree().get_nodes_in_group("enemies")
+	var nearest
+	var near_pos
+	var min_dist = INF
+	for enemy in enemies :
+		var enemy_pos = enemy.get_global_position()
+		var distance = enemy_pos.distance_squared_to(self.get_global_position())
+		if distance < min_dist :
+			min_dist = distance
+			nearest = enemy #storing closest enemy
+			near_pos = nearest.get_global_position()
+		shot_direction = self.get_global_position().direction_to(near_pos)
+	var ammo = missile_scene.instance()
+	ammo.set_position(self.position)
+	ammo.set_rotation(self.rotation) #tower should rotate
+	add_child(ammo)
