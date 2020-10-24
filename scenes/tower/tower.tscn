@@ -24,9 +24,9 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange/AttackRangeShowArea"]
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="AttackRange"]
+[node name="AttackRange" type="Area2D" parent="AttackRange"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange/AttackRange"]
 shape = SubResource( 2 )
 
 [node name="RallyPoint" type="Position2D" parent="."]
@@ -35,6 +35,6 @@ shape = SubResource( 2 )
 one_shot = true
 [connection signal="mouse_entered" from="AttackRange/AttackRangeShowArea" to="." method="_on_AttackRangeShowArea_mouse_entered"]
 [connection signal="mouse_exited" from="AttackRange/AttackRangeShowArea" to="." method="_on_AttackRangeShowArea_mouse_exited"]
-[connection signal="body_entered" from="AttackRange/Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="AttackRange/Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="AttackRange/AttackRange" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="AttackRange/AttackRange" to="." method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
