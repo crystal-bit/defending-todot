@@ -12,9 +12,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-tower_icon = ExtResource( 2 )
-tower_name = 2
-tower_cost = 100
 
 [node name="Decoration" type="Sprite" parent="."]
 visible = false
