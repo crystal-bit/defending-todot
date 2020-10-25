@@ -5,7 +5,7 @@ var call_buttons = []
 func _ready():
 	var id = 0
 	for b in get_children():
-		b.connect("enemy_start_timeout", self, "_on_enemy_start_timeout")
+		b.connect("next_wave_requested", self, "_on_next_wave_requested")
 		b.id = id
 		id += 1
 		call_buttons.append(b)
@@ -17,7 +17,7 @@ func _input(event):
 		call_buttons[2].init_call_wave(15, "Lemmings infinite number at random generated time")
 		call_buttons[3].init_call_wave(20, "Gremlins: number depends on water after midnight!")
 
-func _on_enemy_start_timeout(ecb: EnemyCallButton):
+func _on_next_wave_requested(ecb: EnemyCallButton):
 #	print(ecb.id, ", ", ecb.wave_info.text)
 	for b in call_buttons:
 		if b.id != ecb.id:

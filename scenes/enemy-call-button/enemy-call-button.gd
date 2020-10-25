@@ -2,7 +2,7 @@ tool
 class_name EnemyCallButton
 extends Area2D
 
-signal enemy_start_timeout(enemy_call_button)
+signal next_wave_requested(enemy_call_button)
 
 onready var texture_progress = $Visible/TextureProgress
 onready var animation_player = $AnimationPlayer
@@ -101,7 +101,7 @@ func update_size():
 
 
 func end_work():
-	emit_signal("enemy_start_timeout", self)
+	emit_signal("next_wave_requested", self)
 	dismount()
 	
 
@@ -115,6 +115,7 @@ func dismount():
 	yield(tween, "tween_all_completed")
 	visible = false
 	modulate = Color(1, 1, 1, 1)
+	scale = Vector2(1, 1)
 
 
 func on_dir_changed(new_direction: int):

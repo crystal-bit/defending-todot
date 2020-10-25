@@ -29,7 +29,6 @@ tracks/0/keys = {
 
 [node name="EnemyCallButton" type="Area2D"]
 visible = false
-scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
