@@ -8,9 +8,6 @@ onready var path_follow = get_parent()
 onready var texture_progress = $Node2D/TextureProgress
 
 
-signal arrived_to_hit_area(enemy)
-
-
 func initialise(enemy_res):
 	self.enemy_resource = enemy_res
 
