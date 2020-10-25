@@ -15,7 +15,7 @@
 [ext_resource path="res://scenes/enemy_wave/enemy_wave.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scenes/enemy-call-button/enemy-call-button.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/enemy/enemy-types/aircraft.tres" type="Resource" id=15]
-[ext_resource path="res://scenes/enemy-commander/EnemyCommander.tscn" type="PackedScene" id=16]
+[ext_resource path="res://scenes/enemy-commander/enemy-commander.tscn" type="PackedScene" id=16]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tower-defense_spritesheet.png 0"
@@ -151,8 +151,9 @@ __meta__ = {
 }
 
 [node name="EnemyCallButton" parent="." instance=ExtResource( 14 )]
-visible = true
 position = Vector2( 929.326, 59.5818 )
+id = 0
+direction = 0
 
 [node name="StrategicPoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 448.08, 535.259 )

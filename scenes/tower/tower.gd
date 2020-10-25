@@ -75,7 +75,7 @@ func _on_FireTimer_timeout():
 
 func get_show_direction():
 	pass
-	
+
 
 func change_state(new_state: int):
 	assert(new_state in TOWER_STATES.values(), "Tower state not in TOWER_STATES list")
