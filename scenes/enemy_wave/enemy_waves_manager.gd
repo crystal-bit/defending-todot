@@ -1,8 +1,11 @@
 extends Node2D
-# To manage enemy waves gameplay and enemy spawn managment: 
+class_name WaveManager
+# To manage enemy waves gameplay and enemy spawn managment:
 # use to start enemy waves in the game level,
 # to know when to spawn an enemy (and enemy type to spawn),
 # to manage level win condition, next wave ready condition, ecc...
+
+signal wave_started()
 
 # Emitted when last wave in the wave list is spawned.
 signal last_wave()
@@ -39,8 +42,8 @@ func _on_EnemyWave_last_enemy_spawned():
 	emit_signal("last_enemy_in_actual_wave_spawned")
 	if is_last_wave:
 		emit_signal("last_enemy_spawned")
-		
-	
+
+
 func _on_EnemyWave_spawn_enemy(enemy_resource):
 	emit_signal("spawn_enemy", enemy_resource)
 
@@ -48,8 +51,8 @@ func _on_EnemyWave_spawn_enemy(enemy_resource):
 # As start next wave (see below) but for signal
 func _on_start_next_wave():
 	start_next_wave()
-	
-	
+
+
 # Start next wave in list.
 # Return true if the wave is started.
 # Return false if there are no more waves to start.
@@ -58,13 +61,14 @@ func start_next_wave() -> bool:
 	wave_counter += 1
 	if wave_counter <  waves.size():
 		started = true
-		
+
 		if (wave_counter + 1) >= waves.size():
 			is_last_wave = true
 			emit_signal("last_wave")
-			
+
 		waves[wave_counter].start_wave()
-			
+		emit_signal("wave_started", wave_counter)
+
 	return started
 
 
@@ -84,8 +88,8 @@ func get_next_wave_description() -> String:
 	else:
 		# This is an invalid situation
 		return "No wave"
-		
-		
+
+
 # To know if there is a wave ready to go
 func does_next_wave_exists() -> bool:
 	return (wave_counter + 1) < waves.size()

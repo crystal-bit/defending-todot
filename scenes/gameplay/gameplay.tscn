@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/gameplay/pause-layer/pause-layer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/gameplay/ui/ui.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/ui/tower-description-popup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/gameplay/gameplay.gd" type="Script" id=5]
 
@@ -8,6 +9,8 @@
 script = ExtResource( 5 )
 
 [node name="Level" parent="." instance_placeholder="res://scenes/gameplay/levels/level1.tscn"]
+
+[node name="UI" parent="." instance=ExtResource( 2 )]
 
 [node name="PauseLayer" parent="." instance=ExtResource( 1 )]
 

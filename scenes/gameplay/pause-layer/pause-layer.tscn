@@ -12,6 +12,7 @@ pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="PressESCToOpenMenu" type="Label" parent="."]
+visible = false
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 200.0

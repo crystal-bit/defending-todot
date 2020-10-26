@@ -2,5 +2,7 @@
 
 [ext_resource path="res://scenes/enemy_wave/enemy_waves_manager.gd" type="Script" id=3]
 
-[node name="WaveManager" type="Node2D"]
+[node name="WaveManager" type="Node2D" groups=[
+"WaveManager",
+]]
 script = ExtResource( 3 )

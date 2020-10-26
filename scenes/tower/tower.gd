@@ -93,10 +93,10 @@ func upgrade():
 	pass
 
 
-func load_resource_data(tower_resource : Tower_Resource):
-	sprite.texture = tower_resource.texture
-	attack_range_area.find_node("CollisionShape2D").shape.radius = tower_resource.attack_radius
-	fire_timer.wait_time = tower_resource.fire_rate
+func load_resource_data(p_tower_resource : Tower_Resource):
+	sprite.texture = p_tower_resource.texture
+	attack_range_area.find_node("CollisionShape2D").shape.radius = p_tower_resource.attack_radius
+	fire_timer.wait_time = p_tower_resource.fire_rate
 
 
 func fire(_target: Enemy):

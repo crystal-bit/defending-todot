@@ -46,12 +46,12 @@ func _on_EnemyGroup_last_enemy_spawned():
 	group_ongoing = false
 	if last_group_spawned:
 		emit_signal("last_enemy_spawned")
-	
-	
+
+
 func _on_EnemyGroup_spawn_enemy(enemy_resource):
 	emit_signal("spawn_enemy", enemy_resource)
-	
-	
+
+
 func start_wave():
 	if groups.size() > 0:
 		wave_ongoing = true
@@ -64,9 +64,9 @@ func _spawn_group():
 	if (group_counter + 1) >= groups.size():
 		last_group_spawned = true
 		wave_ongoing = false
-		
+
 	groups[group_counter].start_spawning()
-	
+
 
 
 #func is_class(type):

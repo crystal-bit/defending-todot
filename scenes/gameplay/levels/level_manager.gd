@@ -22,11 +22,10 @@ func _on_WaveManager_spawn_enemy(enemy_resource):
 func _on_WaveManager_last_enemy_in_actual_wave_spawned():
 	pass
 
+
 func _on_WaveManager_last_enemy_spawned():
 	pass
 
+
 func _on_WaveManager_last_wave():
 	pass # Replace with function body.
-
-
-

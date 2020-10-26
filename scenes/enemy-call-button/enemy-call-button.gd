@@ -103,7 +103,7 @@ func update_size():
 func end_work():
 	emit_signal("next_wave_requested", self)
 	dismount()
-	
+
 
 func dismount():
 	can_process = false

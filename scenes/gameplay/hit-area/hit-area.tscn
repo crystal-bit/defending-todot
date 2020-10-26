@@ -2,7 +2,9 @@
 
 [ext_resource path="res://scenes/gameplay/hit-area/hit-area.gd" type="Script" id=1]
 
-[node name="HitArea" type="Area2D"]
+[node name="HitArea" type="Area2D" groups=[
+"HitAreas",
+]]
 script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "TODO: when an enemy enters the hit area,  the player loses 1 HP"

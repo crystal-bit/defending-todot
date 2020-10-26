@@ -41,7 +41,7 @@ func set_grade(value):
 func _physics_process(delta):
 	if not Engine.is_editor_hint():
 		$Node2D.global_rotation = 0
-		path_follow.set_offset(path_follow.get_offset() + enemy_resource.speed * delta)
+		path_follow.set_offset(path_follow.get_offset() + enemy_resource.speed * 12 * delta)
 
 
 #func set_hp():

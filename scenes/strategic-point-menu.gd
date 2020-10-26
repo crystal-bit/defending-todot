@@ -41,8 +41,11 @@ func hide_menu():
 	radial_control.hide_radial_menu()
 	reset_slots()
 
+
 func buy_tower(slot: Slot):
-	if Game.user_money >= slot.tower_resource.cost:
+	var ui = get_tree().get_nodes_in_group("UI")[0]
+	if int(ui.money.label.text) >= slot.tower_resource.cost:
+		ui.money.label.text = str(int(ui.money.label.text) - slot.tower_resource.cost)
 		emit_signal("tower_bought", slot.tower_resource.tower_type)
 		hide()
 	else:

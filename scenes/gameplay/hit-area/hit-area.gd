@@ -1,4 +1,5 @@
 extends Area2D
+class_name HitArea
 
 signal enemy_arrived
 
