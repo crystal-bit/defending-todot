@@ -3,6 +3,8 @@ class_name Tower
 
 export(Resource) var tower_resource
 
+const TOWER_ROTATION_OFFSET = PI / 2
+
 onready var attack_range_area: Area2D = $AttackRange/AttackRange
 onready var rally_point = $RallyPoint
 onready var sprite = $Sprite
@@ -32,7 +34,12 @@ func initialise(_resource: Resource):
 func _ready() -> void:
 	attack_range_area.monitoring = false
 	load_resource_data(tower_resource)
-
+	
+func _process(delta):
+	if target is Enemy:
+		var to_target = (target.global_position - global_position).normalized()
+		var rotation_to_target = to_target.angle() + TOWER_ROTATION_OFFSET
+		sprite.rotation = lerp_angle(sprite.rotation, rotation_to_target, 0.25)
 
 func _draw() -> void:
 	var blue_color: Color = Color.blue
@@ -101,7 +108,8 @@ func load_resource_data(p_tower_resource : Tower_Resource):
 
 func fire(_target: Enemy):
 	var ammo = missile_scene.instance()
-	ammo.shot_direction = (_target.global_position - global_position).normalized()
+	var to_target = (_target.global_position - global_position).normalized()
+	ammo.shot_direction = to_target
 	ammo.set_position(position)
-	ammo.set_rotation(rotation) #tower should rotate
+	ammo.set_rotation(to_target.angle() + TOWER_ROTATION_OFFSET)
 	add_child(ammo)
