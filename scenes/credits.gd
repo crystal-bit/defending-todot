@@ -16,6 +16,7 @@ var contributors = [
 	"m0rp30",
 	"Iranon",
 	"masmart",
+	"gVirtu",
 ]
 
 onready var labels_container = $LabelsContainer
