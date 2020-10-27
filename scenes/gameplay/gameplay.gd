@@ -2,11 +2,13 @@ extends Node2D
 
 onready var level = $Level
 onready var ui = $UI
+onready var bgm = $BGM
+
 const level_path = "res://scenes/gameplay/levels/level%d.tscn"
 
 
 func _ready() -> void:
-	pass
+	bgm.play()
 
 
 func _on_HitArea_enemy_arrived(enemy):

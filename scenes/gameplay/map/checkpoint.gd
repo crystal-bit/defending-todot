@@ -2,6 +2,10 @@ extends Node2D
 
 onready var icon_cp = $Area2D/IconCP
 onready var stars_cp = $Area2D/StarsCP
+onready var anim = $AnimationPlayer
+onready var level_selected_audio = $LevelSelectedAudio
+onready var level_locked = $LevelLocked
+onready var pressed = $Pressed
 
 const check_lock = "res://assets/sprites/map/checkLock.png"
 const check_todo = "res://assets/sprites/map/checkToDo.png"
@@ -32,12 +36,20 @@ func _ready():
 				stars_cp.visible = true
 		_:
 			pass
-	
-	
+
+
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
-		if event.pressed and check_state != 0:
-			var params = {
-				"level_idx": scene_load,
-			}
-			Game.change_scene("res://scenes/gameplay/gameplay.tscn", params)
+		if event.pressed:
+			if check_state != 0:
+				var params = {
+					"level_idx": scene_load,
+				}
+				level_selected_audio.play()
+				pressed.play()
+				anim.play("pressed")
+				yield(level_selected_audio, "finished")
+				Game.change_scene("res://scenes/gameplay/gameplay.tscn", params)
+			else:
+				level_locked.play()
+

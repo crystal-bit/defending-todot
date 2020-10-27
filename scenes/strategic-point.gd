@@ -8,6 +8,7 @@ onready var tower_description_popup = get_node("../../CanvasLayer/TowerDescripti
 onready var tower_container = $TowerContainer
 onready var tower_scene = preload("res://scenes/tower/tower.tscn")
 onready var sprite = $Sprite
+onready var audio = $AudioStreamPlayer
 
 var mouse_inside_area = false
 var last_slot_pressed = null
@@ -28,6 +29,7 @@ func _on_StrategicPoint_input_event(viewport: Node, event: InputEvent, shape_idx
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			if event.pressed:
+				audio.play()
 				if strategic_point_menu.visible:
 					hide_strategic_point_menu()
 				else:

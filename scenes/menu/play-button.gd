@@ -1,5 +1,7 @@
 extends Button
 
+onready var audio = get_node("../AudioStreamPlayer")
+
 
 func _ready():
 	# needed for gamepads to work
@@ -7,6 +9,8 @@ func _ready():
 
 
 func _on_Button_pressed():
+	audio.play()
+	yield(audio, "finished")
 	var params = {
 		"a_number": 10,
 		"a_string": "Ciao mondo!",

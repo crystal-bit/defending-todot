@@ -3,6 +3,7 @@ extends Button
 
 onready var decoration = $Decoration
 onready var initial_position: Vector2 = rect_position
+onready var audio = $AudioStreamPlayer
 
 export(Resource) var tower_resource
 var tower_locked: Tower_Resource = preload("res://scenes/tower/tower_types/locked.tres")
@@ -29,6 +30,7 @@ func _on_SlotButton_toggled(button_pressed: bool) -> void:
 	if button_pressed:
 		emit_signal("slot_activated", decoration.visible, self)
 	decoration.visible = button_pressed
+	audio.play()
 
 
 func _set_icon(texture : Texture) -> void:
@@ -53,4 +55,4 @@ func _set_tower_name(name) -> void:
 
 func _get_tower_name() -> String:
 	return get_node("VBoxContainer/TowerName").text
-	
+

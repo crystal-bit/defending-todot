@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/luckiest-guy/luckiest-guy-regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resources/fonts/boogaloo-40px.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/menu/play-button.gd" type="Script" id=3]
 [ext_resource path="res://scenes/menu/exit-button.gd" type="Script" id=4]
 [ext_resource path="res://scenes/menu/credit-button.gd" type="Script" id=5]
+[ext_resource path="res://assets/audio/buttonpress.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -90,6 +91,10 @@ rect_min_size = Vector2( 200, 80 )
 custom_fonts/font = ExtResource( 2 )
 text = "CREDITS"
 script = ExtResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer"]
+stream = ExtResource( 6 )
+volume_db = 6.848
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="VBoxContainer/ExitButton" method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditButton" to="VBoxContainer/CreditButton" method="_on_CreditButton_pressed"]

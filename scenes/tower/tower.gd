@@ -34,7 +34,7 @@ func initialise(_resource: Resource):
 func _ready() -> void:
 	attack_range_area.monitoring = false
 	load_resource_data(tower_resource)
-	
+
 func _process(delta):
 	if target is Enemy:
 		var to_target = (target.global_position - global_position).normalized()
