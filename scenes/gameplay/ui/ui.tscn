@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/sprites/meters-and-levels/icons/health.png" type="Texture" id=1]
 [ext_resource path="res://scenes/gameplay/ui/font.tres" type="DynamicFont" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/gameplay/ui/wave.gd" type="Script" id=8]
 [ext_resource path="res://scenes/gameplay/ui/money.gd" type="Script" id=9]
 [ext_resource path="res://resources/theme/theme.tres" type="Theme" id=10]
+[ext_resource path="res://scenes/gameplay/ui/insufficient-money.gd" type="Script" id=11]
 
 [node name="UI" type="CanvasLayer" groups=[
 "UI",
@@ -96,31 +97,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="InsufficientMoney" type="PopupPanel" parent="Money"]
-visible = true
-margin_left = 271.135
-margin_top = 136.19
-margin_right = 576.135
-margin_bottom = 291.19
-theme = ExtResource( 10 )
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Money/InsufficientMoney"]
-margin_left = 33.0
-margin_top = 33.0
-margin_right = 272.0
-margin_bottom = 122.0
-text = "You don't have
-enough money to buy that tower!!"
-align = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Wave" type="Control" parent="."]
 margin_left = 75.0
 margin_top = 150.0
@@ -153,6 +129,31 @@ margin_top = -27.0
 margin_right = 71.0
 margin_bottom = 93.0
 texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InsufficientMoney" type="PopupPanel" parent="."]
+margin_left = 514.135
+margin_top = 186.19
+margin_right = 819.135
+margin_bottom = 341.19
+theme = ExtResource( 10 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="InsufficientMoney"]
+margin_left = 33.0
+margin_top = 33.0
+margin_right = 272.0
+margin_bottom = 122.0
+text = "You don't have
+enough money to buy that tower!!"
+align = 1
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
