@@ -1,7 +1,9 @@
 extends Control
 
+# warning-ignore:unused_signal
 signal tower_selected(tower_name)
 signal tower_bought(tower)
+signal no_money()
 
 
 onready var radial_control = $RadialControl
@@ -49,7 +51,7 @@ func buy_tower(slot: Slot):
 		emit_signal("tower_bought", slot.tower_resource.tower_type)
 		hide()
 	else:
-		print("Not enough money")
+		emit_signal("no_money")
 
 
 func show():
@@ -62,4 +64,3 @@ func hide():
 		if slot is Slot:
 			slot.decoration.visible = false
 			slot.pressed = false
-
