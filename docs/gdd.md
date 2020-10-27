@@ -26,11 +26,18 @@
 
 # Pitch
 
-TODO
+Defend your city by placing towers and destroying enemies!
 
 # Story
 
-TODO
+
+Three nations at war, one battlefield, the prosperous and peaceful land of Todog.
+The people always find themselves in the midst of battles and their precious land ruined!
+
+BUT NOT ANYMORE!
+
+The cities of Todog have come together and are joining forces to fight back with fire and iron.
+No invader will dare to disturb this peaceful land again!
 
 # Gameplay
 
