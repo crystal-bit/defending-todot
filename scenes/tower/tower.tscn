@@ -8,6 +8,7 @@
 extents = Vector2( 24.8515, 28.2729 )
 
 [sub_resource type="CircleShape2D" id=2]
+resource_local_to_scene = true
 radius = 16.0
 
 [node name="Tower" type="Node2D"]
