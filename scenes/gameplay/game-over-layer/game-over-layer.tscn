@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/fonts/squarebit/squarebit.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/sprites/uipack-rpg/png/iconCheck_grey.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/uipack-rpg/png/iconCross_grey.png" type="Texture" id=3]
+[ext_resource path="res://scenes/gameplay/game-over-layer/no.gd" type="Script" id=4]
+[ext_resource path="res://scenes/gameplay/game-over-layer/yes.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 200
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 150
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 150
+font_data = ExtResource( 1 )
+
+[node name="GameOver" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+show_behind_parent = true
+margin_left = -14.2705
+margin_top = 4.75684
+margin_right = 1606.73
+margin_bottom = 922.757
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 287.514
+margin_top = 123.189
+margin_right = 1298.51
+margin_bottom = 323.189
+custom_fonts/font = SubResource( 1 )
+text = "Game Over
+Retry?"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Control" parent="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yes" type="LinkButton" parent="Control/Buttons"]
+margin_left = 1123.0
+margin_top = 563.0
+margin_right = 1302.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 3 )
+text = "Yes"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="v" type="Sprite" parent="Control/Buttons/Yes"]
+position = Vector2( -90, 80 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 2 )
+
+[node name="No" type="LinkButton" parent="Control/Buttons"]
+margin_left = 350.0
+margin_top = 563.0
+margin_right = 505.0
+margin_bottom = 714.0
+custom_fonts/font = SubResource( 2 )
+text = "No"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="x" type="Sprite" parent="Control/Buttons/No"]
+position = Vector2( -90, 80 )
+scale = Vector2( 5, 5 )
+texture = ExtResource( 3 )
+[connection signal="pressed" from="Control/Buttons/Yes" to="Control/Buttons/Yes" method="_on_Yes_pressed"]
+[connection signal="pressed" from="Control/Buttons/No" to="Control/Buttons/No" method="_on_No_pressed"]

@@ -11,5 +11,5 @@ func set_hp(value: int):
 func reduce_by(value):
 	var new_value = int(label.text) - value
 	if new_value <= 0:
-		print("TODO: game over")
+		Game.change_scene("res://scenes/gameplay/game-over-layer/game-over-layer.tscn")
 	label.text = str(clamp(new_value, 0, MAX_HP))
