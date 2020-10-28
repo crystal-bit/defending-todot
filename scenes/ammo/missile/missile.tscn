@@ -17,7 +17,7 @@ animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "explosion",
-"speed": 5.0
+"speed": 15.0
 } ]
 
 [node name="missile" type="KinematicBody2D"]
@@ -50,7 +50,5 @@ visible = false
 frames = SubResource( 2 )
 animation = "explosion"
 
-[node name="LifeTimer" type="Timer" parent="."]
-wait_time = 5.0
+[node name="Tween" type="Tween" parent="."]
 [connection signal="animation_finished" from="Explosion" to="." method="_on_Explosion_animation_finished"]
-[connection signal="timeout" from="LifeTimer" to="." method="_on_LifeTimer_timeout"]
