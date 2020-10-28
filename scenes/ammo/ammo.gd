@@ -1,7 +1,6 @@
 extends KinematicBody2D
 class_name Ammo
 
-onready var life_timer = $LifeTimer
 onready var tween = $Tween
 const MAX_VELOCITY = 600
 
