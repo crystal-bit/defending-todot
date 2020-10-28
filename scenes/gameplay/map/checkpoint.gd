@@ -41,6 +41,7 @@ func _ready():
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
+			Scenes.main.lock_input_until_scene_changed = true
 			if check_state != 0:
 				var params = {
 					"level_idx": scene_load,
