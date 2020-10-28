@@ -8,6 +8,7 @@ var shot_direction
 
 func _ready():
 	acceleration = Vector2(1.0, 1.0)
+	$LifeTimer.start()
 
 
 func _process(delta):
@@ -18,4 +19,20 @@ func _process(delta):
 	
 	if dynamics:
 		if dynamics.collider.is_in_group("enemies"):
-			queue_free() #remove scene from the tree after the strike
+			explosion()
+
+
+func _on_Explosion_animation_finished():
+	queue_free()
+
+
+func _on_LifeTimer_timeout():
+	explosion()
+
+
+func explosion():
+	shot_direction = 0
+	$Sprite.visible = false
+	$CollisionShape2D.disabled = true
+	$Explosion.visible = true
+	$Explosion.play()
