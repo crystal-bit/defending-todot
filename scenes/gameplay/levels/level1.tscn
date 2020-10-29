@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/sprites/tower-defense-top-down/spritesheet/tower-defense_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://scenes/gameplay/hit-area/hit-area.tscn" type="PackedScene" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://scenes/enemy/enemy-types/tank.tres" type="Resource" id=15]
 [ext_resource path="res://scenes/enemy-commander/enemy-commander.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/enemy/enemy-types/tank-elite.tres" type="Resource" id=17]
+[ext_resource path="res://scenes/enemy/enemy-types/aircraft.tres" type="Resource" id=18]
+[ext_resource path="res://scenes/enemy/enemy-types/aircraft-elite.tres" type="Resource" id=19]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tower-defense_spritesheet.png 0"
@@ -93,14 +95,12 @@ delay_in_sec = 1.5
 [node name="EnemyGroup4" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
 
 [node name="EnemyGroup5" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
+enemy_resource = ExtResource( 18 )
 num_of_enemies = 2
 delay_in_sec = 3.5
 
 [node name="EnemyGroup6" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
-
-[node name="EnemyGroup7" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
-num_of_enemies = 8
-delay_in_sec = 0.6
+enemy_resource = ExtResource( 19 )
 
 [node name="EnemyWave2" parent="WaveManager" instance=ExtResource( 13 )]
 delay_in_sec = 4.0
@@ -154,6 +154,8 @@ __meta__ = {
 
 [node name="EnemyCallButton" parent="." instance=ExtResource( 14 )]
 position = Vector2( 929.326, 59.5818 )
+id = 0
+direction = 0
 
 [node name="StrategicPoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 448.08, 535.259 )
