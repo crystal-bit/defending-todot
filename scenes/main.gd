@@ -5,7 +5,7 @@ onready var transitions: Transitions = $Transitions
 onready var active_scene_container = $ActiveSceneContainer
 
 var initial_fade_active = true
-
+var lock_input_until_scene_changed = false
 
 func _init():
 	Game.set_main_node(self)
@@ -27,6 +27,6 @@ func get_active_scene():
 
 
 func _input(event: InputEvent):
-	if transitions.playing():
+	if transitions.playing() or lock_input_until_scene_changed:
 		# prevent  all input events
 		get_tree().set_input_as_handled()
