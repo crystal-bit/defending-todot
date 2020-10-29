@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://scenes/enemy/enemy_resource.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/ui/png/green_button06.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/aereo_base_elite-128x128.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
