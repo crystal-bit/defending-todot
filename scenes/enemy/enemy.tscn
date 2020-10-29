@@ -26,6 +26,7 @@ cast_to = Vector2( 30, 0 )
 collide_with_areas = true
 
 [node name="Node2D" type="Node2D" parent="."]
+z_index = 1
 
 [node name="TextureProgress" type="TextureProgress" parent="Node2D"]
 margin_left = -24.0
