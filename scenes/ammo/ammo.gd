@@ -28,6 +28,7 @@ func _process(delta):
 
 
 func _on_Explosion_animation_finished():
+	yield($AudioStreamPlayer2D, "finished")
 	queue_free()
 
 
@@ -40,6 +41,7 @@ func disappear():
 
 func explosion():
 	set_process(false)
+	$AudioStreamPlayer2D.play()
 	$Sprite.visible = false
 	$CollisionShape2D.disabled = true
 	$Explosion.visible = true
