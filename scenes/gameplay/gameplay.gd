@@ -15,7 +15,7 @@ func _on_HitArea_enemy_arrived(enemy):
 
 func pre_start(params):
 	if not params.has("level_path"):
-		load_level(params.level_path)
+		load_level("res://scenes/gameplay/levels/level1.tscn")
 	else:
 		load_level(params.level_path)
 

@@ -46,8 +46,8 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 
 
 func load_level():
-	Scenes.main.lock_input_until_scene_changed = true
 	if check_state != 0:
+		Scenes.main.lock_input_until_scene_changed = true
 		var params = {
 			"level_path": level_path % scene_load,
 		}
