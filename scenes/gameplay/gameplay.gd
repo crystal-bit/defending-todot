@@ -12,7 +12,6 @@ func _ready() -> void:
 
 
 func _on_HitArea_enemy_arrived(enemy):
-	# TODO: add "hp damage" property to enemy resource
 	ui.hp.reduce_by(enemy.enemy_resource.damage)
 
 
