@@ -42,16 +42,20 @@ func _ready():
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed:
-			Scenes.main.lock_input_until_scene_changed = true
-			if check_state != 0:
-				var params = {
-					"level_path": level_path % scene_load,
-				}
-				level_selected_audio.play()
-				pressed.play()
-				anim.play("pressed")
-				yield(level_selected_audio, "finished")
-				Game.change_scene("res://scenes/gameplay/gameplay.tscn", params)
-			else:
-				level_locked.play()
+			load_level()
 
+
+func load_level():
+	Scenes.main.lock_input_until_scene_changed = true
+	if check_state != 0:
+		var params = {
+			"level_path": level_path % scene_load,
+		}
+		MenuBackgroundMusic.fade_out()
+		level_selected_audio.play()
+		pressed.play()
+		anim.play("pressed")
+		yield(level_selected_audio, "finished")
+		Game.change_scene("res://scenes/gameplay/gameplay.tscn", params)
+	else:
+		level_locked.play()

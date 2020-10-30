@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/audio/main_menu_music.wav" type="AudioStream" id=1]
+[ext_resource path="res://autoload/menu_background_music.gd" type="Script" id=2]
 
 [node name="MenuBGM" type="AudioStreamPlayer"]
+pause_mode = 2
 stream = ExtResource( 1 )
-autoplay = true
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]

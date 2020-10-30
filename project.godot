@@ -115,6 +115,7 @@ config/icon="res://assets/sprites/icon.png"
 Scenes="*res://autoload/scenes.gd"
 Game="*res://autoload/game.gd"
 ResourceManager="*res://autoload/resource_manager.gd"
+MenuBackgroundMusic="*res://autoload/menu_background_music.tscn"
 
 [display]
 
