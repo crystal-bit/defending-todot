@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/fonts/luckiest-guy/luckiest-guy-regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resources/fonts/boogaloo-40px.tres" type="DynamicFont" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://assets/menu_background.png" type="Texture" id=7]
 [ext_resource path="res://assets/menu_title_shadow.png" type="Texture" id=8]
 [ext_resource path="res://scenes/menu/menu.gd" type="Script" id=9]
+[ext_resource path="res://assets/menu_vignette.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -72,6 +73,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("Vignette:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.282353 ), Color( 1, 1, 1, 0.647059 ) ]
+}
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
@@ -85,6 +98,15 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vignette" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.647059 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -110,7 +132,6 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 288.0
 margin_top = 24.0
 margin_right = 1312.0
@@ -124,8 +145,7 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -99.9999
-margin_top = 3.05176e-05
+margin_left = -100.0
 margin_right = 100.0
 margin_bottom = 272.0
 custom_constants/separation = 16
