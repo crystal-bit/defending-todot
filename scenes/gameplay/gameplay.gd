@@ -4,8 +4,6 @@ onready var level = $Level
 onready var ui = $UI
 onready var bgm = $BGM
 
-const level_path = "res://scenes/gameplay/levels/level%d.tscn"
-
 
 func _ready() -> void:
 	bgm.play()
@@ -16,10 +14,10 @@ func _on_HitArea_enemy_arrived(enemy):
 
 
 func pre_start(params):
-	if not params.has("level_idx"):
-		load_level(1)
+	if not params.has("level_path"):
+		load_level(params.level_path)
 	else:
-		load_level(params.level_idx)
+		load_level(params.level_path)
 
 
 func start():
@@ -29,8 +27,8 @@ func start():
 
 
 
-func load_level(level_idx):
-	level.replace_by_instance(load(level_path % level_idx))
+func load_level(level_scene_path):
+	level.replace_by_instance(load(level_scene_path))
 	update_ui()
 
 

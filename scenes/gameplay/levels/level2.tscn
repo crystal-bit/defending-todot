@@ -34,7 +34,9 @@ vertices = PoolVector2Array( 832, 352, 832, -64, 1024, -64, 1024, 448, 736, 640,
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 8, 4, 7 ), PoolIntArray( 8, 7, 9, 10 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 11, 9, 12, 3 ), PoolIntArray( 0, 3, 12 ) ]
 outlines = [ PoolVector2Array( 832, 352, 800, 384, 512, 384, 512, 768, 1664, 768, 1664, 640, 736, 640, 704, 608, 704, 480, 736, 448, 1024, 448, 1024, -64, 832, -64 ) ]
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D" groups=[
+"Levels",
+]]
 __meta__ = {
 "_edit_lock_": true
 }

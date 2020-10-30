@@ -11,6 +11,7 @@ const check_lock = "res://assets/sprites/map/checkLock.png"
 const check_todo = "res://assets/sprites/map/checkToDo.png"
 const check_done = "res://assets/sprites/map/checkDone.png"
 const n_star = "res://assets/sprites/map/star%d.png"
+const level_path = "res://scenes/gameplay/levels/level%d.tscn"
 
 enum CHECKPOINT_STATE {
 	LOCKED,
@@ -44,7 +45,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 			Scenes.main.lock_input_until_scene_changed = true
 			if check_state != 0:
 				var params = {
-					"level_idx": scene_load,
+					"level_path": level_path % scene_load,
 				}
 				level_selected_audio.play()
 				pressed.play()
