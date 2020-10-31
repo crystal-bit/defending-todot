@@ -3,6 +3,7 @@ extends CanvasLayer
 onready var pause_screen := $Pause
 onready var resume_option := $Pause/VBoxOptions/Resume
 onready var menu_option := $"Pause/VBoxOptions/Main Menu"
+onready var audio = $AudioStreamPlayer
 
 func _ready():
 	resume_option.text = tr('RESUME')
@@ -29,10 +30,12 @@ func pause_game():
 
 
 func _on_Resume_pressed():
+	audio.play()
 	resume()
 
 
 func _on_Main_Menu_pressed():
+	audio.play()
 	""" Note: this should be connected as one-shot to avoid bugs on
 	multiple click during animations.
 	For other parts of the game the pause state takes care of this."""
