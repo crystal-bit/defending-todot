@@ -10,7 +10,6 @@
 [ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion4.png" type="Texture" id=8]
 [ext_resource path="res://assets/audio/explosion.wav" type="AudioStream" id=9]
 
-
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.71297, 22.9291 )
 
