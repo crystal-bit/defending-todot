@@ -112,4 +112,5 @@ func fire(_target: Enemy):
 	ammo.shot_direction = to_target
 	ammo.set_position(position)
 	ammo.set_rotation(to_target.angle() + TOWER_ROTATION_OFFSET)
+	ammo.damage = 40
 	add_child(ammo)

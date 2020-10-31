@@ -8,7 +8,7 @@ var velocity = 100 # initial velocity
 var acceleration = 2
 var shot_direction := Vector2()
 var travelled_distance = 0
-
+var damage = 30
 
 func _ready():
 	pass
@@ -24,7 +24,7 @@ func _process(delta):
 	var collision_data = move_and_collide(velocity * shot_direction * delta)
 
 	if collision_data and collision_data.collider.is_in_group("enemies"):
-		explosion()
+		explosion(collision_data.collider)
 
 
 func _on_Explosion_animation_finished():
@@ -39,7 +39,10 @@ func disappear():
 	queue_free()
 
 
-func explosion():
+func explosion(collider : KinematicBody2D):
+	var enemy: Enemy = collider as Enemy
+	if enemy:
+		enemy.take_damage(damage)
 	set_process(false)
 	$AudioStreamPlayer2D.play()
 	$Sprite.visible = false
