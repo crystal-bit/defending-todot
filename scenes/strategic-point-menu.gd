@@ -45,9 +45,9 @@ func hide_menu():
 
 
 func buy_tower(slot: Slot):
-	var ui = get_tree().get_nodes_in_group("UI")[0]
-	if int(ui.money.label.text) >= slot.tower_resource.cost:
-		ui.money.label.text = str(int(ui.money.label.text) - slot.tower_resource.cost)
+	var money: Money = get_tree().get_nodes_in_group("UI")[0].money
+	if money.balance >= slot.tower_resource.cost:
+		money.subtract(slot.tower_resource.cost)
 		emit_signal("tower_bought", slot.tower_resource.tower_type)
 		hide()
 	else:

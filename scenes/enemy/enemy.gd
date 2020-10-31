@@ -2,11 +2,11 @@ extends KinematicBody2D
 class_name Enemy
 tool
 
+signal death(money, global_position)
 export(Resource) var enemy_resource setget set_resource
 
 onready var path_follow = get_parent()
 onready var texture_progress = $Node2D/TextureProgress
-
 
 func initialise(enemy_res):
 	self.enemy_resource = enemy_res
@@ -51,4 +51,5 @@ func take_damage(value: int):
 	var previous_hp: int = texture_progress.value
 	set_hp(texture_progress.value - value)
 	if (previous_hp <= value):
+		emit_signal("death", enemy_resource.money_dropped, global_position)
 		queue_free()
