@@ -1,7 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/sprites/tower-defense-top-down/spritesheet/tower-defense_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://scenes/gameplay/hit-area/hit-area.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/strategic-point.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/enemy/enemy-types/soldier-elite.tres" type="Resource" id=4]
+[ext_resource path="res://scenes/enemy_wave/enemy_wave.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/enemy_wave/enemy_waves_manager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/enemy_wave/enemy_group.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/enemy-commander/enemy-commander.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/enemy-call-button/enemy-call-button.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/gameplay/levels/level_manager.gd" type="Script" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tower-defense_spritesheet.png 0"
@@ -34,9 +42,15 @@ vertices = PoolVector2Array( 832, 352, 832, -64, 1024, -64, 1024, 448, 736, 640,
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 8, 4, 7 ), PoolIntArray( 8, 7, 9, 10 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 11, 9, 12, 3 ), PoolIntArray( 0, 3, 12 ) ]
 outlines = [ PoolVector2Array( 832, 352, 800, 384, 512, 384, 512, 768, 1664, 768, 1664, 640, 736, 640, 704, 608, 704, 480, 736, 448, 1024, 448, 1024, -64, 832, -64 ) ]
 
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 937.89, -17.9568, 0, 0, 0, 0, 922.05, 111.019, 0, 0, 0, 0, 883.584, 201.529, 0, 0, 0, 0, 870.007, 328.243, 0, 0, 0, 0, 892.635, 398.388, 0, 0, 0, 0, 761.396, 416.49, 0, 0, 0, 0, 634.682, 491.16, 0, 0, 0, 0, 643.733, 595.246, 0, 0, 0, 0, 673.149, 703.858, 0, 0, 0, 0, 817.964, 721.96, 0, 0, 0, 0, 1048.76, 715.171, 0, 0, 0, 0, 1213.94, 710.646, 0, 0, 0, 0, 1417.59, 715.171, 0, 0, 0, 0, 1539.78, 708.383, 0, 0, 0, 0, 1652.92, 699.332 )
+}
+
 [node name="Level2" type="Node2D" groups=[
 "Levels",
 ]]
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -48,6 +62,10 @@ tile_data = PoolIntArray( -65536, 0, 458753, -65535, 0, 458753, -65534, 0, 45875
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="EnemyCommander" parent="." instance=ExtResource( 8 )]
+wave_manager_path = NodePath("../WaveManager")
+call_button_path = NodePath("../EnemyCallButton")
 
 [node name="HitArea" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1618.29, 704.646 )
@@ -65,5 +83,28 @@ position = Vector2( 928, -34 )
 __meta__ = {
 "_gizmo_extents_": 32.0
 }
+
+[node name="StrategicPoint" parent="." instance=ExtResource( 3 )]
+position = Vector2( 766.732, 307.547 )
+
+[node name="StrategicPoint2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 967.491, 583.058 )
+
+[node name="WaveManager" parent="." instance=ExtResource( 6 )]
+
+[node name="EnemyWave" parent="WaveManager" instance=ExtResource( 5 )]
+
+[node name="EnemyGroup" parent="WaveManager/EnemyWave" instance=ExtResource( 7 )]
+
+[node name="EnemyGroup2" parent="WaveManager/EnemyWave" instance=ExtResource( 7 )]
+enemy_resource = ExtResource( 4 )
+num_of_enemies = 2
+delay_in_sec = 2.0
+
+[node name="EnemyCallButton" parent="." instance=ExtResource( 9 )]
+position = Vector2( 932.328, 71.1959 )
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 4 )
 
 [editable path="HitArea"]
