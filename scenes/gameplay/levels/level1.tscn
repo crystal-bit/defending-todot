@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/sprites/tower-defense-top-down/spritesheet/tower-defense_spritesheet.png" type="Texture" id=1]
 [ext_resource path="res://scenes/gameplay/hit-area/hit-area.tscn" type="PackedScene" id=2]
@@ -16,7 +16,6 @@
 [ext_resource path="res://scenes/enemy-call-button/enemy-call-button.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/enemy/enemy-types/tank.tres" type="Resource" id=15]
 [ext_resource path="res://scenes/enemy-commander/enemy-commander.tscn" type="PackedScene" id=16]
-[ext_resource path="res://scenes/enemy/enemy-types/aircraft.tres" type="Resource" id=18]
 [ext_resource path="res://scenes/gameplay/levels/cr.gd" type="Script" id=20]
 [ext_resource path="res://scenes/fx/CoinParticles.tscn" type="PackedScene" id=21]
 
@@ -88,30 +87,6 @@ num_of_enemies = 2
 [node name="EnemyGroup2" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
 enemy_resource = ExtResource( 15 )
 num_of_enemies = 2
-
-[node name="EnemyGroup3" parent="WaveManager/EnemyWave" instance=ExtResource( 12 )]
-num_of_enemies = 6
-delay_in_sec = 1.5
-
-[node name="EnemyWave2" parent="WaveManager" instance=ExtResource( 13 )]
-delay_in_sec = 4.0
-description = "Things get hard"
-
-[node name="EnemyGroup" parent="WaveManager/EnemyWave2" instance=ExtResource( 12 )]
-num_of_enemies = 4
-
-[node name="EnemyGroup2" parent="WaveManager/EnemyWave2" instance=ExtResource( 12 )]
-num_of_enemies = 6
-
-[node name="EnemyGroup3" parent="WaveManager/EnemyWave2" instance=ExtResource( 12 )]
-enemy_resource = ExtResource( 18 )
-num_of_enemies = 2
-delay_in_sec = 5.0
-
-[node name="EnemyGroup4" parent="WaveManager/EnemyWave2" instance=ExtResource( 12 )]
-enemy_resource = ExtResource( 15 )
-num_of_enemies = 2
-delay_in_sec = 4.0
 
 [node name="HitArea" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1618.29, 704.646 )

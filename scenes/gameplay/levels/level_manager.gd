@@ -6,6 +6,8 @@ const ENEMY_FOLLOWING_V_OFFSET = 50
 onready var wave_manager: WaveManager = $WaveManager
 var enemy_scene = preload("res://scenes/enemy/enemy.tscn")
 
+signal level_ended
+
 
 func _on_WaveManager_spawn_enemy(enemy_resource):
 	var enemy: Enemy = enemy_scene.instance()
@@ -39,7 +41,7 @@ func _on_enemy_death(money: int, enemy_position: Vector2):
 func check_if_last_enemy():
 	print(wave_manager.total_enemies_count)
 	if wave_manager.total_enemies_count == 0:
-		print("GAME ENDED!")
+		emit_signal("level_ended")
 
 
 func _on_WaveManager_last_enemy_in_actual_wave_spawned():

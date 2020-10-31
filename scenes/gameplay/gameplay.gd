@@ -27,7 +27,13 @@ func start():
 		hit_area.connect("enemy_arrived", self, "_on_HitArea_enemy_arrived")
 	wave_manager = get_tree().get_nodes_in_group("WaveManager")[0]
 	update_ui()
+	# update refence from InstancePlaceholder to Node2D (level)
+	level = get_node("Level")
+	level.connect("level_ended", self, "_on_level_ended")
 
+
+func _on_level_ended():
+	$VictoryOverlay.appear()
 
 
 func load_level(level_scene_path):

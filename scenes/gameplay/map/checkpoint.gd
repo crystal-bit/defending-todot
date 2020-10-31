@@ -10,19 +10,31 @@ onready var pressed = $Pressed
 const check_lock = "res://assets/sprites/map/checkLock.png"
 const check_todo = "res://assets/sprites/map/checkToDo.png"
 const check_done = "res://assets/sprites/map/checkDone.png"
-const n_star = "res://assets/sprites/map/star%d.png"
+const star_texture_path = "res://assets/sprites/map/star%d.png"
 const level_path = "res://scenes/gameplay/levels/level%d.tscn"
 
 enum CHECKPOINT_STATE {
-	LOCKED,
-	TODO,
-	DONE
+	LOCKED, # 0
+	TODO, # 1
+	DONE # 2
 }
 
 export var scene_load = 1
 export(CHECKPOINT_STATE) var check_state = CHECKPOINT_STATE.LOCKED
+var stars = -1
 
 func _ready():
+	load_checkpoints_state()
+	update_checkopoints_gfx()
+
+
+func load_checkpoints_state():
+	var data = Game.levels[scene_load - 1]
+	check_state = data.state
+	stars = data.star_rating
+
+
+func update_checkopoints_gfx():
 	match check_state:
 		CHECKPOINT_STATE.LOCKED:
 			icon_cp.texture = load(check_lock)
@@ -32,11 +44,12 @@ func _ready():
 			stars_cp.visible = false
 		CHECKPOINT_STATE.DONE:
 			icon_cp.texture = load(check_done)
-			if Game.n_stars_level.size() >= scene_load:
-				stars_cp.texture = load(n_star % Game.n_stars_level[scene_load - 1])
+			if stars >= 0 and stars <= 3:
+				stars_cp.texture = load(star_texture_path % stars)
 				stars_cp.visible = true
 		_:
 			pass
+
 
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
@@ -51,6 +64,7 @@ func load_level():
 		var params = {
 			"level_path": level_path % scene_load,
 		}
+		Game.current_level = scene_load
 		MenuBackgroundMusic.fade_out()
 		level_selected_audio.play()
 		pressed.play()
