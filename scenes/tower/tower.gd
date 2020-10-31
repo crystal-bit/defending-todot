@@ -112,5 +112,16 @@ func fire(_target: Enemy):
 	ammo.shot_direction = to_target
 	ammo.set_position(position)
 	ammo.set_rotation(to_target.angle() + TOWER_ROTATION_OFFSET)
-	ammo.damage = 100
+	ammo.damage = tower_resource.damage
+	ammo = apply_additional_effect(ammo)
 	add_child(ammo)
+
+
+func apply_additional_effect(obj: Ammo):
+	var tres: Tower_Resource = tower_resource
+	match tres.tower_type:
+		TowerType.Type.BUNKER:
+			obj.additional_effect["slow"] = tres.slow_effect
+	return obj
+
+

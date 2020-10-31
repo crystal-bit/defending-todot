@@ -9,6 +9,7 @@ var acceleration = 2
 var shot_direction := Vector2()
 var travelled_distance = 0
 var damage = 30
+var additional_effect = {}
 
 func _ready():
 	pass
@@ -42,6 +43,7 @@ func disappear():
 func explosion(collider : KinematicBody2D):
 	var enemy: Enemy = collider as Enemy
 	if enemy:
+		enemy.apply_status(additional_effect)
 		enemy.take_damage(damage)
 	set_process(false)
 	$AudioStreamPlayer2D.play()

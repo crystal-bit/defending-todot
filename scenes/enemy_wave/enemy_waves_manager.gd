@@ -25,9 +25,9 @@ signal spawn_enemy(enemy_resource)
 var waves := []
 var wave_counter := -1
 var is_last_wave := false
+var total_enemies_count = 0
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	# Add every children enemy_wave to waves
 	for children in get_children():
@@ -36,6 +36,17 @@ func _ready():
 			waves.append(children)
 			children.connect("last_enemy_spawned", self, "_on_EnemyWave_last_enemy_spawned")
 			children.connect("spawn_enemy", self, "_on_EnemyWave_spawn_enemy")
+	total_enemies_count = get_total_enemies_count()
+
+
+func get_total_enemies_count():
+	var total = 0
+	for wave in get_children():
+		if wave is EnemyWave:
+			for grp in wave.get_children():
+				if grp is EnemyGroup:
+					total += grp.num_of_enemies
+	return total
 
 
 func _on_EnemyWave_last_enemy_spawned():

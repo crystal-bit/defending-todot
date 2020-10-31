@@ -3,6 +3,7 @@ extends Node2D
 onready var level = $Level
 onready var ui = $UI
 onready var bgm = $BGM
+var wave_manager: WaveManager
 
 
 func _ready() -> void:
@@ -24,17 +25,17 @@ func start():
 	for ha in get_tree().get_nodes_in_group("HitAreas"):
 		var hit_area: HitArea = ha
 		hit_area.connect("enemy_arrived", self, "_on_HitArea_enemy_arrived")
+	wave_manager = get_tree().get_nodes_in_group("WaveManager")[0]
+	update_ui()
 
 
 
 func load_level(level_scene_path):
 	level.replace_by_instance(load(level_scene_path))
-	update_ui()
 
 
 func update_ui():
-	Game.money = 500
-	var wave_manager: WaveManager = get_tree().get_nodes_in_group("WaveManager")[0]
+	Game.money = 300
 	ui.wave.set_wave(0, wave_manager.waves.size())
 	ui.hp.set_hp(20)
 	ui.money.set_money(Game.money)

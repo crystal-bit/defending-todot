@@ -133,7 +133,7 @@ The player can interact with the game exclusively with the left mouse button or 
 
 **_Stats (first number is for base tower; second number is for upgraded tower):_**
 ```
-Range 40 | 60
+Range 130 | 170
 Damage 20 | 30
 Armor piercing 20% | 35%
 Rate of Fire 2 | 2.5
@@ -156,7 +156,7 @@ Non flying enemies speed is reduced by percentage of slow effect (actual speed â
 
 **_Stats (first number is for base tower; second number is for upgraded tower):_**
 ```
-Range 70 | 100
+Range 230 | 300
 Damage 30 | 40
 Armor piercing 65% | 90%
 Rate of Fire 1 | 1
