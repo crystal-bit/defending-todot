@@ -44,6 +44,8 @@ func _physics_process(delta):
 		path_follow.set_offset(path_follow.get_offset() + enemy_resource.speed * 12 * delta)
 
 
-#func set_hp():
-#	texture_progress.value = hp
-#	This is an example to update the TextureProgress with the hp value.
+func set_hp(value: int):
+	texture_progress.value = clamp(value, texture_progress.min_value, texture_progress.max_value) as int
+
+func take_damage(value: int):
+	set_hp(texture_progress.value - value)
