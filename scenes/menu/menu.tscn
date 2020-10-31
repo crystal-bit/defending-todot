@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/fonts/luckiest-guy/luckiest-guy-regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resources/fonts/boogaloo-40px.tres" type="DynamicFont" id=2]
@@ -6,23 +6,107 @@
 [ext_resource path="res://scenes/menu/exit-button.gd" type="Script" id=4]
 [ext_resource path="res://scenes/menu/credit-button.gd" type="Script" id=5]
 [ext_resource path="res://assets/audio/buttonpress.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/menu_background.png" type="Texture" id=7]
+[ext_resource path="res://assets/menu_title_shadow.png" type="Texture" id=8]
+[ext_resource path="res://scenes/menu/menu.gd" type="Script" id=9]
+[ext_resource path="res://assets/menu_vignette.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
 use_mipmaps = true
 font_data = ExtResource( 1 )
 
+[sub_resource type="Animation" id=2]
+resource_name = "ButtonsShow"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("VBoxContainer:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.48, 4 ),
+"update": 0,
+"values": [ Vector2( 700, 450 ), Vector2( 700, 520 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 3.4822, 0.277392 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "TitleShow"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CenterContainer/TextureRect:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.45, 12.55 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Vignette:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.282353 ), Color( 1, 1, 1, 0.647059 ) ]
+}
+
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.176471, 0.682353, 0.647059, 1 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vignette" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.282353 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -36,6 +120,7 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="CenterContainer"]
+visible = false
 margin_left = 417.0
 margin_top = 230.0
 margin_right = 1182.0
@@ -46,15 +131,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 288.0
+margin_top = 24.0
+margin_right = 1312.0
+margin_bottom = 536.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 512, 256 )
+texture = ExtResource( 8 )
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -100.0
-margin_top = -34.0
 margin_right = 100.0
-margin_bottom = 130.0
+margin_bottom = 272.0
 custom_constants/separation = 16
 __meta__ = {
 "_edit_use_anchors_": false
@@ -95,6 +190,10 @@ script = ExtResource( 5 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VBoxContainer"]
 stream = ExtResource( 6 )
 volume_db = 6.848
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ButtonsShow = SubResource( 2 )
+anims/TitleShow = SubResource( 3 )
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="VBoxContainer/ExitButton" method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditButton" to="VBoxContainer/CreditButton" method="_on_CreditButton_pressed"]
