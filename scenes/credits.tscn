@@ -1,14 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/credits.gd" type="Script" id=1]
 [ext_resource path="res://resources/fonts/boogaloo-40px.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/boogaloo/boogaloo-regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/sprites/ui/bonus/over_circular_texture_progress.png" type="Texture" id=4]
 [ext_resource path="res://assets/sprites/ui/bonus/circular_texture_progress.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/circle_05.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
 font_data = ExtResource( 3 )
+
+[sub_resource type="CanvasItemMaterial" id=2]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.228261, 0.724638, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 0.360784, 0.568627, 0.568627, 0.568627, 0.470588, 1, 1, 1, 0 )
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
@@ -18,6 +26,14 @@ margin_bottom = -0.0992432
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 900.182 ],
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.192157, 0.266667, 0.207843, 1 )
+__meta__ = {
 "_edit_use_anchors_": false
 }
 
@@ -71,4 +87,23 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_editor_description_": "This will be deleted on ready. Contributors name will be created by the script"
 }
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+modulate = Color( 1, 1, 1, 0.741176 )
+material = SubResource( 2 )
+position = Vector2( 816, 896 )
+amount = 30
+lifetime = 10.0
+texture = ExtResource( 6 )
+emission_shape = 2
+emission_rect_extents = Vector2( 800, 50 )
+gravity = Vector2( 0, -20 )
+initial_velocity = 20.0
+linear_accel = 6.25
+linear_accel_random = 0.11
+scale_amount = 0.5
+scale_amount_random = 0.65
+color_ramp = SubResource( 3 )
+hue_variation = -0.5
+hue_variation_random = 0.1
 [connection signal="credits_ended" from="." to="." method="_on_Credits_credits_ended"]

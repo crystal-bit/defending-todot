@@ -18,6 +18,11 @@ var contributors = [
 	"masmart",
 	"gVirtu",
 	"vclayton",
+	"antocorr",
+	"FlavioFS",
+	"",
+	'Special "Tanks" to...',
+	"all the Crystal Bit community!"
 ]
 
 onready var labels_container = $LabelsContainer
@@ -35,6 +40,8 @@ func _ready() -> void:
 	get_tree().connect("screen_resized", self, "_on_screen_resized")
 	var font_res = $PreviewLabel.get_font("font")
 	$PreviewLabel.queue_free()
+	$CPUParticles2D.position.x = Game.size.x / 2
+	$CPUParticles2D.position.y = Game.size.y
 
 	var idx = 0
 	for contrib_name in contributors:
