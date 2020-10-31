@@ -2,7 +2,7 @@ extends Node2D
 class_name EnemyGroup
 # A group of enemies consists of one or more units of the same type and grade.
 
-signal spawn_enemy(enemy_resourcew)
+signal spawn_enemy(enemy_resource)
 signal last_enemy_spawned()
 
 export(Resource) var enemy_resource
