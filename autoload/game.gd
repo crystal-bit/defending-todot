@@ -8,7 +8,7 @@ var n_stars_level = [2,0,0,0,0,0,0,0,0,0] # 10 Levels
 var size := Vector2.ZERO
 
 func _ready() -> void:
-	TranslationServer.set_locale('es')
+	# TranslationServer.set_locale('es')
 	get_tree().connect("screen_resized", self, "_on_screen_resized")
 	register_size()
 
