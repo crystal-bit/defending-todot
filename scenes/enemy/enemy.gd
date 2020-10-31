@@ -48,4 +48,7 @@ func set_hp(value: int):
 	texture_progress.value = clamp(value, texture_progress.min_value, texture_progress.max_value) as int
 
 func take_damage(value: int):
+	var previous_hp: int = texture_progress.value
 	set_hp(texture_progress.value - value)
+	if (previous_hp <= value):
+		queue_free()
