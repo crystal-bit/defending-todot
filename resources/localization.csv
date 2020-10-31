@@ -1,13 +1,19 @@
-id,en,it
-bunker1_description,Small strongholds full of brave soldiers,Piccole roccaforti piene di valorosi soldati
-bunker2_description,Strongholds full of fearsome soldiers,Roccaforti piene di temibili soldati
-sniper1_description,Towers with skilled soldiers who can strike from a distance,Torri con abili soldati che possono colpire a distanza
-sniper2_description,Hawk-eyed towers that can strike from a great distance,Torri con occhi di falco che possono colpire a grande distanza
-missile1_description,Rocket launchers that devastate large areas,Lanciarazzi che devastano grandi aree
-missile2_description,Huge rocket launchers that devastate huge areas,Enormi lanciarazzi che devastano immense aree
-START,START,INIZIA
-EXIT,EXIT,ESCI
-CREDITS,CREDITS,CREDITS
-RESUME,RESUME,RITORNA
-MAIN MENU,MAIN MENU,MENU PRINCIPALE
-SKIP CREDITS,Hold any key to skip credits,Tieni premuto un pulsante qualsiasi per uscire
+id,en,it,es
+bunker1_description,Small strongholds full of brave soldiers,Piccole roccaforti piene di valorosi soldati,Pequeñas fortalezas llenas de valientes soldados
+bunker2_description,Strongholds full of fearsome soldiers,Roccaforti piene di temibili soldati,Fortalezas llenas de temibles soldados
+sniper1_description,Towers with skilled soldiers who can strike from a distance,Torri con abili soldati che possono colpire a distanza,Torres con soldados habilidosos que pueden atacar desde la distancia
+sniper2_description,Hawk-eyed towers that can strike from a great distance,Torri con occhi di falco che possono colpire a grande distanza,Torres con ojos de halcón que pueden atacar desde una gran distancia
+missile1_description,Rocket launchers that devastate large areas,Lanciarazzi che devastano grandi aree,Lanzacohetes que devastan grandes áreas
+missile2_description,Huge rocket launchers that devastate huge areas,Enormi lanciarazzi che devastano immense aree,Enormes lanzacohetes que devastan enormes áreas
+START,START,INIZIA,COMIENZO
+EXIT,EXIT,ESCI,FUERA
+CREDITS,CREDITS,CREDITS,CREDITS
+RESUME,RESUME,RITORNA,VUELVE
+MAIN MENU,MAIN MENU,MENU PRINCIPALE,MENÚ PRINCIPAL
+SKIP CREDITS,Hold any key to skip credits,Tieni premuto un pulsante qualsiasi per uscire,Mantenga presionada cualquier tecla para omitir créditos
+Game Over,Game Over\nRetry?,Hai perso\nRipova?,Juego terminado\nReintentar?
+Yes,Yes,Si,Si
+Incoming Wave,Incoming Wave,Chiama ondata,Ola entrante
+Tap again to call it early,Tap again to call it early,Clicca nuovamente per chiamarla in anticipo,Toca de nuevo para llamar temprano
+For train your skill...,For train your skill...,Per allenare le tue capacità,Para entrenar tu habilidad...
+Things get hard,Things get hard,Le cose si fanno difficili,Las cosas se ponen difíciles

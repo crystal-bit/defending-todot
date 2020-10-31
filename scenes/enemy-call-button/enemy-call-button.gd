@@ -38,7 +38,7 @@ func _process(delta):
 
 func init_call_wave(_wait_time: float, _enemy_wave_description: String):
 	wait_time = _wait_time
-	enemy_wave_description = _enemy_wave_description
+	enemy_wave_description = tr(_enemy_wave_description)
 	texture_progress.max_value = wait_time * 1000
 	texture_progress.value = 0
 	wave_info.text = _enemy_wave_description

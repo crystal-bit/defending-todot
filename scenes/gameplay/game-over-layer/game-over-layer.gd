@@ -2,6 +2,9 @@ extends CanvasLayer
 
 var level_to_load
 
+func _ready():
+	$ColorRect/Buttons/Yes.text = tr("Yes")
+
 
 func pre_start(params):
 	if params.has("current_level_scene_path"):

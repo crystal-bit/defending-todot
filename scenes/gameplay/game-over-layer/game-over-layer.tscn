@@ -45,8 +45,7 @@ margin_top = 123.189
 margin_right = 1298.51
 margin_bottom = 526.189
 custom_fonts/font = SubResource( 1 )
-text = "Game Over
-Retry?"
+text = "Game Over"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
