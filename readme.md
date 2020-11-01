@@ -3,7 +3,7 @@
 ![game logo](https://github.com/crystal-bit/hacktoberfest-2020/blob/master/assets/menu_title_shadow.png?raw=true)
 
 
-This unnamed game (you can [propose a title here](https://github.com/crystal-bit/hacktoberfest-2020/issues/1)) has been created for people who want to practice game development collaboratively while partecipating to the [Hacktoberfest 2020](https://hacktoberfest.digitalocean.com/).
+**Defending Todot** has been created for people who want to practice game development collaboratively while partecipating to the [Hacktoberfest 2020](https://hacktoberfest.digitalocean.com/).
 
 It's a tower defense game inspired by Kingdom Rush.
 
