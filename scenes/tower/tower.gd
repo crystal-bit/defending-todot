@@ -9,7 +9,7 @@ onready var attack_range_area: Area2D = $AttackRange/AttackRange
 onready var rally_point = $RallyPoint
 onready var sprite = $Sprite
 onready var fire_timer = $FireTimer
-onready var missile_scene = preload("res://scenes/ammo/missile/missile.tscn")
+onready var missile_scene = preload("res://scenes/projectile/missile/missile.tscn")
 
 var alpha_area_show : float = .5
 var alpha_area_hide : float = 0
@@ -107,17 +107,17 @@ func load_resource_data(p_tower_resource : Tower_Resource):
 
 
 func fire(_target: Enemy):
-	var ammo = missile_scene.instance()
+	var projectile = missile_scene.instance()
 	var to_target = (_target.global_position - global_position).normalized()
-	ammo.shot_direction = to_target
-	ammo.set_position(position)
-	ammo.set_rotation(to_target.angle() + TOWER_ROTATION_OFFSET)
-	ammo.damage = tower_resource.damage
-	ammo = apply_additional_effect(ammo)
-	add_child(ammo)
+	projectile.shot_direction = to_target
+	projectile.set_position(position)
+	projectile.set_rotation(to_target.angle() + TOWER_ROTATION_OFFSET)
+	projectile.damage = tower_resource.damage
+	projectile = apply_additional_effect(projectile)
+	add_child(projectile)
 
 
-func apply_additional_effect(obj: Ammo):
+func apply_additional_effect(obj: Projectile):
 	var tres: Tower_Resource = tower_resource
 	match tres.tower_type:
 		TowerType.Type.BUNKER:
