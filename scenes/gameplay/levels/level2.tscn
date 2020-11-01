@@ -68,29 +68,6 @@ __meta__ = {
 wave_manager_path = NodePath("../WaveManager")
 call_button_path = NodePath("../EnemyCallButton")
 
-[node name="HitArea" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1618.29, 704.646 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
-shape = SubResource( 2 )
-
-[node name="Navigation2D" type="Navigation2D" parent="."]
-
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
-navpoly = SubResource( 3 )
-
-[node name="SpawnPoint" type="Position2D" parent="."]
-position = Vector2( 928, -34 )
-__meta__ = {
-"_gizmo_extents_": 32.0
-}
-
-[node name="StrategicPoint" parent="." instance=ExtResource( 3 )]
-position = Vector2( 766.732, 307.547 )
-
-[node name="StrategicPoint2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 967.491, 583.058 )
-
 [node name="WaveManager" parent="." instance=ExtResource( 6 )]
 
 [node name="EnemyWave" parent="WaveManager" instance=ExtResource( 5 )]
@@ -102,11 +79,36 @@ enemy_resource = ExtResource( 4 )
 num_of_enemies = 2
 delay_in_sec = 2.0
 
-[node name="EnemyCallButton" parent="." instance=ExtResource( 9 )]
-position = Vector2( 932.328, 71.1959 )
+[node name="HitArea" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1618.29, 704.646 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+shape = SubResource( 2 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 3 )
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 4 )
+
+[node name="SpawnPoint" type="Position2D" parent="."]
+position = Vector2( 928, -34 )
+__meta__ = {
+"_gizmo_extents_": 32.0
+}
+
+[node name="EnemyCallButton" parent="." instance=ExtResource( 9 )]
+position = Vector2( 932.328, 71.1959 )
+id = 0
+direction = 0
+
+[node name="StrategicPoint" parent="." instance=ExtResource( 3 )]
+position = Vector2( 766.732, 307.547 )
+
+[node name="StrategicPoint2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 967.491, 583.058 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

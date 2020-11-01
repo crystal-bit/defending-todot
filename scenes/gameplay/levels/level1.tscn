@@ -131,6 +131,8 @@ __meta__ = {
 
 [node name="EnemyCallButton" parent="." instance=ExtResource( 14 )]
 position = Vector2( 929.326, 59.5818 )
+id = 0
+direction = 0
 
 [node name="StrategicPoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 448.08, 535.259 )
