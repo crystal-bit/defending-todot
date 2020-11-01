@@ -51,7 +51,7 @@ outlines = [ PoolVector2Array( 861.326, 537.269, 874.674, 489.215, 902.378, 479.
 
 [sub_resource type="Curve2D" id=4]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 42.225, 542.426, 0, 0, 0, 0, 218.689, 556.339, 0, 0, 0, 0, 368.254, 570.773, 0, 0, 0, 0, 544.739, 582.32, 0, 0, 0, 0, 628.495, 567.886, 0, 0, 0, 0, 724.216, 564.999, 0, 0, 0, 0, 841.237, 508.029, 0, 0, 0, 0, 960.888, 519.343, 0, 0, 0, 0, 999.414, 484.172, 0, 0, 0, 0, 948.923, 434.49, 0, 0, 0, 0, 849.85, 437.985, 0, 0, 0, 0, 865.167, 400.549, 0, 0, 0, 0, 909.676, 371.592, 0, 0, 0, 0, 975.484, 377.365, 0, 0, 0, 0, 1038.66, 377.921, 0, 0, 0, 0, 1002.41, 328.291, 0, 0, 0, 0, 901.063, 318.525, 0, 0, 0, 0, 966.871, 264.784, 0, 0, 0, 0, 1092.14, 296.538, 0, 0, 0, 0, 1098.13, 368.705, 0, 0, 0, 0, 1143, 417.779, 0, 0, 0, 0, 1205.81, 426.439, 0, 0, 0, 0, 1232.73, 391.798, 0, 0, 0, 0, 1262.65, 360.045, 0, 0, 0, 0, 1193.85, 322.518, 0, 0, 0, 0, 1242.07, 293.069, 0, 0, 0, 0, 1331.45, 310.971, 0, 0, 0, 0, 1340.78, 375.093, 0, 0, 0, 0, 1415.2, 388.912, 0, 0, 0, 0, 1472.4, 304.382, 0, 0, 0, 0, 1499.32, 386.407, 0, 0, 0, 0, 1636.92, 332.667 )
+"points": PoolVector2Array( 0, 0, 0, 0, 27.2478, 541.907, 0, 0, 0, 0, 158.864, 539.021, 0, 0, 0, 0, 314.411, 547.681, 0, 0, 0, 0, 434.063, 536.134, 0, 0, 0, 0, 535.767, 539.021, 0, 0, 0, 0, 610.549, 536.134, 0, 0, 0, 0, 718.235, 527.474, 0, 0, 0, 0, 781.052, 530.361, 0, 0, 0, 0, 858.826, 547.681, 0, 0, 0, 0, 894.721, 536.134, 0, 0, 0, 0, 924.634, 518.814, 0, 0, 0, 0, 930.617, 481.287, 0, 0, 0, 0, 915.66, 458.193, 0, 0, 0, 0, 888.739, 446.647, 0, 0, 0, 0, 885.747, 406.233, 0, 0, 0, 0, 906.686, 365.819, 0, 0, 0, 0, 927.625, 345.613, 0, 0, 0, 0, 957.538, 334.066, 0, 0, 0, 0, 1005.4, 331.179, 0, 0, 0, 0, 1041.29, 336.953, 0, 0, 0, 0, 1080.18, 348.499, 0, 0, 0, 0, 1104.11, 351.386, 0, 0, 0, 0, 1157.95, 362.933, 0, 0, 0, 0, 1220.77, 365.819, 0, 0, 0, 0, 1298.55, 360.046, 0, 0, 0, 0, 1406.23, 351.386, 0, 0, 0, 0, 1489.99, 342.726, 0, 0, 0, 0, 1675.45, 348.499 )
 }
 
 [node name="Level2" type="Node2D" groups=[
@@ -108,7 +108,7 @@ position = Vector2( -82.7601, 21.3575 )
 navpoly = SubResource( 3 )
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2( 34.5544, 5.34354 )
+position = Vector2( 34.5544, 8.17197 )
 scale = Vector2( 0.945556, 0.979819 )
 curve = SubResource( 4 )
 
@@ -119,7 +119,6 @@ __meta__ = {
 }
 
 [node name="EnemyCallButton" parent="." instance=ExtResource( 9 )]
-visible = true
 position = Vector2( 98, 545 )
 rotation = 4.71239
 angular_damp = 0.0
@@ -177,31 +176,27 @@ position = Vector2( 423.353, 699.739 )
 texture = ExtResource( 16 )
 
 [node name="Bush11" type="Sprite" parent="Detail"]
-position = Vector2( 892.872, 467.808 )
-texture = ExtResource( 15 )
-
-[node name="Bush12" type="Sprite" parent="Detail"]
 position = Vector2( 1359.56, 600.744 )
 texture = ExtResource( 16 )
 
-[node name="Bush13" type="Sprite" parent="Detail"]
+[node name="Bush12" type="Sprite" parent="Detail"]
 position = Vector2( 284.76, 691.254 )
 texture = ExtResource( 16 )
 
-[node name="Bush14" type="Sprite" parent="Detail"]
+[node name="Bush13" type="Sprite" parent="Detail"]
 position = Vector2( 363.955, 405.583 )
 texture = ExtResource( 16 )
 
-[node name="Bush15" type="Sprite" parent="Detail"]
+[node name="Bush14" type="Sprite" parent="Detail"]
 position = Vector2( 247.99, 399.926 )
 texture = ExtResource( 16 )
 
-[node name="Bush16" type="Sprite" parent="Detail"]
+[node name="Bush15" type="Sprite" parent="Detail"]
 position = Vector2( 714.68, 408.411 )
 texture = ExtResource( 16 )
 
 [node name="Tree" type="Sprite" parent="Detail"]
-position = Vector2( 892.872, 467.808 )
+position = Vector2( 873.073, 448.009 )
 texture = ExtResource( 15 )
 
 [node name="Rock" type="Sprite" parent="Detail"]
@@ -216,6 +211,10 @@ position = Vector2( 0, 0 )
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.82837
+margin_top = 868.328
+margin_right = 2.82837
+margin_bottom = 868.328
 mouse_filter = 2
 color = Color( 0.0588235, 0.0588235, 0.0588235, 0.4 )
 __meta__ = {
