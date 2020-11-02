@@ -42,10 +42,11 @@ position = Vector2( 0, 20 )
 scale = Vector2( 2, 1.5 )
 amount = 3
 randomness = 0.56
-lifetime_randomness = 0.35
+lifetime_randomness = 0.1
 texture = ExtResource( 9 )
 
 [node name="Explosion" type="AnimatedSprite" parent="."]
+visible = false
 position = Vector2( 0, -48.095 )
 scale = Vector2( 1.16799, 1.13649 )
 frames = SubResource( 2 )
