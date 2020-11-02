@@ -22,6 +22,7 @@ animations = [ {
 } ]
 
 [node name="Bullet" type="KinematicBody2D"]
+scale = Vector2( 0.25, 0.25 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -40,15 +41,18 @@ show_behind_parent = true
 position = Vector2( 0, 20 )
 scale = Vector2( 2, 1.5 )
 amount = 3
-lifetime = 1.3
 randomness = 0.56
 lifetime_randomness = 0.35
 texture = ExtResource( 9 )
 
 [node name="Explosion" type="AnimatedSprite" parent="."]
-visible = false
+position = Vector2( 0, -48.095 )
+scale = Vector2( 1.16799, 1.13649 )
 frames = SubResource( 2 )
 animation = "explosion"
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Tween" type="Tween" parent="."]
 

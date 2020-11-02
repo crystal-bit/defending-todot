@@ -9,7 +9,7 @@ onready var attack_range_area: Area2D = $AttackRange/AttackRange
 onready var rally_point = $RallyPoint
 onready var sprite = $Sprite
 onready var fire_timer = $FireTimer
-onready var missile_scene = preload("res://scenes/ammo/missile/missile.tscn")
+onready var missile_scene = preload("res://scenes/ammo/missile/bullet.tscn")
 
 var alpha_area_show : float = .5
 var alpha_area_hide : float = 0
