@@ -1,5 +1,5 @@
 extends KinematicBody2D
-class_name Ammo
+class_name Projectile
 
 onready var tween = $Tween
 const MAX_VELOCITY = 600
