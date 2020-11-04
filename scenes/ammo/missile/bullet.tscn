@@ -33,6 +33,7 @@ scale = Vector2( 5, 7 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0.793701, 3.96851 )
 shape = SubResource( 1 )
 
@@ -48,12 +49,9 @@ texture = ExtResource( 9 )
 [node name="Explosion" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 0, -48.095 )
-scale = Vector2( 1.16799, 1.13649 )
+scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "explosion"
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Tween" type="Tween" parent="."]
 
