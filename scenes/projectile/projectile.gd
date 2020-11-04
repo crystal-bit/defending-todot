@@ -31,7 +31,7 @@ func _process(delta):
 func _on_Explosion_animation_finished():
 	yield($AudioStreamPlayer2D, "finished")
 	queue_free()
-	
+
 
 
 func disappear():
@@ -53,4 +53,4 @@ func explosion(collider : KinematicBody2D):
 	$CPUParticles2D.visible = false
 	$Explosion.visible = true
 	$Explosion.play()
-	
+
