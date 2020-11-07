@@ -2,7 +2,7 @@
 
 **Defending Todot** it's an open source tower defense game inspired by Kingdom Rush.  
 
-It's a fork of [hacktoberfest-2020](https://github.com/crystal-bit/hacktoberfest-2020) made to continue the development of the game after the event.
+It's a fork of [crystal-bit/hacktoberfest-2020](https://github.com/crystal-bit/hacktoberfest-2020) made to continue the development of the game after the event.
 
 The project is made with the open source [Godot Engine v3.2.3](https://godotengine.org).
 
