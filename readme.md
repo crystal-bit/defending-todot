@@ -1,18 +1,15 @@
-# Tower Defense game - Hacktoberfest 2020
-
 ![game logo](https://github.com/crystal-bit/hacktoberfest-2020/blob/master/assets/menu_title_shadow.png?raw=true)
-
 
 **Defending Todot** it's an open source tower defense game inspired by Kingdom Rush.  
 
-It has been created for people who want to practice game development collaboratively while partecipating to the [Hacktoberfest](https://hacktoberfest.digitalocean.com/) 2020.
+It's a fork of [hacktoberfest-2020](https://github.com/crystal-bit/hacktoberfest-2020) made to continue the development of the game after the event.
 
 The project is made with the open source [Godot Engine v3.2.3](https://godotengine.org).
 
 ## 🎮 Play it now
 
-- [Browser HTML5](https://crystal-bit.github.io/hacktoberfest-2020/)
-- [Linux / Windows / Mac builds](https://github.com/crystal-bit/hacktoberfest-2020/releases/tag/2020.11.01)
+- [Browser HTML5](https://crystal-bit.github.io/defending-todot/)
+- [Linux / Windows / Mac builds](https://github.com/crystal-bit/defending-todot/actions)
 
 ## Discuss with the community
 
@@ -24,8 +21,8 @@ Join [the Discord server](https://discord.gg/SA6S2Db)
 
 You can:
 
-- **[Open a new issue](https://github.com/crystal-bit/space-shooter/issues/new)**: do you have an idea for the gameplay? Do you want to suggest an improvement? Do you want to create new assets like sprites, sounds, effects,...? Did you find a bug? Open a new issue and let other developers know.
-- **[Take an issue](https://github.com/crystal-bit/hacktoberfest-2020/issues)**: work on existing issues. Read below for guidelines.
+- **[Open a new issue](https://github.com/crystal-bit/defending-todot/issues/new)**: do you have an idea for the gameplay? Do you want to suggest an improvement? Do you want to create new assets like sprites, sounds, effects,...? Did you find a bug? Open a new issue and let other developers know.
+- **[Take an issue](https://github.com/crystal-bit/defending-todot/issues)**: work on existing issues. Read below for guidelines.
 
 ### How to take an issue ⤵️
 
@@ -33,14 +30,13 @@ You can:
 2. ➡️ **Ask for help** if you have any doubt.
    - Ask for help in the issue itself
    - Ask on the Discord server - https://discord.gg/SA6S2Db
-   - Ask during a livestream - [twitch.tv/crystal_bit](https://www.twitch.tv/crystal_bit) (feel free to ask in English, Spanish or Italian)
 3. ➡️ **Happy coding**! I hope you will learn a lot during the process!
 
 I hope these rules will help everyone having an enjoyable Hacktoberfest.
 
 ## How to appear in the game credits
 
-Before making a pull request, consider adding yourself to the [credits.gd](https://github.com/crystal-bit/hacktoberfest-2020/blob/master/scenes/credits.gd) script so that you will appear in the game credits!
+Before making a pull request, consider adding yourself to the `credits.gd` script so that you will appear in the game credits!
 
 ## Project conventions
 
