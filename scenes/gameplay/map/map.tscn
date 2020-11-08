@@ -21,6 +21,41 @@ scene_load = 2
 check_state = 0
 
 [node name="CheckPoint3" parent="Map" instance=ExtResource( 2 )]
-position = Vector2( 559.185, 239.615 )
+position = Vector2( 606.753, 222.966 )
 scene_load = 3
+check_state = 0
+
+[node name="CheckPoint4" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 635.294, 39.8281 )
+scene_load = 4
+check_state = 0
+
+[node name="CheckPoint5" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 566.32, -269.366 )
+scene_load = 5
+check_state = 0
+
+[node name="CheckPoint6" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 135.827, -326.448 )
+scene_load = 6
+check_state = 0
+
+[node name="CheckPoint7" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( -42.554, -57.6869 )
+scene_load = 7
+check_state = 0
+
+[node name="CheckPoint8" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( -354.126, 139.722 )
+scene_load = 8
+check_state = 0
+
+[node name="CheckPoint9" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( -672.834, 158.749 )
+scene_load = 9
+check_state = 0
+
+[node name="CheckPoint10" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( -385.046, -169.472 )
+scene_load = 10
 check_state = 0

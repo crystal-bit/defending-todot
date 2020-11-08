@@ -39,7 +39,7 @@ func _on_enemy_death(money: int, enemy_position: Vector2):
 
 
 func check_if_last_enemy():
-	print(wave_manager.total_enemies_count)
+	#print(wave_manager.total_enemies_count)
 	if wave_manager.total_enemies_count == 0:
 		emit_signal("level_ended")
 

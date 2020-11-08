@@ -108,24 +108,22 @@ func load_resource_data(p_tower_resource : Tower_Resource):
 
 
 func fire(_target: Enemy): #evaluate to do a sub function to assign the correct type of ammo
+	var ammo
 	if tower_resource.tower_type == 2: #if sniper, missile
-		var ammo = missile_scene.instance()
-		var to_target = (_target.global_position - global_position).normalized()
-		ammo.shot_direction = to_target
-		ammo.set_position(position)
-		ammo.set_rotation(to_target.angle() + TOWER_ROTATION_OFFSET)
-		ammo.damage = tower_resource.damage
-		ammo = apply_additional_effect(ammo)
-		add_child(ammo)
-	elif  tower_resource.tower_type == 0: #if bunker, bullet
-		var ammo = bullet_scene.instance()
-		var to_target = (_target.global_position - global_position).normalized()
-		ammo.shot_direction = to_target
-		ammo.set_position(position)
-		ammo.set_rotation(to_target.angle() + TOWER_ROTATION_OFFSET)
-		ammo.damage = tower_resource.damage
-		ammo = apply_additional_effect(ammo)
-		add_child(ammo)
+		ammo = missile_scene.instance()
+	elif tower_resource.tower_type == 0: #if bunker, bullet
+		ammo = bullet_scene.instance()
+	else:  #we don't have other types of projectiles
+		ammo = missile_scene.instance()
+	var to_target = (_target.global_position - global_position).normalized()
+	ammo.shot_direction = to_target
+	ammo.set_position(position)
+	ammo.set_rotation(to_target.angle() + TOWER_ROTATION_OFFSET)
+	ammo.damage = tower_resource.damage
+	ammo = apply_additional_effect(ammo)
+	add_child(ammo)
+	
+
 
 
 func apply_additional_effect(obj: Projectile):

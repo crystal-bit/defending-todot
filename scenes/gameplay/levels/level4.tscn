@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/gameplay/levels/level_manager.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/spritesheet/tower-defense_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://scenes/enemy_wave/enemy_wave.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/enemy-commander/enemy-commander.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/enemy-call-button/enemy-call-button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/strategic-point.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/gameplay/hit-area/hit-area.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/enemy_wave/enemy_group.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/enemy_wave/enemy_waves_manager.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/fx/CoinParticles.tscn" type="PackedScene" id=10]
+
+[sub_resource type="TileSet" id=1]
+0/name = "tower-defense_spritesheet.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 960, 768 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 64, 64 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 855.367, 317.718, 0, 0, 0, 0, 829.911, 444.997, 0, 0, 0, 0, 1044.87, 459.139, 0, 0, 0, 0, 1248.52, 394.085, 0, 0, 0, 0, 1186.29, 193.267 )
+}
+
+[node name="level4" type="Node2D" groups=[
+"Levels",
+]]
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+format = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EnemyCommander" parent="." instance=ExtResource( 4 )]
+wave_manager_path = NodePath("../WaveManager")
+call_button_path = NodePath("../EnemyCallButton")
+
+[node name="WaveManager" parent="." instance=ExtResource( 9 )]
+
+[node name="EnemyWave" parent="WaveManager" instance=ExtResource( 3 )]
+
+[node name="EnemyGroup" parent="WaveManager/EnemyWave" instance=ExtResource( 8 )]
+num_of_enemies = 3
+
+[node name="HitArea" parent="." instance=ExtResource( 7 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="SpawnPoint" type="Position2D" parent="."]
+
+[node name="EnemyCallButton" parent="." instance=ExtResource( 5 )]
+visible = true
+position = Vector2( 220.617, 362.039 )
+
+[node name="StrategicPoint" parent="." instance=ExtResource( 6 )]
+position = Vector2( 385.346, 240.987 )
+
+[node name="Details" type="Node2D" parent="."]
+
+[node name="Particles2D" parent="." instance=ExtResource( 10 )]
+position = Vector2( 0, 0 )
+[connection signal="last_enemy_in_actual_wave_spawned" from="WaveManager" to="." method="_on_WaveManager_last_enemy_in_actual_wave_spawned"]
+[connection signal="last_enemy_spawned" from="WaveManager" to="." method="_on_WaveManager_last_enemy_spawned"]
+[connection signal="last_wave" from="WaveManager" to="." method="_on_WaveManager_last_wave"]
+[connection signal="spawn_enemy" from="WaveManager" to="." method="_on_WaveManager_spawn_enemy"]
