@@ -25,6 +25,7 @@ func _on_WaveManager_spawn_enemy(enemy_resource):
 
 func _on_enemy_arrived_to_hit_area(enemy):
 	wave_manager.total_enemies_count -= 1
+	print(wave_manager.total_enemies_count)
 	check_if_last_enemy()
 
 
@@ -35,6 +36,7 @@ func _on_enemy_death(money: int, enemy_position: Vector2):
 	$Particles2D.amount = max(1, (money / 10))
 	$Particles2D.emitting = true
 	wave_manager.total_enemies_count -= 1
+	print(wave_manager.total_enemies_count)
 	check_if_last_enemy()
 
 

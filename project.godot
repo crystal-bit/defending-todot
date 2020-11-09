@@ -110,7 +110,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="hacktoberfest-2020"
+config/name="defending-todot"
 run/main_scene="res://scenes/main.tscn"
 boot_splash/image="res://assets/splash.png"
 boot_splash/bg_color=Color( 0.0862745, 0.0862745, 0.0862745, 1 )
