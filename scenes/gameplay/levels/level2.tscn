@@ -136,8 +136,9 @@ __meta__ = {
 
 [node name="EnemyCallButton" parent="." instance=ExtResource( 9 )]
 position = Vector2( 98, 545 )
-rotation = 4.71239
 angular_damp = 0.0
+id = 0
+direction = 270
 
 [node name="StrategicPoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 671.375, 354.635 )

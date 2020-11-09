@@ -151,7 +151,8 @@ position = Vector2( 30, 605 )
 
 [node name="EnemyCallButton" parent="." instance=ExtResource( 9 )]
 position = Vector2( 89.0793, 604.117 )
-rotation = 4.71239
+id = 0
+direction = 270
 
 [node name="StrategicPoint" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1218.5, 337.192 )
