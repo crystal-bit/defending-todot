@@ -8,7 +8,7 @@
 size = 80
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "appear"
 length = 0.5
 tracks/0/type = "value"
@@ -24,8 +24,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
@@ -59,6 +58,7 @@ margin_left = -192.0
 margin_top = 64.0
 margin_right = 192.0
 margin_bottom = 192.0
+mouse_filter = 2
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center][tornado freq=6 radius=1] YOU WIN  [/tornado] [/center]"
@@ -85,6 +85,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/appear = SubResource( 3 )
-anims/idle = SubResource( 2 )
+anims/appear = SubResource( 2 )
+anims/idle = SubResource( 3 )
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]

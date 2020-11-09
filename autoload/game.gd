@@ -6,10 +6,38 @@ var money = 0
 var levels = [
 	{
 		"state": checkpoint.CHECKPOINT_STATE.TODO,
+		"star_rating": 2
+	},
+	{
+		"state": checkpoint.CHECKPOINT_STATE.TODO, #for testing purpose
 		"star_rating": -1
 	},
 	{
-		"state": checkpoint.CHECKPOINT_STATE.TODO,
+		"state": checkpoint.CHECKPOINT_STATE.TODO, #for testing purpose
+		"star_rating": -1
+	},
+	{
+		"state": checkpoint.CHECKPOINT_STATE.TODO, #for testing purpose
+		"star_rating": -1
+	},
+	{
+		"state": checkpoint.CHECKPOINT_STATE.LOCKED,
+		"star_rating": -1
+	},
+	{
+		"state": checkpoint.CHECKPOINT_STATE.LOCKED,
+		"star_rating": -1
+	},
+	{
+		"state": checkpoint.CHECKPOINT_STATE.LOCKED,
+		"star_rating": -1
+	},
+	{
+		"state": checkpoint.CHECKPOINT_STATE.LOCKED,
+		"star_rating": -1
+	},
+	{
+		"state": checkpoint.CHECKPOINT_STATE.LOCKED,
 		"star_rating": -1
 	},
 	{

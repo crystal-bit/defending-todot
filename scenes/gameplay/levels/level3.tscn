@@ -1,0 +1,440 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://assets/sprites/tower-defense-top-down/spritesheet/tower-defense_spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://scenes/gameplay/hit-area/hit-area.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/strategic-point.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile136.png" type="Texture" id=4]
+[ext_resource path="res://scenes/enemy_wave/enemy_wave.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/enemy_wave/enemy_waves_manager.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/enemy_wave/enemy_group.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/enemy-commander/enemy-commander.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/enemy-call-button/enemy-call-button.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/gameplay/levels/level_manager.gd" type="Script" id=10]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile137.png" type="Texture" id=11]
+[ext_resource path="res://scenes/fx/CoinParticles.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile132.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile133.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile131.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/tree-green_large.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/tree-green_twigs.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/crate-wood.png" type="Texture" id=18]
+[ext_resource path="res://scenes/enemy/enemy-types/tank.tres" type="Resource" id=20]
+[ext_resource path="res://scenes/enemy/enemy-types/aircraft.tres" type="Resource" id=22]
+
+[sub_resource type="TileSet" id=1]
+0/name = "tower-defense_spritesheet.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 960, 768 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 64, 64 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "roads"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 960, 384, 256, 256 )
+1/tile_mode = 2
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 64, 64 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 107.593, 141.091 )
+
+[sub_resource type="NavigationPolygon" id=3]
+vertices = PoolVector2Array( 840.251, 719.211, 3.04956, 716.833, 5.42798, 500.397, 688.033, 500.397, 861.657, 674.021, 904.468, 650.237, 730.844, 483.748, 906.847, 464.721, 1520.48, 302.989, 1601.34, 305.367, 1601.34, 524.181, 1268.37, 521.803, 1437.23, 355.314, 1396.8, 312.502, 1265.99, 398.125, 1265.99, 310.124, 1396.8, 253.042, 1249.34, 281.583, 1358.75, 117.472, 752.25, 438.558, 909.225, 379.098, 928.253, 348.179, 757.007, 269.691, 792.683, 236.393, 828.359, 205.474, 1422.96, 119.851, 1430.1, 229.258, 1094.74, 117.472, 1218.42, 272.069, 1194.63, 279.205, 1051.93, 165.041, 1168.47, 302.989, 1011.5, 179.311, 856.9, 179.311, 956.794, 336.286, 1001.98, 331.53, 1158.96, 331.53 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 4, 3, 6, 7 ), PoolIntArray( 8, 9, 10, 11, 12 ), PoolIntArray( 13, 12, 11, 14, 15 ), PoolIntArray( 16, 13, 15, 17, 18 ), PoolIntArray( 7, 6, 19, 20 ), PoolIntArray( 21, 20, 19, 22, 23, 24 ), PoolIntArray( 18, 25, 26, 16 ), PoolIntArray( 27, 18, 17, 28 ), PoolIntArray( 27, 28, 29, 30 ), PoolIntArray( 30, 29, 31, 32 ), PoolIntArray( 21, 24, 33, 32, 34 ), PoolIntArray( 35, 34, 32 ), PoolIntArray( 36, 35, 32, 31 ) ]
+outlines = [ PoolVector2Array( 3.04956, 716.833, 840.251, 719.211, 861.657, 674.021, 904.468, 650.237, 906.847, 464.721, 909.225, 379.098, 928.253, 348.179, 956.794, 336.286, 1001.98, 331.53, 1158.96, 331.53, 1168.47, 302.989, 1194.63, 279.205, 1218.42, 272.069, 1249.34, 281.583, 1265.99, 310.124, 1265.99, 398.125, 1268.37, 521.803, 1601.34, 524.181, 1601.34, 305.367, 1520.48, 302.989, 1437.23, 355.314, 1396.8, 312.502, 1396.8, 253.042, 1430.1, 229.258, 1422.96, 119.851, 1358.75, 117.472, 1094.74, 117.472, 1051.93, 165.041, 1011.5, 179.311, 856.9, 179.311, 828.359, 205.474, 792.683, 236.393, 757.007, 269.691, 752.25, 438.558, 730.844, 483.748, 688.033, 500.397, 5.42798, 500.397 ) ]
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 49.2121, 619.669, 0, 0, 0, 0, 448.786, 622.047, 0, 0, 0, 0, 648.572, 621.22, 0, 0, 0, 0, 746.087, 623.599, 0, 0, 0, 0, 812.683, 609.328, 0, 0, 0, 0, 843.602, 567.405, 0, 0, 0, 0, 845.981, 506.53, 0, 0, 0, 0, 848.359, 431.606, 0, 0, 0, 0, 850.738, 370.73, -4.75683, 0, 4.75683, 0, 853.116, 312.195, 0, 0, 0, 0, 884.035, 284.312, 0, 0, 0, 0, 929.225, 285.864, 0, 0, 0, 0, 991.064, 289.069, 0, 0, 0, 0, 1071.93, 286.44, 0, 0, 0, 0, 1140.94, 264.214, 0, 0, 0, 0, 1152.8, 218.54, 0, 0, 0, 0, 1186.09, 181.078, 0, 0, 0, 0, 1240.8, 183.42, 0, 0, 0, 0, 1295.5, 178.737, 0, 0, 0, 0, 1338.31, 224.852, 0, 0, 0, 0, 1359.72, 281.934, 0, 0, 0, 0, 1343.07, 341.394, 0, 0, 0, 0, 1352.58, 391.341, 0, 0, 0, 0, 1381.12, 443.666, 0, 0, 0, 0, 1416.8, 476.964, 0, 0, 0, 0, 1466.75, 484.099, 0, 0, 0, 0, 1595.18, 429.396 )
+}
+
+[node name="Level3" type="Node2D" groups=[
+"Levels",
+]]
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 65537, 1, 0, 65537, 2, 0, 65537, 3, 0, 65537, 4, 0, 65537, 5, 0, 65537, 6, 0, 65537, 7, 0, 65537, 8, 0, 65537, 9, 0, 65537, 10, 0, 65537, 11, 0, 65537, 12, 0, 65537, 13, 0, 65537, 14, 0, 65537, 15, 0, 65537, 16, 0, 65537, 17, 0, 65537, 18, 0, 65537, 19, 0, 65537, 20, 0, 65537, 21, 0, 65537, 22, 0, 65537, 23, 0, 65537, 24, 0, 65537, 65536, 0, 65537, 65537, 0, 65537, 65538, 0, 65537, 65539, 0, 65537, 65540, 0, 65537, 65541, 0, 65537, 65542, 0, 65537, 65543, 0, 65537, 65544, 0, 65537, 65545, 0, 65537, 65546, 0, 65537, 65547, 0, 65537, 65548, 0, 65537, 65549, 0, 65537, 65550, 0, 65537, 65551, 0, 65537, 65552, -1073741824, 262156, 65553, -1073741824, 262156, 65554, -1073741824, 262156, 65555, -1073741824, 262156, 65556, -1073741824, 262156, 65557, -1073741824, 262156, 65558, -1610612736, 196618, 65559, 0, 65537, 65560, 0, 65537, 131072, 0, 65537, 131073, 0, 65537, 131074, 0, 65537, 131075, 0, 65537, 131076, 0, 65537, 131077, 0, 65537, 131078, 0, 65537, 131079, 0, 65537, 131080, 0, 65537, 131081, 0, 65537, 131082, 0, 65537, 131083, 0, 65537, 131084, 0, 196618, 131085, -1073741824, 262156, 131086, -1073741824, 262156, 131087, -1073741824, 262156, 131088, 1610612737, 2, 131089, 1610612737, 2, 131090, -1073741823, 2, 131091, -1073741823, 2, 131092, -1073741823, 2, 131093, 1, 2, 131094, 0, 262156, 131095, 0, 65537, 131096, 0, 65537, 196608, 0, 65537, 196609, 0, 65537, 196610, 0, 65537, 196611, 0, 65537, 196612, 0, 65537, 196613, 0, 3, 196614, 0, 131073, 196615, 0, 131073, 196616, -1610612736, 3, 196617, 0, 65537, 196618, 0, 65537, 196619, 0, 196618, 196620, 1610612736, 196621, 196621, -1073741823, 2, 196622, -1073741823, 2, 196623, -1073741823, 2, 196624, 1610612737, 2, 196625, 1610612737, 2, 196626, -1073741823, 2, 196627, -1073741823, 2, 196628, -1073741823, 2, 196629, 1, 2, 196630, 0, 262156, 196631, 0, 65537, 196632, 0, 65537, 262144, 0, 65537, 262145, 0, 65537, 262146, 0, 65537, 262147, 0, 65537, 262148, 0, 65537, 262149, -1073741824, 131073, 262150, -1073741824, 131076, 262151, -1073741824, 131076, 262152, -1610612736, 131073, 262153, 0, 65537, 262154, 0, 65537, 262155, 1610612736, 262156, 262156, 1, 2, 262157, -1073741823, 2, 262158, -1073741823, 2, 262159, -1073741823, 2, 262160, 1610612737, 2, 262161, 1610612737, 2, 262162, -1610612736, 262157, 262163, 1610612736, 262157, 262164, 1, 2, 262165, 1, 2, 262166, 0, 262156, 262167, -1073741824, 262156, 262168, -1073741824, 262156, 327680, 0, 65537, 327681, 0, 65537, 327682, 0, 65537, 327683, 0, 65537, 327684, 0, 65537, 327685, -1073741824, 131073, 327686, -1073741824, 131076, 327687, -1073741824, 131076, 327688, -1610612736, 131073, 327689, 0, 65537, 327690, 0, 65537, 327691, 1610612736, 262156, 327692, 1, 2, 327693, 1, 2, 327694, -1610612736, 262157, 327695, -1610612736, 262156, 327696, -1610612736, 262156, 327697, -1610612736, 262156, 327698, 1610612736, 196618, 327699, 1610612736, 262156, 327700, 1, 2, 327701, -1073741823, 2, 327702, -1073741823, 2, 327703, -1073741823, 2, 327704, -1073741823, 2, 393216, 0, 65537, 393217, 0, 65537, 393218, 0, 65537, 393219, 0, 65537, 393220, 0, 65537, 393221, -1073741824, 3, 393222, 1610612736, 131073, 393223, 1610612736, 131073, 393224, 1610612736, 3, 393225, 0, 65537, 393226, 0, 65537, 393227, 1610612736, 262156, 393228, 1, 2, 393229, 1, 2, 393230, 0, 262156, 393231, 0, 65537, 393232, 0, 65537, 393233, 0, 65537, 393234, 0, 65537, 393235, 1610612736, 262156, 393236, 1, 2, 393237, -1073741823, 2, 393238, -1073741823, 2, 393239, -1073741823, 2, 393240, -1073741823, 2, 458752, -1073741824, 262156, 458753, -1610612736, 262154, 458754, -1610612736, 262154, 458755, -1610612736, 262154, 458756, -1610612736, 262154, 458757, -1610612736, 262154, 458758, -1610612736, 262154, 458759, -1610612736, 262154, 458760, -1610612736, 262154, 458761, -1610612736, 262154, 458762, -1610612736, 262154, 458763, -1073741824, 262157, 458764, 1, 2, 458765, 1610612737, 2, 458766, 0, 262156, 458767, 0, 65537, 458768, 0, 65537, 458769, 0, 65537, 458770, 0, 65537, 458771, 1610612736, 262156, 458772, -1073741823, 2, 458773, -1073741823, 2, 458774, -1073741823, 2, 458775, -1073741823, 2, 458776, -1073741823, 2, 524288, -1073741823, 2, 524289, -1073741823, 2, 524290, -1073741823, 2, 524291, -1073741823, 2, 524292, -1073741823, 2, 524293, -1073741823, 2, 524294, -1073741823, 2, 524295, -1073741823, 2, 524296, -1073741823, 2, 524297, -1073741823, 2, 524298, -1073741823, 2, 524299, -1073741823, 2, 524300, -1073741823, 2, 524301, 1610612737, 2, 524302, 0, 262156, 524303, 0, 65537, 524304, 0, 65537, 524305, 0, 65537, 524306, 0, 65537, 524307, -1073741824, 196618, 524308, -1610612736, 262156, 524309, -1610612736, 262156, 524310, -1610612736, 262156, 524311, -1610612736, 262156, 524312, -1610612736, 262156, 589824, -1073741823, 2, 589825, -1073741823, 2, 589826, -1073741823, 2, 589827, -1073741823, 2, 589828, -1073741823, 2, 589829, -1073741823, 2, 589830, -1073741823, 2, 589831, -1073741823, 2, 589832, -1073741823, 2, 589833, -1073741823, 2, 589834, -1073741823, 2, 589835, -1073741823, 2, 589836, -1073741823, 2, 589837, 1, 2, 589838, 1610612736, 262154, 589839, 0, 65537, 589840, 0, 65537, 589841, 0, 65537, 589842, 0, 65537, 589843, 0, 65537, 589844, 0, 65537, 589845, 0, 65537, 589846, 0, 65537, 589847, 0, 65537, 589848, 0, 65537, 655360, -1073741823, 2, 655361, -1073741823, 2, 655362, -1073741823, 2, 655363, -1073741823, 2, 655364, -1073741823, 2, 655365, -1073741823, 2, 655366, -1073741823, 2, 655367, -1073741823, 2, 655368, -1073741823, 2, 655369, -1073741823, 2, 655370, -1073741823, 2, 655371, -1073741823, 2, 655372, -1073741823, 2, 655373, -1610612736, 262157, 655374, 1610612736, 196618, 655375, 0, 65537, 655376, 0, 65537, 655377, 0, 65537, 655378, 0, 65537, 655379, 0, 65537, 655380, 0, 65537, 655381, 0, 65537, 655382, 0, 65537, 655383, 0, 65537, 655384, 0, 65537, 720896, -1073741824, 262154, 720897, -1073741824, 262154, 720898, -1073741824, 262154, 720899, -1073741824, 262154, 720900, -1073741824, 262154, 720901, -1073741824, 262154, 720902, -1073741824, 262154, 720903, -1073741824, 262154, 720904, -1073741824, 262154, 720905, -1073741824, 262154, 720906, -1073741824, 262154, 720907, -1073741824, 262154, 720908, -1073741824, 262154, 720909, 1610612736, 196618, 720910, 0, 65537, 720911, 0, 65537, 720912, 0, 65537, 720913, 0, 65537, 720914, 0, 65537, 720915, 0, 65537, 720916, 0, 65537, 720917, 0, 65537, 720918, 0, 65537, 720919, 0, 65537, 720920, 0, 65537, 786432, 0, 65537, 786433, 0, 65537, 786434, 0, 65537, 786435, 0, 65537, 786436, 0, 65537, 786437, 0, 65537, 786438, 0, 65537, 786439, 0, 65537, 786440, 0, 65537, 786441, 0, 65537, 786442, 0, 65537, 786443, 0, 65537, 786444, 0, 65537, 786445, 0, 65537, 786446, 0, 65537, 786447, 0, 65537, 786448, 0, 65537, 786449, 0, 65537, 786450, 0, 65537, 786451, 0, 65537, 786452, 0, 65537, 786453, 0, 65537, 786454, 0, 65537, 786455, 0, 65537, 786456, 0, 65537, 851968, 0, 65537, 851969, 0, 65537, 851970, 0, 65537, 851971, 0, 65537, 851972, 0, 65537, 851973, 0, 65537, 851974, 0, 65537, 851975, 0, 65537, 851976, 0, 65537, 851977, 0, 65537, 851978, 0, 65537, 851979, 0, 65537, 851980, 0, 65537, 851981, 0, 65537, 851982, 0, 65537, 851983, 0, 65537, 851984, 0, 65537, 851985, 0, 65537, 851986, 0, 65537, 851987, 0, 65537, 851988, 0, 65537, 851989, 0, 65537, 851990, 0, 65537, 851991, 0, 65537, 851992, 0, 65537 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EnemyCommander" parent="." instance=ExtResource( 8 )]
+wave_manager_path = NodePath("../WaveManager")
+call_button_path = NodePath("../EnemyCallButton")
+
+[node name="WaveManager" parent="." instance=ExtResource( 6 )]
+
+[node name="EnemyWave" parent="WaveManager" instance=ExtResource( 5 )]
+
+[node name="EnemyGroup" parent="WaveManager/EnemyWave" instance=ExtResource( 7 )]
+num_of_enemies = 5
+
+[node name="EnemyGroup2" parent="WaveManager/EnemyWave" instance=ExtResource( 7 )]
+enemy_resource = ExtResource( 22 )
+delay_in_sec = 2.0
+
+[node name="EnemyWave2" parent="WaveManager" instance=ExtResource( 5 )]
+
+[node name="EnemyGroup" parent="WaveManager/EnemyWave2" instance=ExtResource( 7 )]
+enemy_resource = ExtResource( 20 )
+num_of_enemies = 2
+
+[node name="HitArea" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1580, 415 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2( -14.983, 8.98987 )
+shape = SubResource( 2 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 3 )
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( -20, -19.7291 )
+scale = Vector2( 1, 1.01582 )
+curve = SubResource( 4 )
+
+[node name="SpawnPoint" type="Position2D" parent="."]
+position = Vector2( 30, 605 )
+
+[node name="EnemyCallButton" parent="." instance=ExtResource( 9 )]
+position = Vector2( 89.0793, 604.117 )
+direction = 270
+
+[node name="StrategicPoint" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1218.5, 337.192 )
+
+[node name="StrategicPoint2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 754.114, 191.835 )
+
+[node name="StrategicPoint3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 906.171, 704.879 )
+
+[node name="Details" type="Node2D" parent="."]
+
+[node name="Tree" type="Sprite" parent="Details"]
+position = Vector2( 413.529, 295.661 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 16 )
+
+[node name="Tree2" type="Sprite" parent="Details"]
+position = Vector2( 502.455, 256.729 )
+rotation = 0.589921
+scale = Vector2( 1.37458, 1.56186 )
+texture = ExtResource( 17 )
+
+[node name="Tree3" type="Sprite" parent="Details"]
+position = Vector2( 493.458, 346.628 )
+rotation = 1.5708
+scale = Vector2( 1.37458, 1.56186 )
+texture = ExtResource( 17 )
+
+[node name="Tree4" type="Sprite" parent="Details"]
+position = Vector2( 523.431, 307.672 )
+rotation = 1.1781
+scale = Vector2( 1.37458, 1.56186 )
+texture = ExtResource( 17 )
+
+[node name="Tree5" type="Sprite" parent="Details"]
+position = Vector2( 1456.35, 287.675 )
+rotation = -0.144862
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+
+[node name="Tree6" type="Sprite" parent="Details"]
+position = Vector2( 1041.19, 109.894 )
+rotation = -0.144862
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+
+[node name="Tree7" type="Sprite" parent="Details"]
+position = Vector2( 1105.56, 523.549 )
+rotation = -0.144862
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+
+[node name="Tree8" type="Sprite" parent="Details"]
+position = Vector2( 1459.35, 698.211 )
+rotation = -0.144862
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+
+[node name="Tree9" type="Sprite" parent="Details"]
+position = Vector2( 1075.78, 788.11 )
+rotation = -0.144862
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+
+[node name="Tree10" type="Sprite" parent="Details"]
+position = Vector2( 128.32, 247.002 )
+rotation = -0.144862
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+
+[node name="Crate" type="Sprite" parent="Details"]
+self_modulate = Color( 0.454902, 0.756863, 0.266667, 1 )
+position = Vector2( 412.556, 385.584 )
+rotation = 1.1781
+scale = Vector2( 1.37458, 1.56186 )
+texture = ExtResource( 18 )
+
+[node name="Bush" type="Sprite" parent="Details"]
+position = Vector2( 886.816, 818.343 )
+rotation = 1.1781
+scale = Vector2( 1.37458, 1.56186 )
+texture = ExtResource( 13 )
+
+[node name="Bush2" type="Sprite" parent="Details"]
+position = Vector2( 886.816, 818.343 )
+rotation = 1.1781
+scale = Vector2( 1.37458, 1.56186 )
+texture = ExtResource( 13 )
+
+[node name="Bush3" type="Sprite" parent="Details"]
+position = Vector2( 585.142, 164.271 )
+rotation = 1.1781
+texture = ExtResource( 13 )
+
+[node name="Bush4" type="Sprite" parent="Details"]
+position = Vector2( 734.644, 70.8326 )
+rotation = -0.338594
+texture = ExtResource( 13 )
+
+[node name="Bush5" type="Sprite" parent="Details"]
+position = Vector2( 603.83, 436.579 )
+rotation = 1.1781
+texture = ExtResource( 13 )
+
+[node name="Bush6" type="Sprite" parent="Details"]
+position = Vector2( 908.173, 129.566 )
+rotation = 1.1781
+texture = ExtResource( 13 )
+
+[node name="Bush7" type="Sprite" parent="Details"]
+position = Vector2( 646.545, 268.389 )
+rotation = 1.1781
+texture = ExtResource( 13 )
+
+[node name="Bush8" type="Sprite" parent="Details"]
+position = Vector2( 1022.45, 439.016 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 13 )
+
+[node name="Bush9" type="Sprite" parent="Details"]
+position = Vector2( 1221.62, 575.51 )
+rotation = 0.197222
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 13 )
+
+[node name="Bush10" type="Sprite" parent="Details"]
+position = Vector2( 1541.13, 595.509 )
+rotation = 0.197222
+scale = Vector2( 1.15743, 1.03763 )
+texture = ExtResource( 13 )
+
+[node name="Bush11" type="Sprite" parent="Details"]
+position = Vector2( 1356.77, 812.205 )
+rotation = 1.1781
+scale = Vector2( 1.20652, 1.28576 )
+texture = ExtResource( 15 )
+
+[node name="Bush12" type="Sprite" parent="Details"]
+position = Vector2( 1219.8, 800.057 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 13 )
+
+[node name="Bush13" type="Sprite" parent="Details"]
+position = Vector2( 581.662, 806.407 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 13 )
+
+[node name="Bush14" type="Sprite" parent="Details"]
+position = Vector2( 340.377, 787.358 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 13 )
+
+[node name="Bush15" type="Sprite" parent="Details"]
+position = Vector2( 257.832, 215.893 )
+rotation = 0.197222
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 13 )
+
+[node name="Bush16" type="Sprite" parent="Details"]
+position = Vector2( 241.958, 374.634 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 13 )
+
+[node name="Bush17" type="Sprite" parent="Details"]
+position = Vector2( 184.812, 82.5518 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 13 )
+
+[node name="Bush18" type="Sprite" parent="Details"]
+position = Vector2( 416.572, 114.3 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 13 )
+
+[node name="Bush19" type="Sprite" parent="Details"]
+position = Vector2( 1372.19, 57.1534 )
+rotation = 0.523599
+texture = ExtResource( 13 )
+
+[node name="Bush20" type="Sprite" parent="Details"]
+position = Vector2( 1508.7, 120.649 )
+rotation = 1.5708
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 13 )
+
+[node name="Bush21" type="Sprite" parent="Details"]
+position = Vector2( 1222.97, 63.503 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 15 )
+
+[node name="Bush22" type="Sprite" parent="Details"]
+position = Vector2( 111.791, 784.183 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 15 )
+
+[node name="Rock" type="Sprite" parent="Details"]
+position = Vector2( 1510.5, 819.753 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 11 )
+
+[node name="Rock2" type="Sprite" parent="Details"]
+position = Vector2( 1384.08, 612.987 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 11 )
+
+[node name="Rock3" type="Sprite" parent="Details"]
+position = Vector2( 1282.48, 720.93 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 11 )
+
+[node name="Rock4" type="Sprite" parent="Details"]
+position = Vector2( 1022.83, 607.473 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 11 )
+
+[node name="Rock5" type="Sprite" parent="Details"]
+position = Vector2( 516.451, 403.58 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 11 )
+
+[node name="Rock6" type="Sprite" parent="Details"]
+position = Vector2( 237.944, 818.539 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 11 )
+
+[node name="Rock7" type="Sprite" parent="Details"]
+position = Vector2( 446.217, 825.423 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 11 )
+
+[node name="Rock8" type="Sprite" parent="Details"]
+position = Vector2( 109.687, 412.699 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 4 )
+
+[node name="Rock9" type="Sprite" parent="Details"]
+position = Vector2( 306.525, 114.267 )
+rotation = 0.197222
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 4 )
+
+[node name="Rock10" type="Sprite" parent="Details"]
+position = Vector2( 525.586, 85.6938 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 4 )
+
+[node name="Rock11" type="Sprite" parent="Details"]
+position = Vector2( 677.977, 380.95 )
+rotation = 1.9635
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 4 )
+
+[node name="Rock12" type="Sprite" parent="Details"]
+position = Vector2( 1555.49, 212.152 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 11 )
+
+[node name="Rock13" type="Sprite" parent="Details"]
+position = Vector2( 1479.29, 62.9359 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 11 )
+
+[node name="Rock14" type="Sprite" parent="Details"]
+position = Vector2( 695.116, 818.539 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 11 )
+
+[node name="Rock15" type="Sprite" parent="Details"]
+position = Vector2( 1139.88, 659.185 )
+rotation = 1.1781
+scale = Vector2( 1.1954, 1.12928 )
+texture = ExtResource( 11 )
+
+[node name="Particles2D" parent="." instance=ExtResource( 12 )]
+position = Vector2( 89.8984, 68.9222 )
+[connection signal="last_enemy_in_actual_wave_spawned" from="WaveManager" to="." method="_on_WaveManager_last_enemy_in_actual_wave_spawned"]
+[connection signal="last_enemy_spawned" from="WaveManager" to="." method="_on_WaveManager_last_enemy_spawned"]
+[connection signal="last_wave" from="WaveManager" to="." method="_on_WaveManager_last_wave"]
+[connection signal="spawn_enemy" from="WaveManager" to="." method="_on_WaveManager_spawn_enemy"]

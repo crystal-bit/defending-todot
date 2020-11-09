@@ -11,6 +11,6 @@ texture = ExtResource( 2 )
 hp = 120
 armor = 0
 regen = 18
-speed = 32
+speed = 20
 damage = 4
 money_dropped = 20
