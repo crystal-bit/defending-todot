@@ -13,6 +13,7 @@ onready var audio = $AudioStreamPlayer
 var mouse_inside_area = false
 var last_slot_pressed = null
 
+
 func _ready() -> void:
 	for slot in strategic_point_menu.get_slots():
 		if not slot is Sprite and not slot.tower_resource.locked:
@@ -43,7 +44,7 @@ func hide_strategic_point_menu():
 		Utils.delete_children_from_node(tower_container)
 		sprite.show()
 	last_slot_pressed = null
-
+	tower_description_popup.hide()
 
 func _on_slot_pressed(slot: Slot):
 	if slot != last_slot_pressed:
@@ -60,10 +61,15 @@ func show_tower_description_popup(slot: Slot):
 		slot.tower_resource.fire_rate
 	)
 	var description_appear_pos = slot.rect_global_position
+	print(slot.rect_position.x)
 	if slot.rect_position.x > 0:
 		description_appear_pos.x += slot.rect_size.x
 	else:
 		description_appear_pos.x -= tower_description_popup.rect_size.x
+	if description_appear_pos.y > Game.size.y / 2:
+		description_appear_pos.y -= tower_description_popup.rect_size.y
+	else:
+		description_appear_pos.y += slot.rect_size.y
 	tower_description_popup.show_at_position(description_appear_pos)
 
 

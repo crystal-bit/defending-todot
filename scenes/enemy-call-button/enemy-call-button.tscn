@@ -24,11 +24,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ) ]
 }
 
 [node name="EnemyCallButton" type="Area2D"]
-visible = false
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true

@@ -19,6 +19,7 @@ region = Rect2( 481, 323, 32, 32 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 200, 200 )
+mouse_filter = 2
 theme = ExtResource( 2 )
 script = ExtResource( 3 )
 __meta__ = {
@@ -30,6 +31,7 @@ margin_left = 33.0
 margin_top = 33.0
 margin_right = 1567.0
 margin_bottom = 867.0
+mouse_filter = 2
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
@@ -43,6 +45,7 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 1524.0
 margin_bottom = 824.0
+mouse_filter = 2
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
@@ -51,6 +54,7 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_right = 1514.0
 margin_bottom = 770.0
+mouse_filter = 2
 size_flags_vertical = 3
 
 [node name="TowerName" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
@@ -77,17 +81,20 @@ autowrap = true
 margin_top = 780.0
 margin_right = 1514.0
 margin_bottom = 814.0
+mouse_filter = 2
 custom_constants/separation = 5
 
 [node name="AttackPowerContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_right = 754.0
 margin_bottom = 34.0
+mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/AttackPowerContainer"]
 margin_right = 32.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
 texture = SubResource( 1 )
 expand = true
 stretch_mode = 6
@@ -106,12 +113,14 @@ text = "8-15"
 margin_left = 759.0
 margin_right = 1514.0
 margin_bottom = 34.0
+mouse_filter = 2
 size_flags_horizontal = 3
 
 [node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/AttackSpeedContainer"]
 margin_right = 32.0
 margin_bottom = 34.0
 rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
 texture = SubResource( 2 )
 expand = true
 stretch_mode = 6
