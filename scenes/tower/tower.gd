@@ -10,7 +10,8 @@ onready var rally_point = $RallyPoint
 onready var sprite = $Sprite
 onready var fire_timer = $FireTimer
 onready var missile_scene = preload("res://scenes/projectile/missile/missile.tscn")
-onready var bullet_scene = preload("res://scenes/projectile/missile/bullet.tscn")
+onready var bullet_scene = preload("res://scenes/projectile/bullet/bullet.tscn")
+onready var sierra_scene = preload("res://scenes/projectile/sierra_bullet/sierra_bullet.tscn")
 
 var alpha_area_show : float = .5
 var alpha_area_hide : float = 0
@@ -107,12 +108,14 @@ func load_resource_data(p_tower_resource : Tower_Resource):
 	fire_timer.wait_time = p_tower_resource.fire_rate
 
 
-func fire(_target: Enemy): #evaluate to do a sub function to assign the correct type of ammo
+func fire(_target: Enemy): #when finished match tower_type and level of the tower resource
 	var ammo
-	if tower_resource.tower_type == 2: #if sniper, missile
-		ammo = missile_scene.instance()
-	elif tower_resource.tower_type == 0: #if bunker, bullet
+	if tower_resource.tower_type == 0: #if bunker, bullet
 		ammo = bullet_scene.instance()
+	elif tower_resource.tower_type == 1: #if missile, sierra_bullet
+		ammo = sierra_scene.instance()
+	elif tower_resource.tower_type == 2: #if sniper, missile
+		ammo = missile_scene.instance()
 	else:  #we don't have other types of projectiles
 		ammo = missile_scene.instance()
 	var to_target = (_target.global_position - global_position).normalized()

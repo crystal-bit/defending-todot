@@ -97,7 +97,7 @@ __meta__ = {
 [node name="EnemyCommander" parent="." instance=ExtResource( 8 )]
 wave_manager_path = NodePath("../WaveManager")
 call_button_path = NodePath("../EnemyCallButton")
-wave_sequence = [ [ 2, 15 ], [ 15, 30 ], [ 1, 3 ] ]
+wave_sequence = [ [ 2, 15 ], [ 15, 30 ], [ 15, 30 ] ]
 
 [node name="WaveManager" parent="." instance=ExtResource( 6 )]
 
