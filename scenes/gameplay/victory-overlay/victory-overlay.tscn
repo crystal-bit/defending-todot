@@ -23,6 +23,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "activate_button"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 tracks/0/type = "value"
@@ -78,6 +92,7 @@ margin_top = 133.0
 margin_right = 91.5
 margin_bottom = 187.0
 custom_fonts/font = ExtResource( 1 )
+disabled = true
 text = "NEXT LEVEL"
 __meta__ = {
 "_edit_use_anchors_": false

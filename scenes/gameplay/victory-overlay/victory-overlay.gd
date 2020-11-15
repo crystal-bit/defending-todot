@@ -9,3 +9,7 @@ func appear():
 
 func _on_Button_pressed() -> void:
 	Game.change_scene("res://scenes/gameplay/map/map.tscn")
+
+
+func activate_button():
+	$ColorRect/Button.disabled = false
