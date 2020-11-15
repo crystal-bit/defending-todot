@@ -109,15 +109,7 @@ func load_resource_data(p_tower_resource : Tower_Resource):
 
 
 func fire(_target: Enemy): #when finished match tower_type and level of the tower resource
-	var ammo
-	if tower_resource.tower_type == 0: #if bunker, bullet
-		ammo = bullet_scene.instance()
-	elif tower_resource.tower_type == 1: #if missile, sierra_bullet
-		ammo = sierra_scene.instance()
-	elif tower_resource.tower_type == 2: #if sniper, missile
-		ammo = missile_scene.instance()
-	else:  #we don't have other types of projectiles
-		ammo = missile_scene.instance()
+	var ammo = get_missile_by_tower_type(tower_resource.tower_type)
 	var to_target = (_target.global_position - global_position).normalized()
 	ammo.shot_direction = to_target
 	ammo.set_position(position)
@@ -125,8 +117,18 @@ func fire(_target: Enemy): #when finished match tower_type and level of the towe
 	ammo.damage = tower_resource.damage
 	ammo = apply_additional_effect(ammo)
 	add_child(ammo)
-	
 
+
+func get_missile_by_tower_type(tower_type: int):
+	match tower_type:
+		TowerType.Type.BUNKER:
+			return bullet_scene.instance()
+		TowerType.Type.MISSILE:
+			return sierra_scene.instance()
+		TowerType.Type.SNIPER:
+			return missile_scene.instance()
+		_:
+			return missile_scene.instance()
 
 
 func apply_additional_effect(obj: Projectile):
