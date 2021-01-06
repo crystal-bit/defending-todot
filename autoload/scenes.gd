@@ -55,7 +55,6 @@ func _change_scene(new_scene: String, params= {}):
 
 	transitions.fade_in()
 	yield(transitions.anim, "animation_finished")
-
 	var loading_start_time = OS.get_ticks_msec()
 	var scn = load(new_scene)
 	current_scene.queue_free()

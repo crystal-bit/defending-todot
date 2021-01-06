@@ -12,6 +12,7 @@ onready var fire_timer = $FireTimer
 onready var missile_scene = preload("res://scenes/projectile/missile/missile.tscn")
 onready var bullet_scene = preload("res://scenes/projectile/bullet/bullet.tscn")
 onready var sierra_scene = preload("res://scenes/projectile/sierra_bullet/sierra_bullet.tscn")
+onready var anim = $AnimationPlayer
 
 var alpha_area_show : float = .5
 var alpha_area_hide : float = 0
@@ -37,11 +38,13 @@ func _ready() -> void:
 	attack_range_area.monitoring = false
 	load_resource_data(tower_resource)
 
+
 func _process(delta):
 	if target is Enemy:
 		var to_target = (target.global_position - global_position).normalized()
 		var rotation_to_target = to_target.angle() + TOWER_ROTATION_OFFSET
 		sprite.rotation = lerp_angle(sprite.rotation, rotation_to_target, 0.25)
+
 
 func _draw() -> void:
 	var blue_color: Color = Color.blue
@@ -58,6 +61,7 @@ func _on_AttackRangeShowArea_mouse_exited() -> void:
 	alpha_area = alpha_area_hide
 	update()
 
+
 func _on_Area2D_body_entered(body):
 	if body is Enemy:
 		bodies_in_range.append(body)
@@ -65,6 +69,7 @@ func _on_Area2D_body_entered(body):
 			change_state(TOWER_STATES.ATTACKING)
 			target = body
 			fire_timer.start()
+
 
 func _on_Area2D_body_exited(body):
 	if body is Enemy:
@@ -82,24 +87,21 @@ func _on_FireTimer_timeout():
 		fire_timer.start()
 
 
-func get_show_direction():
-	pass
-
-
 func change_state(new_state: int):
 	assert(new_state in TOWER_STATES.values(), "Tower state not in TOWER_STATES list")
 	if new_state == TOWER_STATES.GAMEPLAY:
 		attack_range_area.monitoring = true
+	if new_state == TOWER_STATES.PREVIEW:
+		anim.stop()
+		anim.play("flash")
+	else:
+		anim.stop()
+		anim.play("idle")
 	state = new_state
 
 
 func set_rally_point(position : Vector2):
 	rally_point.global_position = position
-
-
-func upgrade():
-	# TODO
-	pass
 
 
 func load_resource_data(p_tower_resource : Tower_Resource):
@@ -137,5 +139,3 @@ func apply_additional_effect(obj: Projectile):
 		TowerType.Type.BUNKER:
 			obj.additional_effect["slow"] = tres.slow_effect
 	return obj
-
-

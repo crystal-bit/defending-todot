@@ -46,6 +46,7 @@ func hide_strategic_point_menu():
 	last_slot_pressed = null
 	tower_description_popup.hide()
 
+
 func _on_slot_pressed(slot: Slot):
 	if slot != last_slot_pressed:
 		show_tower_description_popup(slot)
@@ -61,7 +62,6 @@ func show_tower_description_popup(slot: Slot):
 		slot.tower_resource.fire_rate
 	)
 	var description_appear_pos = slot.rect_global_position
-	print(slot.rect_position.x)
 	if slot.rect_position.x > 0:
 		description_appear_pos.x += slot.rect_size.x
 	else:
@@ -97,8 +97,8 @@ func place_tower(tower_resource) -> void:
 	Utils.delete_children_from_node(tower_container)
 	var tower: Tower = tower_scene.instance()
 	tower.initialise(tower_resource)
-	tower.change_state(tower.TOWER_STATES.PREVIEW)
 	tower_container.add_child(tower)
+	tower.change_state(tower.TOWER_STATES.PREVIEW)
 	sprite.hide()
 
 

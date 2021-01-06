@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/tower/tower.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile249.png" type="Texture" id=2]
@@ -10,6 +10,39 @@ extents = Vector2( 24.8515, 28.2729 )
 [sub_resource type="CircleShape2D" id=2]
 resource_local_to_scene = true
 radius = 16.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "flash"
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 2, 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.756863 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.756863 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Tower" type="Node2D"]
 script = ExtResource( 1 )
@@ -35,6 +68,11 @@ shape = SubResource( 2 )
 
 [node name="FireTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/flash = SubResource( 3 )
+anims/idle = SubResource( 4 )
 [connection signal="mouse_entered" from="AttackRange/AttackRangeShowArea" to="." method="_on_AttackRangeShowArea_mouse_entered"]
 [connection signal="mouse_exited" from="AttackRange/AttackRangeShowArea" to="." method="_on_AttackRangeShowArea_mouse_exited"]
 [connection signal="body_entered" from="AttackRange/AttackRange" to="." method="_on_Area2D_body_entered"]
