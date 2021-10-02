@@ -6,10 +6,12 @@ const MAX_HP = 100
 
 func set_hp(value: int):
 	label.text = str(value)
+	Game.start_hp = value
+	Game.hp = value
 
 
 func reduce_by(value):
-	var new_value = int(label.text) - value
+	var new_value = Game.hp - value
 	if new_value <= 0:
 		# make sure that the current level is in the "Level" group
 		var level_node: Node = get_tree().get_nodes_in_group("Levels")[0]
@@ -18,3 +20,4 @@ func reduce_by(value):
 			"current_level_scene_path": level_node.filename
 		})
 	label.text = str(clamp(new_value, 0, MAX_HP))
+	Game.hp = new_value
