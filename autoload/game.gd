@@ -9,15 +9,15 @@ var levels = [
 		"star_rating": 2
 	},
 	{
-		"state": checkpoint.CHECKPOINT_STATE.TODO, #for testing purpose
+		"state": checkpoint.CHECKPOINT_STATE.LOCKED, 
 		"star_rating": -1
 	},
 	{
-		"state": checkpoint.CHECKPOINT_STATE.TODO, #for testing purpose
+		"state": checkpoint.CHECKPOINT_STATE.LOCKED, 
 		"star_rating": -1
 	},
 	{
-		"state": checkpoint.CHECKPOINT_STATE.TODO, #for testing purpose
+		"state": checkpoint.CHECKPOINT_STATE.LOCKED, 
 		"star_rating": -1
 	},
 	{
