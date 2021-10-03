@@ -59,9 +59,13 @@ func apply_status(missile_debuff):
 		debuff.slow = (1.0 - missile_debuff.slow / 100.0)
 
 
-func take_damage(value: int):
+func take_damage(damage: float, armor_piercing: float):
 	var previous_hp: int = texture_progress.value
-	set_hp(texture_progress.value - value)
-	if (previous_hp <= value):
+	var damage_multiplier : float = abs(100.0 / (100.0 + (enemy_resource.armor * (1 - armor_piercing))))
+	if damage_multiplier != 1:
+		damage_multiplier = 1 - damage_multiplier
+	var final_damage = damage * damage_multiplier
+	set_hp(previous_hp - final_damage)
+	if (previous_hp <= damage):
 		emit_signal("death", enemy_resource.money_dropped, global_position)
 		queue_free()

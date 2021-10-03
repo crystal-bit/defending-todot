@@ -117,6 +117,7 @@ func fire(_target: Enemy): #when finished match tower_type and level of the towe
 	ammo.set_position(position)
 	ammo.set_rotation(to_target.angle() + TOWER_ROTATION_OFFSET)
 	ammo.damage = tower_resource.damage
+	ammo.armor_piercing = tower_resource.armor_piercing
 	ammo = apply_additional_effect(ammo)
 	add_child(ammo)
 
