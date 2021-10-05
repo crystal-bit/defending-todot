@@ -41,7 +41,7 @@ func load_level(level_scene_path):
 
 
 func update_ui():
-	Game.money = 300
+	Game.money = 500 #to test upgrade
 	ui.wave.set_wave(0, wave_manager.waves.size())
 	ui.hp.set_hp(20)
 	ui.money.set_money(Game.money)

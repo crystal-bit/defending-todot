@@ -7,6 +7,7 @@ signal no_money()
 
 
 onready var radial_control = $RadialControl
+onready var tower_control = $TowerControl
 
 
 func _ready() -> void:
@@ -21,7 +22,7 @@ func _on_Slot_pressed(is_slot_active, slot: Slot):
 
 func get_slots() -> Array:
 	var slots = []
-	for child in radial_control.get_children():
+	for child in radial_control.get_children() + tower_control.get_children():
 		if child is Slot and child.visible:
 			slots.append(child)
 
@@ -33,14 +34,20 @@ func reset_slots():
 		slot.pressed = false
 
 
-func show_menu():
+func show_radial_menu():
 	show()
 	radial_control.show_radial_menu()
+
+
+func show_tower_menu(tower_type):
+	show()
+	tower_control.show_tower_menu(tower_type)
 
 
 func hide_menu():
 	hide()
 	radial_control.hide_radial_menu()
+	tower_control.hide_tower_menu()
 	reset_slots()
 
 
