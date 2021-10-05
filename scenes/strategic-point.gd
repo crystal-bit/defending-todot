@@ -12,6 +12,7 @@ onready var audio = $AudioStreamPlayer
 
 var mouse_inside_area = false
 var last_slot_pressed = null
+var previous_tower_resource = null
 
 
 func _ready() -> void:
@@ -22,27 +23,38 @@ func _ready() -> void:
 
 func _on_StrategicPoint_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	var tower: Tower = get_tower()
-	if tower and tower.state == tower.TOWER_STATES.GAMEPLAY:
-		# currently we don't show anything if there is a tower placed.
-		# This may change in the future to allow tower upgrades
-		return
-
+	
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT:
-			if event.pressed:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if tower and tower.state != tower.TOWER_STATES.PREVIEW:
 				audio.play()
 				if strategic_point_menu.visible:
 					hide_strategic_point_menu()
 				else:
-					strategic_point_menu.show_menu()
+					strategic_point_menu.hide_menu()
+					strategic_point_menu.show_tower_menu(tower.tower_resource)
+			else:
+				audio.play()
+				if strategic_point_menu.visible:
+					hide_strategic_point_menu()
+				else:
+					strategic_point_menu.hide_menu()
+					strategic_point_menu.show_radial_menu()
 
 
 func hide_strategic_point_menu():
-	strategic_point_menu.hide_menu()
 	var tower: Tower = get_tower()
-	if tower and tower.state == tower.TOWER_STATES.PREVIEW:
+	if previous_tower_resource != null and strategic_point_menu.visible:
+		Utils.delete_children_from_node(tower_container)
+		var previous_tower: Tower = tower_scene.instance()
+		previous_tower.initialise(previous_tower_resource)
+		tower_container.add_child(previous_tower)
+		previous_tower.change_state(previous_tower.TOWER_STATES.GAMEPLAY)
+		sprite.hide()
+	elif tower and tower.state == tower.TOWER_STATES.PREVIEW:
 		Utils.delete_children_from_node(tower_container)
 		sprite.show()
+	strategic_point_menu.hide_menu()
 	last_slot_pressed = null
 	tower_description_popup.hide()
 
@@ -91,9 +103,12 @@ func _on_StrategicPointMenu_tower_bought(tower_type) -> void:
 	var tower: Tower = tower_container.get_child(0)
 	tower.change_state(tower.TOWER_STATES.GAMEPLAY)
 	tower_description_popup.hide()
+	previous_tower_resource = get_tower().tower_resource
 
 
 func place_tower(tower_resource) -> void:
+	if get_tower():
+		previous_tower_resource = get_tower().tower_resource
 	Utils.delete_children_from_node(tower_container)
 	var tower: Tower = tower_scene.instance()
 	tower.initialise(tower_resource)

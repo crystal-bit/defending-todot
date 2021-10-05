@@ -9,6 +9,7 @@ var acceleration = 2
 var shot_direction := Vector2()
 var travelled_distance = 0
 var damage = 30
+var armor_piercing = 0
 var additional_effect = {}
 
 func _ready():
@@ -45,7 +46,7 @@ func explosion(collider : KinematicBody2D):
 	var enemy: Enemy = collider as Enemy
 	if enemy:
 		enemy.apply_status(additional_effect)
-		enemy.take_damage(damage)
+		enemy.take_damage(damage, armor_piercing)
 	set_process(false)
 	$AudioStreamPlayer2D.play()
 	$Sprite.visible = false

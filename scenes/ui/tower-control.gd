@@ -6,9 +6,14 @@ export var animation_speed = 0.25
 onready var strategic_point_menu = get_node("..")
 onready var tween = $Tween
 
-func show_radial_menu():
+func show_tower_menu(tower_resource):
 	visible = true
 	var slots = get_slots()
+	if tower_resource.level < 2:
+		slots[0].tower_resource = load("res://scenes/tower/tower_types/" + tower_resource.get_readable_name().to_lower() + "_2.tres")
+		slots[0]._ready()
+	else:
+		slots[0].visible = false
 	
 	var angle_offset = (2 * PI) / slots.size()
 	
@@ -30,7 +35,7 @@ func show_radial_menu():
 		
 	tween.start()
 
-func hide_radial_menu():
+func hide_tower_menu():
 	visible = false
 	tween.stop_all()
 	var slots = strategic_point_menu.get_slots()
@@ -41,6 +46,6 @@ func hide_radial_menu():
 func get_slots() -> Array:
 	var slots = []
 	for child in get_children():
-		if child is Slot and child.visible:
+		if child is Slot:
 			slots.append(child)
 	return slots
