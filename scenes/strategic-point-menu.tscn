@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/sprites/tower-defense-top-down/png/buy_area.png" type="Texture" id=6]
 [ext_resource path="res://scenes/tower/tower_types/bunker_1.tres" type="Resource" id=7]
 [ext_resource path="res://scenes/tower/tower_types/missile_1.tres" type="Resource" id=8]
-[ext_resource path="res://scenes/tower-control.gd" type="Script" id=9]
+[ext_resource path="res://scenes/ui/tower-control.gd" type="Script" id=9]
 
 [sub_resource type="ButtonGroup" id=1]
 
