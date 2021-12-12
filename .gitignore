@@ -6,8 +6,7 @@
 
 # Imported translations (automatically generated from CSV files)
 *.translation
-*.*~
+# *.*~
 
-
-
-
+/android
+/build
