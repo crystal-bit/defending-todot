@@ -16,8 +16,8 @@ static func load_resources_from_directory(path: String) -> Array:
 	dir.list_dir_end()
 
 	return result
-	
-	
+
+
 static func delete_children_from_node(node: Node) -> void:
 	for n in node.get_children():
 		node.remove_child(n)

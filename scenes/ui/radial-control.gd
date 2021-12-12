@@ -9,14 +9,13 @@ onready var tween = $Tween
 func show_radial_menu():
 	visible = true
 	var slots = get_slots()
-	
 	var angle_offset = (2 * PI) / slots.size()
-	
+
 	var angle = -PI / 2
-	
+
 	for slot in slots:
 		var radial_position = Vector2(radius, 0).rotated(angle)
-		
+
 		tween.interpolate_property(slot, "rect_position",
 				slot.rect_position, radial_position - slot.rect_size / 2, animation_speed,
 				Tween.TRANS_BACK, Tween.EASE_OUT)
@@ -27,14 +26,15 @@ func show_radial_menu():
 				slot.modulate, Color(1, 1, 1, 1), animation_speed,
 				Tween.TRANS_BACK, Tween.EASE_OUT)
 		angle += angle_offset
-		
+
 	tween.start()
+
 
 func hide_radial_menu():
 	visible = false
 	tween.stop_all()
 	var slots = strategic_point_menu.get_slots()
-	
+
 	for slot in slots:
 		slot.rect_position = slot.initial_position
 
