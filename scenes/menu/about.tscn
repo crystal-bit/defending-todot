@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/theme/theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/menu/about.gd" type="Script" id=2]
+[ext_resource path="res://scenes/menu/link.gd" type="Script" id=3]
+
+[node name="Panel" type="PanelContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 1594.0
+margin_bottom = 896.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 100
+custom_constants/margin_top = 75
+custom_constants/margin_left = 100
+custom_constants/margin_bottom = 120
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": "	"
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+margin_left = 100.0
+margin_top = 75.0
+margin_right = 1488.0
+margin_bottom = 772.0
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+margin_right = 1388.0
+margin_bottom = 89.0
+text = "Defending Todot it's in alpha state. 
+
+Interested in development? Go to:"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Link" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 93.0
+margin_right = 1388.0
+margin_bottom = 126.0
+custom_colors/font_color = Color( 0.627451, 0.952941, 0.952941, 1 )
+text = "github.com/crystal-bit/defending-todot"
+autowrap = true
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="Panel/MarginContainer/VBoxContainer"]
+margin_top = 130.0
+margin_right = 1388.0
+margin_bottom = 190.0
+rect_min_size = Vector2( 0, 60 )
+
+[node name="Confirm" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+margin_left = 608.0
+margin_top = 194.0
+margin_right = 779.832
+margin_bottom = 249.74
+size_flags_horizontal = 4
+text = "CONTINUE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/Confirm" to="." method="_on_Confirm_pressed"]

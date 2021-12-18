@@ -11,15 +11,15 @@ var levels = [
 		"star_rating": -1
 	},
 	{
-		"state": checkpoint.CHECKPOINT_STATE.LOCKED, 
+		"state": checkpoint.CHECKPOINT_STATE.LOCKED,
 		"star_rating": -1
 	},
 	{
-		"state": checkpoint.CHECKPOINT_STATE.LOCKED, 
+		"state": checkpoint.CHECKPOINT_STATE.LOCKED,
 		"star_rating": -1
 	},
 	{
-		"state": checkpoint.CHECKPOINT_STATE.LOCKED, 
+		"state": checkpoint.CHECKPOINT_STATE.LOCKED,
 		"star_rating": -1
 	},
 	{

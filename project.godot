@@ -122,6 +122,7 @@ Scenes="*res://autoload/scenes.gd"
 Game="*res://autoload/game.gd"
 ResourceManager="*res://autoload/resource_manager.gd"
 MenuBackgroundMusic="*res://autoload/menu_background_music.tscn"
+GameSave="*res://scenes/commons/persistence.gd"
 
 [display]
 
