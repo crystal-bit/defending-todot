@@ -3,6 +3,7 @@ extends Control
 # warning-ignore:unused_signal
 signal tower_selected(tower_name)
 signal tower_bought(tower)
+signal tower_sold(tower)
 signal no_money()
 
 
@@ -17,7 +18,10 @@ func _ready() -> void:
 
 func _on_Slot_pressed(is_slot_active, slot: Slot):
 	if is_slot_active:
-		buy_tower(slot)
+		if slot.tower_resource.tower_type == TowerType.Type.SELL:
+			sell_tower(slot)
+		else:
+			buy_tower(slot)
 
 
 func get_slots() -> Array:
@@ -59,6 +63,14 @@ func buy_tower(slot: Slot):
 		hide()
 	else:
 		emit_signal("no_money")
+
+
+func sell_tower(slot: Slot):
+	var money: Money = get_tree().get_nodes_in_group("UI")[0].money
+	money.add(slot.tower_resource.cost)
+	emit_signal("tower_sold", slot.tower_resource.tower_type)
+	hide()
+	return
 
 
 func show():

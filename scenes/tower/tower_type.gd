@@ -4,5 +4,6 @@ enum Type {
 	BUNKER,
 	MISSILE,
 	SNIPER,
-	LOCKED
+	LOCKED,
+	SELL
 }

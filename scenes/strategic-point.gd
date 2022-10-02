@@ -106,6 +106,11 @@ func _on_StrategicPointMenu_tower_bought(tower_type) -> void:
 	previous_tower_resource = get_tower().tower_resource
 
 
+func _on_StrategicPointMenu_tower_sold(tower):
+	Utils.delete_children_from_node(tower_container)
+	sprite.show()
+
+
 func place_tower(tower_resource) -> void:
 	if get_tower():
 		previous_tower_resource = get_tower().tower_resource
