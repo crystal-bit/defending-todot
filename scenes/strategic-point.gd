@@ -112,8 +112,6 @@ func _on_StrategicPointMenu_tower_sold(tower):
 
 
 func place_tower(tower_resource) -> void:
-	if get_tower():
-		previous_tower_resource = get_tower().tower_resource
 	Utils.delete_children_from_node(tower_container)
 	var tower: Tower = tower_scene.instance()
 	tower.initialise(tower_resource)
