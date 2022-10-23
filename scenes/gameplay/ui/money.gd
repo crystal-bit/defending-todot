@@ -1,8 +1,12 @@
 extends Control
 class_name Money
 
-onready var label = $PanelContainer/Label
-var balance: int = 0 setget set_money, get_money
+@onready var label = $PanelContainer/Label
+var balance: int = 0 :
+	get:
+		return balance # TODOConverter40 Copy here content of get_money
+	set(mod_value):
+		mod_value  # TODOConverter40 Copy here content of set_money
 
 func set_money(value: int):
 	balance = value if value > 0 else 0

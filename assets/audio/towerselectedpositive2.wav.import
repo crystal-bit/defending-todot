@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/towerselectedpositive2.wav-6eccc08dd213750d288e4447f73ee797.sample"
+type="AudioStreamWAV"
+uid="uid://b1muuptt2l87"
+path="res://.godot/imported/towerselectedpositive2.wav-6eccc08dd213750d288e4447f73ee797.sample"
 
 [deps]
 
 source_file="res://assets/audio/towerselectedpositive2.wav"
-dest_files=[ "res://.import/towerselectedpositive2.wav-6eccc08dd213750d288e4447f73ee797.sample" ]
+dest_files=["res://.godot/imported/towerselectedpositive2.wav-6eccc08dd213750d288e4447f73ee797.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

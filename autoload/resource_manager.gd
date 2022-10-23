@@ -10,7 +10,7 @@ var _towers := []
 var _enemies := []
 
 
-func _init() -> void:
+func _init():
 	_towers = Util.load_resources_from_directory(_load_path)
 	_enemies = Util.load_resources_from_directory(_enemies_path)
 	towers_by_level = _sort_by_level()

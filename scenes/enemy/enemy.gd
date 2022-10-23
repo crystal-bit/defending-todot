@@ -1,14 +1,14 @@
-extends KinematicBody2D
+extends CharacterBody2D
 class_name Enemy
-tool
+@tool
 
 signal death(money, global_position)
 signal arrived_to_hitarea()
 
-export(Resource) var enemy_resource setget set_resource
+@export var enemy_resource: EnemyResource : set=set_resource
 
-onready var path_follow = get_parent()
-onready var texture_progress = $Node2D/TextureProgress
+@onready var path_follow: PathFollow2D = get_parent()
+@onready var texture_progress = $Node2D/TextureProgressBar
 var debuff = {
 	"slow": 1 # 100% of the original speed
 }
@@ -30,7 +30,7 @@ func _ready():
 
 
 func load_resource_data(enemy_resource: EnemyResource):
-	var sprite = get_node_or_null("Sprite")
+	var sprite = get_node_or_null("Sprite2D")
 	if sprite == null:
 		return
 	sprite.texture = enemy_resource.texture
@@ -47,7 +47,7 @@ func set_grade(value):
 func _physics_process(delta):
 	if not Engine.is_editor_hint():
 		$Node2D.global_rotation = 0
-		path_follow.set_offset(path_follow.get_offset() + enemy_resource.speed * debuff.slow * 6 * delta)
+		path_follow.progress = path_follow.progress + enemy_resource.speed * debuff.slow * 6 * delta
 
 
 func set_hp(value: int):

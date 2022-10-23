@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/tower/tower.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile249.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile249.png" type="Texture2D" id=2]
 [ext_resource path="res://scenes/tower/tower_types/sniper_1.tres" type="Resource" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -22,8 +22,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 2, 0.5, 1 ),
+"times": PackedFloat32Array( 0, 0.5, 1 ),
+"transitions": PackedFloat32Array( 2, 0.5, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0.756863 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.756863 ) ]
 }
@@ -38,8 +38,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
@@ -48,7 +48,7 @@ tracks/0/keys = {
 script = ExtResource( 1 )
 tower_resource = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 texture = ExtResource( 2 )
 
@@ -64,7 +64,7 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange/AttackRange"]
 shape = SubResource( 2 )
 
-[node name="RallyPoint" type="Position2D" parent="."]
+[node name="RallyPoint" type="Marker2D" parent="."]
 
 [node name="FireTimer" type="Timer" parent="."]
 one_shot = true

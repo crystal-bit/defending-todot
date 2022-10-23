@@ -8,7 +8,7 @@ func appear():
 
 
 func _on_Button_pressed() -> void:
-	Game.change_scene("res://scenes/gameplay/map/map.tscn")
+	Game.change_scene_to_file("res://scenes/gameplay/map/map.tscn")
 
 
 func activate_button():

@@ -1,23 +1,22 @@
-extends Resource
 class_name Tower_Resource
+extends Resource
 
 
-export(TowerType.Type) var tower_type
-export(int) var level
-export(Texture) var texture
-export(int) var attack_radius
-export(int) var damage
-export(int, 0, 100) var armor_piercing
-export(float) var fire_rate
-export(String) var description
-export(bool) var locked
+@export var tower_type: TowerType.Type # (TowerType.Type)
+@export var level: int
+@export var texture: Texture2D
+@export var attack_radius: int
+@export var damage: int
+@export_range(0, 100) var armor_piercing
+@export var fire_rate: float
+@export var description: String
+@export var locked: bool
 
 #optional attributes
-export(int, 0, 100) var slow_effect
-export(int, 0, 100) var damage_area
-export(int) var cost
+@export_range(0, 100) var slow_effect
+@export_range(0, 100) var damage_area
+@export var cost: int
 
 
 func get_readable_name():
 	return TowerType.Type.keys()[tower_type]
-

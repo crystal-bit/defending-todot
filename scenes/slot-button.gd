@@ -1,11 +1,11 @@
 class_name Slot
 extends Button
 
-onready var decoration = $Decoration
-onready var initial_position: Vector2 = rect_position
-onready var audio = $AudioStreamPlayer
+@onready var decoration = $Decoration
+@onready var initial_position: Vector2 = position
+@onready var audio = $AudioStreamPlayer
 
-export(Resource) var tower_resource
+@export var tower_resource: Resource
 var tower_locked: Tower_Resource = preload("res://scenes/tower/tower_types/locked.tres")
 const base_level : int = 1
 
@@ -33,7 +33,7 @@ func _on_SlotButton_toggled(button_pressed: bool) -> void:
 	audio.play()
 
 
-func _set_icon(texture : Texture) -> void:
+func _set_icon(texture : Texture2D) -> void:
 	get_node("VBoxContainer/TowerIcon").texture = texture
 
 

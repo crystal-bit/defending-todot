@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/sprites/missile_sprite.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/missile_sprite.png" type="Texture2D" id=1]
 [ext_resource path="res://scenes/projectile/projectile.gd" type="Script" id=2]
-[ext_resource path="res://assets/sprites/smoke_cloud_sprite.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion2.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion5.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion1.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion3.png" type="Texture" id=7]
-[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion4.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/smoke_cloud_sprite.png" type="Texture2D" id=3]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion2.png" type="Texture2D" id=4]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion5.png" type="Texture2D" id=5]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion1.png" type="Texture2D" id=6]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion3.png" type="Texture2D" id=7]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion4.png" type="Texture2D" id=8]
 [ext_resource path="res://assets/audio/explosion.wav" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -21,14 +21,14 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[node name="missile" type="KinematicBody2D"]
+[node name="missile" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
@@ -46,7 +46,7 @@ randomness = 0.56
 lifetime_randomness = 0.35
 texture = ExtResource( 3 )
 
-[node name="Explosion" type="AnimatedSprite" parent="."]
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
 visible = false
 frames = SubResource( 2 )
 animation = "explosion"

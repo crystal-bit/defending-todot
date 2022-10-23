@@ -1,6 +1,6 @@
 extends Node
 
-var checkpoint = preload("res://scenes/gameplay/map/checkpoint.gd")
+var checkpoint = load("res://scenes/gameplay/map/checkpoint.gd")
 
 var money = 0
 var start_hp = 0
@@ -54,11 +54,11 @@ var size := Vector2.ZERO
 
 func _ready() -> void:
 	# TranslationServer.set_locale('es')
-	get_tree().connect("screen_resized", self, "_on_screen_resized")
+	get_viewport().connect("size_changed" ,Callable(self,"_on_resized"))
 	register_size()
 
 
-func _on_screen_resized():
+func _on_resized():
 	register_size()
 
 
@@ -70,7 +70,7 @@ func set_main_node(node: Main):
 	Scenes.main = node
 
 
-func change_scene(new_scene, params = {}):
+func change_scene_to_file(new_scene, params = {}):
 	Scenes._change_scene(new_scene, params)
 
 

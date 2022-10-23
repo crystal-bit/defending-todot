@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/ui/radial-control.gd" type="Script" id=3]
 [ext_resource path="res://scenes/tower/tower_types/locked.tres" type="Resource" id=4]
 [ext_resource path="res://scenes/tower/tower_types/sniper_1.tres" type="Resource" id=5]
-[ext_resource path="res://assets/sprites/tower-defense-top-down/png/buy_area.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/png/buy_area.png" type="Texture2D" id=6]
 [ext_resource path="res://scenes/tower/tower_types/bunker_1.tres" type="Resource" id=7]
 [ext_resource path="res://scenes/tower/tower_types/missile_1.tres" type="Resource" id=8]
 [ext_resource path="res://scenes/ui/tower-control.gd" type="Script" id=9]
@@ -21,7 +21,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BuildArea" type="Sprite" parent="."]
+[node name="BuildArea" type="Sprite2D" parent="."]
 texture = ExtResource( 6 )
 
 [node name="RadialControl" type="Control" parent="."]
@@ -33,45 +33,45 @@ radius = 100
 animation_speed = 0.5
 
 [node name="SlotBottomRight" parent="RadialControl" instance=ExtResource( 1 )]
-margin_left = -35.0
-margin_top = -35.0
-margin_right = 35.0
-margin_bottom = 35.0
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 group = SubResource( 1 )
 tower_resource = ExtResource( 7 )
 
 [node name="SlotTopLeft" parent="RadialControl" instance=ExtResource( 1 )]
-margin_left = -35.0
-margin_top = -35.0
-margin_right = 35.0003
-margin_bottom = 35.0
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0003
+offset_bottom = 35.0
 group = SubResource( 1 )
 tower_resource = ExtResource( 8 )
 
 [node name="SlotTopRight" parent="RadialControl" instance=ExtResource( 1 )]
-margin_left = -35.0
-margin_top = -35.0
-margin_right = 35.0
-margin_bottom = 35.0003
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0003
 group = SubResource( 1 )
 tower_resource = ExtResource( 5 )
 
 [node name="SlotTopRight2" parent="RadialControl" instance=ExtResource( 1 )]
-margin_left = -35.0
-margin_top = -35.0
-margin_right = 35.0
-margin_bottom = 35.0003
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0003
 disabled = true
 group = SubResource( 1 )
 tower_resource = ExtResource( 4 )
 
 [node name="SlotTopRight3" parent="RadialControl" instance=ExtResource( 1 )]
-margin_left = -35.0
-margin_top = -35.0
-margin_right = 35.0003
-margin_bottom = 35.0
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0003
+offset_bottom = 35.0
 disabled = true
 group = SubResource( 1 )
 tower_resource = ExtResource( 4 )
@@ -86,20 +86,20 @@ __meta__ = {
 radius = 100
 
 [node name="SlotBottomRight" parent="TowerControl" instance=ExtResource( 1 )]
-margin_left = -35.0
-margin_top = -35.0
-margin_right = 35.0
-margin_bottom = 35.0
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 group = SubResource( 1 )
 tower_resource = ExtResource( 7 )
 
 [node name="SlotSellTower" parent="TowerControl" instance=ExtResource( 1 )]
-margin_left = -35.0
-margin_top = -35.0
-margin_right = 35.0
-margin_bottom = 35.0
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 35.0
+offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 group = SubResource( 1 )

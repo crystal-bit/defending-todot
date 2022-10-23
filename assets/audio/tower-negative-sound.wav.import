@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/tower-negative-sound.wav-74eedc58dc7f07f699240a7f8ad919ee.sample"
+type="AudioStreamWAV"
+uid="uid://bkl4lpbhfewcx"
+path="res://.godot/imported/tower-negative-sound.wav-74eedc58dc7f07f699240a7f8ad919ee.sample"
 
 [deps]
 
 source_file="res://assets/audio/tower-negative-sound.wav"
-dest_files=[ "res://.import/tower-negative-sound.wav-74eedc58dc7f07f699240a7f8ad919ee.sample" ]
+dest_files=["res://.godot/imported/tower-negative-sound.wav-74eedc58dc7f07f699240a7f8ad919ee.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

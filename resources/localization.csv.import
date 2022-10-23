@@ -2,13 +2,14 @@
 
 importer="csv_translation"
 type="Translation"
+uid="uid://bhpjxmbua542m"
 
 [deps]
 
-files=[ "res://resources/localization.en.translation", "res://resources/localization.it.translation", "res://resources/localization.es.translation" ]
+files=["res://resources/localization.en.translation", "res://resources/localization.it.translation", "res://resources/localization.es.translation"]
 
 source_file="res://resources/localization.csv"
-dest_files=[ "res://resources/localization.en.translation", "res://resources/localization.it.translation", "res://resources/localization.es.translation" ]
+dest_files=["res://resources/localization.en.translation", "res://resources/localization.it.translation", "res://resources/localization.es.translation"]
 
 [params]
 

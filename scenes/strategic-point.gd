@@ -2,13 +2,13 @@ extends Area2D
 
 const Utils = preload("res://scenes/commons/utils.gd")
 
-onready var strategic_point_menu = $StrategicPointMenu
-onready var tower_description_popup = get_node("../../CanvasLayer/TowerDescriptionPopup")
+@onready var strategic_point_menu = $StrategicPointMenu
+@onready var tower_description_popup = get_node("../../CanvasLayer/TowerDescriptionPopup")
 
-onready var tower_container = $TowerContainer
-onready var tower_scene = preload("res://scenes/tower/tower.tscn")
-onready var sprite = $Sprite
-onready var audio = $AudioStreamPlayer
+@onready var tower_container = $TowerContainer
+@onready var tower_scene = preload("res://scenes/tower/tower.tscn")
+@onready var sprite = $Sprite2D
+@onready var audio = $AudioStreamPlayer
 
 var mouse_inside_area = false
 var last_slot_pressed = null
@@ -17,15 +17,15 @@ var previous_tower_resource = null
 
 func _ready() -> void:
 	for slot in strategic_point_menu.get_slots():
-		if not slot is Sprite and not slot.tower_resource.locked:
-			slot.connect("pressed", self, "_on_slot_pressed", [slot])
+		if not slot is Sprite2D and not slot.tower_resource.locked:
+			slot.connect("pressed",Callable(self,"_on_slot_pressed").bind(slot))
 
 
 func _on_StrategicPoint_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	var tower: Tower = get_tower()
 	
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if tower and tower.state != tower.TOWER_STATES.PREVIEW:
 				audio.play()
 				if strategic_point_menu.visible:
@@ -46,7 +46,7 @@ func hide_strategic_point_menu():
 	var tower: Tower = get_tower()
 	if previous_tower_resource != null and strategic_point_menu.visible:
 		Utils.delete_children_from_node(tower_container)
-		var previous_tower: Tower = tower_scene.instance()
+		var previous_tower: Tower = tower_scene.instantiate()
 		previous_tower.initialise(previous_tower_resource)
 		tower_container.add_child(previous_tower)
 		previous_tower.change_state(previous_tower.TOWER_STATES.GAMEPLAY)
@@ -73,15 +73,15 @@ func show_tower_description_popup(slot: Slot):
 		slot.tower_resource.damage,
 		slot.tower_resource.fire_rate
 	)
-	var description_appear_pos = slot.rect_global_position
-	if slot.rect_position.x > 0:
-		description_appear_pos.x += slot.rect_size.x
+	var description_appear_pos = slot.global_position
+	if slot.position.x > 0:
+		description_appear_pos.x += slot.size.x
 	else:
-		description_appear_pos.x -= tower_description_popup.rect_size.x
+		description_appear_pos.x -= tower_description_popup.size.x
 	if description_appear_pos.y > Game.size.y / 2:
-		description_appear_pos.y -= tower_description_popup.rect_size.y
+		description_appear_pos.y -= tower_description_popup.size.y
 	else:
-		description_appear_pos.y += slot.rect_size.y
+		description_appear_pos.y += slot.size.y
 	tower_description_popup.show_at_position(description_appear_pos)
 
 
@@ -113,7 +113,7 @@ func _on_StrategicPointMenu_tower_sold(tower):
 
 func place_tower(tower_resource) -> void:
 	Utils.delete_children_from_node(tower_container)
-	var tower: Tower = tower_scene.instance()
+	var tower: Tower = tower_scene.instantiate()
 	tower.initialise(tower_resource)
 	tower_container.add_child(tower)
 	tower.change_state(tower.TOWER_STATES.PREVIEW)

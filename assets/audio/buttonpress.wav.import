@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/buttonpress.wav-e032b69dcdfd23a4b3a744b36b607e32.sample"
+type="AudioStreamWAV"
+uid="uid://bdcacmoy38b6y"
+path="res://.godot/imported/buttonpress.wav-e032b69dcdfd23a4b3a744b36b607e32.sample"
 
 [deps]
 
 source_file="res://assets/audio/buttonpress.wav"
-dest_files=[ "res://.import/buttonpress.wav-e032b69dcdfd23a4b3a744b36b607e32.sample" ]
+dest_files=["res://.godot/imported/buttonpress.wav-e032b69dcdfd23a4b3a744b36b607e32.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

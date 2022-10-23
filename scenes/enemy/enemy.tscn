@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/enemy/enemy.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile245.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile245.png" type="Texture2D" id=2]
 [ext_resource path="res://scenes/enemy/enemy-types/soldier.tres" type="Resource" id=3]
-[ext_resource path="res://assets/sprites/ui/png/grey_button01.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/ui/png/grey_button01.png" type="Texture2D" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 15.0598 )
 
-[node name="Enemy" type="KinematicBody2D" groups=[
+[node name="Enemy" type="CharacterBody2D" groups=[
 "enemies",
 ]]
 script = ExtResource( 1 )
@@ -17,7 +17,7 @@ enemy_resource = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource( 2 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
@@ -28,12 +28,12 @@ collide_with_areas = true
 [node name="Node2D" type="Node2D" parent="."]
 z_index = 1
 
-[node name="TextureProgress" type="TextureProgress" parent="Node2D"]
-margin_left = -24.0
-margin_top = -45.0
-margin_right = 166.0
-margin_bottom = 4.0
-rect_scale = Vector2( 0.25, 0.25 )
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Node2D"]
+offset_left = -24.0
+offset_top = -45.0
+offset_right = 166.0
+offset_bottom = 4.0
+scale = Vector2( 0.25, 0.25 )
 mouse_filter = 2
 max_value = 30.0
 value = 30.0

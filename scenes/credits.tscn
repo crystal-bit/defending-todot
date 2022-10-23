@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/credits.gd" type="Script" id=1]
-[ext_resource path="res://resources/fonts/boogaloo-40px.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/fonts/boogaloo/boogaloo-regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://assets/sprites/ui/bonus/over_circular_texture_progress.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/ui/bonus/circular_texture_progress.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/circle_05.png" type="Texture" id=6]
+[ext_resource path="res://resources/fonts/boogaloo-40px.tres" type="FontFile" id=2]
+[ext_resource path="res://assets/fonts/boogaloo/boogaloo-regular.ttf" type="FontFile" id=3]
+[ext_resource path="res://assets/sprites/ui/bonus/over_circular_texture_progress.png" type="Texture2D" id=4]
+[ext_resource path="res://assets/sprites/ui/bonus/circular_texture_progress.png" type="Texture2D" id=5]
+[ext_resource path="res://assets/sprites/circle_05.png" type="Texture2D" id=6]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 size = 30
 font_data = ExtResource( 3 )
 
@@ -15,14 +15,14 @@ font_data = ExtResource( 3 )
 blend_mode = 1
 
 [sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0, 0.228261, 0.724638, 1 )
-colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 0.360784, 0.568627, 0.568627, 0.568627, 0.470588, 1, 1, 1, 0 )
+offsets = PackedFloat32Array( 0, 0.228261, 0.724638, 1 )
+colors = PackedColorArray( 0, 0, 0, 0, 1, 1, 1, 0.360784, 0.568627, 0.568627, 0.568627, 0.470588, 1, 1, 1, 0 )
 
 [node name="Credits" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -0.0992126
-margin_bottom = -0.0992432
+offset_top = -0.0992126
+offset_bottom = -0.0992432
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 900.182 ],
@@ -38,19 +38,19 @@ __meta__ = {
 }
 
 [node name="LabelsContainer" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+offset_right = 40.0
+offset_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureProgress" type="TextureProgress" parent="."]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
 visible = false
-margin_left = 3.93611
-margin_top = 37.8403
-margin_right = 131.936
-margin_bottom = 165.84
-rect_scale = Vector2( 0.5, 0.5 )
+offset_left = 3.93611
+offset_top = 37.8403
+offset_right = 131.936
+offset_bottom = 165.84
+scale = Vector2( 0.5, 0.5 )
 max_value = 300.0
 texture_under = ExtResource( 5 )
 texture_over = ExtResource( 4 )
@@ -64,8 +64,8 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_right = 265.0
-margin_bottom = 34.0
+offset_right = 265.0
+offset_bottom = 34.0
 custom_fonts/font = SubResource( 1 )
 text = "SKIP CREDITS"
 __meta__ = {
@@ -77,15 +77,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -206.0
-margin_top = -20.0
-margin_right = 206.0
-margin_bottom = 20.0
+offset_left = -206.0
+offset_top = -20.0
+offset_right = 206.0
+offset_bottom = 20.0
 custom_fonts/font = ExtResource( 2 )
 text = "Contributor name preview"
 __meta__ = {
 "_edit_use_anchors_": false,
-"_editor_description_": "This will be deleted on ready. Contributors name will be created by the script"
+"_editor_description_": "This will be deleted checked ready. Contributors name will be created by the script"
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

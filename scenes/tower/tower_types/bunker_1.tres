@@ -1,13 +1,13 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://0x8v4drns3di"]
 
-[ext_resource path="res://scenes/tower/tower_resource.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile227.png" type="Texture" id=2]
+[ext_resource type="Script" path="res://scenes/tower/tower_resource.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://w88m30okvia1" path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile227.png" id="2"]
 
 [resource]
-script = ExtResource( 1 )
+script = ExtResource("1")
 tower_type = 0
 level = 1
-texture = ExtResource( 2 )
+texture = ExtResource("2")
 attack_radius = 180
 damage = 22
 armor_piercing = 20

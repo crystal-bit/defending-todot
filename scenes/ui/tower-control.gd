@@ -1,10 +1,10 @@
 extends Control
 
-export var radius = 300
-export var animation_speed = 0.25
+@export var radius = 300
+@export var animation_speed = 0.25
 
-onready var strategic_point_menu = get_node("..")
-onready var tween = $Tween
+@onready var strategic_point_menu = get_node("..")
+var tween: Tween
 
 func show_tower_menu(tower_resource):
 	visible = true
@@ -26,19 +26,18 @@ func show_tower_menu(tower_resource):
 	
 	for slot in slots:
 		var radial_position = Vector2(radius, 0).rotated(angle)
-		
-		tween.interpolate_property(slot, "rect_position",
-				slot.rect_position, radial_position - slot.rect_size / 2, animation_speed,
-				Tween.TRANS_BACK, Tween.EASE_OUT)
-		tween.interpolate_property(slot, "rect_scale",
-				Vector2(0.5, 0.5), Vector2.ONE, animation_speed,
-				Tween.TRANS_LINEAR)
-		tween.interpolate_property(slot, "modulate",
-				slot.modulate, Color(1, 1, 1, 1), animation_speed,
-				Tween.TRANS_BACK, Tween.EASE_OUT)
+		tween = create_tween()
+#		tween.interpolate_property(slot, "position",
+#				slot.position, radial_position - slot.size / 2, animation_speed,
+#				Tween.TRANS_BACK, Tween.EASE_OUT)
+#		tween.interpolate_property(slot, "scale",
+#				Vector2(0.5, 0.5), Vector2.ONE, animation_speed,
+#				Tween.TRANS_LINEAR)
+#		tween.interpolate_property(slot, "modulate",
+#				slot.modulate, Color(1, 1, 1, 1), animation_speed,
+#				Tween.TRANS_BACK, Tween.EASE_OUT)
 		angle += angle_offset
-		
-	tween.start()
+
 
 func _get_sell_resource(tower_resource : Tower_Resource) -> Tower_Resource:
 	var sell_resource : Tower_Resource = load("res://scenes/tower/tower_types/sell_tower.tres")
@@ -50,13 +49,16 @@ func _get_sell_resource(tower_resource : Tower_Resource) -> Tower_Resource:
 	sell_resource.cost = floor(tower_resource.cost / 2)
 	return sell_resource
 
+
 func hide_tower_menu():
 	visible = false
-	tween.stop_all()
+	if tween and tween.is_active() and tween.is_valid():
+		tween.kill()
 	var slots = strategic_point_menu.get_slots()
 	
 	for slot in slots:
-		slot.rect_position = slot.initial_position
+		slot.position = slot.initial_position
+
 
 func get_slots() -> Array:
 	var slots = []

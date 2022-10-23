@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-onready var pause_screen := $Pause
-onready var resume_option := $Pause/VBoxOptions/Resume
-onready var menu_option := $"Pause/VBoxOptions/Main Menu"
-onready var audio = $AudioStreamPlayer
+@onready var pause_screen := $Pause
+@onready var resume_option := $Pause/VBoxOptions/Resume
+@onready var menu_option := $"Pause/VBoxOptions/Main Menu"
+@onready var audio = $AudioStreamPlayer
 
 func _ready():
 	resume_option.text = tr('RESUME')
@@ -36,11 +36,11 @@ func _on_Resume_pressed():
 
 func _on_Main_Menu_pressed():
 	audio.play()
-	""" Note: this should be connected as one-shot to avoid bugs on
+	""" Note: this should be connected as one-shot to avoid bugs checked
 	multiple click during animations.
 	For other parts of the game the pause state takes care of this."""
-	Game.change_scene("res://scenes/menu/menu.tscn")
+	Game.change_scene_to_file("res://scenes/menu/menu.tscn")
 	# if, by accident, you try to load the main scene (the container
 	# for this template) it prevents to load it because
 	# it's in the Game.scenes_denylist
-	# Game.change_scene("res://scenes/main.tscn")
+	# Game.change_scene_to_file("res://scenes/main.tscn")

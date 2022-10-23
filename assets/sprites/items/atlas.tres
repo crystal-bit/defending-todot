@@ -1,4 +1,4 @@
-[gd_resource type="StreamTexture" format=2]
+[gd_resource type="CompressedTexture2D" format=2]
 
 [resource]
 flags = 4

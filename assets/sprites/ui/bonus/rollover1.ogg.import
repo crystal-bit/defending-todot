@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/rollover1.ogg-285f07cec3173ba30f8c80067d946abc.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://q1uvyw2akp3g"
+path="res://.godot/imported/rollover1.ogg-285f07cec3173ba30f8c80067d946abc.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/sprites/ui/bonus/rollover1.ogg"
-dest_files=[ "res://.import/rollover1.ogg-285f07cec3173ba30f8c80067d946abc.oggstr" ]
+dest_files=["res://.godot/imported/rollover1.ogg-285f07cec3173ba30f8c80067d946abc.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

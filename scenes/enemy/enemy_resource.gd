@@ -1,15 +1,15 @@
 extends Resource
 class_name EnemyResource
 
-export(EnemyTypes.ENEMY_TYPES) var type
-export(EnemyTypes.GRADE) var grade
-export(Texture) var texture
-export(int) var hp
-export(int) var armor
-export(int) var regen
-export(int) var speed
-export(int) var damage
-export(int) var money_dropped
+@export var type: EnemyTypes.ENEMY_TYPES
+@export var grade: EnemyTypes.GRADE
+@export var texture: Texture2D
+@export var hp: int
+@export var armor: int
+@export var regen: int
+@export var speed: int
+@export var damage: int
+@export var money_dropped: int
 
 func get_name():
 	match type:

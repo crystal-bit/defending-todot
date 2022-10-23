@@ -4,7 +4,7 @@
 [ext_resource path="res://autoload/menu_background_music.gd" type="Script" id=2]
 
 [node name="MenuBGM" type="AudioStreamPlayer"]
-pause_mode = 2
+process_mode = 2
 stream = ExtResource( 1 )
 script = ExtResource( 2 )
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://resources/fonts/luckiest-guy-30px.tres" type="DynamicFont" id=1]
-[ext_resource path="res://resources/fonts/boogaloo-40px.tres" type="DynamicFont" id=2]
+[ext_resource path="res://resources/fonts/luckiest-guy-30px.tres" type="FontFile" id=1]
+[ext_resource path="res://resources/fonts/boogaloo-40px.tres" type="FontFile" id=2]
 [ext_resource path="res://scenes/enemy_wave/enemy_waves_manager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/enemy_wave/enemy_group.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/enemy_wave/enemy_wave.tscn" type="PackedScene" id=5]
@@ -85,10 +85,10 @@ num_of_enemies = 20
 delay_in_sec = 0.3
 
 [node name="Button" type="Button" parent="."]
-margin_left = 55.539
-margin_top = 53.4051
-margin_right = 279.539
-margin_bottom = 153.405
+offset_left = 55.539
+offset_top = 53.4051
+offset_right = 279.539
+offset_bottom = 153.405
 custom_fonts/font = ExtResource( 1 )
 text = "Call Enemies Test"
 __meta__ = {
@@ -96,10 +96,10 @@ __meta__ = {
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 352.0
-margin_top = 48.0
-margin_right = 1442.0
-margin_bottom = 851.0
+offset_left = 352.0
+offset_top = 48.0
+offset_right = 1442.0
+offset_bottom = 851.0
 custom_fonts/normal_font = ExtResource( 2 )
 text = "Press the left button to call the wave
 "

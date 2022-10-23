@@ -1,7 +1,7 @@
 class_name Transitions
 extends CanvasLayer
 
-onready var anim := $AnimationPlayer
+@onready var anim := $AnimationPlayer
 
 
 func playing() -> bool:

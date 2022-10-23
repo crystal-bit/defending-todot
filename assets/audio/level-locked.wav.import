@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/level-locked.wav-64f242de7c7a425ac0235f93056d828b.sample"
+type="AudioStreamWAV"
+uid="uid://ctpirmwpgsaqg"
+path="res://.godot/imported/level-locked.wav-64f242de7c7a425ac0235f93056d828b.sample"
 
 [deps]
 
 source_file="res://assets/audio/level-locked.wav"
-dest_files=[ "res://.import/level-locked.wav-64f242de7c7a425ac0235f93056d828b.sample" ]
+dest_files=["res://.godot/imported/level-locked.wav-64f242de7c7a425ac0235f93056d828b.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

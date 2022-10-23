@@ -1,9 +1,9 @@
 extends Button
 
-onready var audio = get_node("../AudioStreamPlayer")
+@onready var audio = get_node("../AudioStreamPlayer")
 
 
 func _on_AboutButton_pressed():
 	audio.play()
-	yield(audio, "finished")
+	await audio.finished
 	get_node("../../CanvasLayer/AboutOverlay").show()

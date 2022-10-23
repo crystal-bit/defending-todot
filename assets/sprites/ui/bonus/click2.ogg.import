@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/click2.ogg-878912e53e9060b00519c03a060004ac.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b5a0q0weg02wb"
+path="res://.godot/imported/click2.ogg-878912e53e9060b00519c03a060004ac.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/sprites/ui/bonus/click2.ogg"
-dest_files=[ "res://.import/click2.ogg-878912e53e9060b00519c03a060004ac.oggstr" ]
+dest_files=["res://.godot/imported/click2.ogg-878912e53e9060b00519c03a060004ac.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

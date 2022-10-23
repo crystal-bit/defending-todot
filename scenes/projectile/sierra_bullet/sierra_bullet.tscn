@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/projectile/projectile.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/sierrabullet.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion-smoke3.png" type="Texture" id=3]
-[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion-smoke4.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion-smoke2.png" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion-smoke5.png" type="Texture" id=6]
-[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion-smoke1.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/sierrabullet.png" type="Texture2D" id=2]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion-smoke3.png" type="Texture2D" id=3]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion-smoke4.png" type="Texture2D" id=4]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion-smoke2.png" type="Texture2D" id=5]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion-smoke5.png" type="Texture2D" id=6]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/explosion-smoke1.png" type="Texture2D" id=7]
 [ext_resource path="res://assets/audio/explosion.wav" type="AudioStream" id=8]
-[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/shot-red.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/top-down-tanks-redux/png/shot-red.png" type="Texture2D" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.4078, 76.3085 )
@@ -21,14 +21,14 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[node name="sierra_bullet" type="KinematicBody2D"]
+[node name="sierra_bullet" type="CharacterBody2D"]
 scale = Vector2( 0.3, 0.3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
@@ -45,7 +45,7 @@ emission_shape = 2
 emission_rect_extents = Vector2( 1, 1 )
 spread = 0.0
 
-[node name="Explosion" type="AnimatedSprite" parent="."]
+[node name="Explosion" type="AnimatedSprite2D" parent="."]
 visible = false
 scale = Vector2( 3, 3 )
 frames = SubResource( 2 )

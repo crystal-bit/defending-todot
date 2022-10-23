@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/strategic-point-selected.wav-b9164b4843420ab788fd03cef675b80b.sample"
+type="AudioStreamWAV"
+uid="uid://ylphbkanahum"
+path="res://.godot/imported/strategic-point-selected.wav-b9164b4843420ab788fd03cef675b80b.sample"
 
 [deps]
 
 source_file="res://assets/audio/strategic-point-selected.wav"
-dest_files=[ "res://.import/strategic-point-selected.wav-b9164b4843420ab788fd03cef675b80b.sample" ]
+dest_files=["res://.godot/imported/strategic-point-selected.wav-b9164b4843420ab788fd03cef675b80b.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

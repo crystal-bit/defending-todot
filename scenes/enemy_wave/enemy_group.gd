@@ -5,18 +5,18 @@ class_name EnemyGroup
 signal spawn_enemy(enemy_resource)
 signal last_enemy_spawned()
 
-export(Resource) var enemy_resource
-export var num_of_enemies : int = 1
+@export var enemy_resource: Resource
+@export var num_of_enemies : int = 1
 
 # The time between the spawn of one enemy and the next, in seconds.
-export var delay_in_sec : float = 1.0
+@export var delay_in_sec : float = 1.0
 
 var ongoing := false
 var elapsed_time := 0.0
 
 
 func _ready() -> void:
-	assert(enemy_resource, "Enemy resource is not configured")
+	assert(enemy_resource) #,"Enemy resource is not configured")
 
 
 func _process(delta):

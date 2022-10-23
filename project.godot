@@ -6,89 +6,89 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
+config_version=5
 
-_global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "Enemy",
-"language": "GDScript",
+_global_script_classes=[{
+"base": "CharacterBody2D",
+"class": &"Enemy",
+"language": &"GDScript",
 "path": "res://scenes/enemy/enemy.gd"
 }, {
 "base": "Area2D",
-"class": "EnemyCallButton",
-"language": "GDScript",
+"class": &"EnemyCallButton",
+"language": &"GDScript",
 "path": "res://scenes/enemy-call-button/enemy-call-button.gd"
 }, {
 "base": "Node2D",
-"class": "EnemyGroup",
-"language": "GDScript",
+"class": &"EnemyGroup",
+"language": &"GDScript",
 "path": "res://scenes/enemy_wave/enemy_group.gd"
 }, {
 "base": "Resource",
-"class": "EnemyResource",
-"language": "GDScript",
+"class": &"EnemyResource",
+"language": &"GDScript",
 "path": "res://scenes/enemy/enemy_resource.gd"
 }, {
 "base": "Node",
-"class": "EnemyTypes",
-"language": "GDScript",
+"class": &"EnemyTypes",
+"language": &"GDScript",
 "path": "res://scenes/enemy/enemy-types.gd"
 }, {
 "base": "Node2D",
-"class": "EnemyWave",
-"language": "GDScript",
+"class": &"EnemyWave",
+"language": &"GDScript",
 "path": "res://scenes/enemy_wave/enemy_wave.gd"
 }, {
 "base": "Area2D",
-"class": "HitArea",
-"language": "GDScript",
+"class": &"HitArea",
+"language": &"GDScript",
 "path": "res://scenes/gameplay/hit-area/hit-area.gd"
 }, {
 "base": "Node",
-"class": "Main",
-"language": "GDScript",
+"class": &"Main",
+"language": &"GDScript",
 "path": "res://scenes/main.gd"
 }, {
 "base": "Control",
-"class": "Money",
-"language": "GDScript",
+"class": &"Money",
+"language": &"GDScript",
 "path": "res://scenes/gameplay/ui/money.gd"
 }, {
-"base": "KinematicBody2D",
-"class": "Projectile",
-"language": "GDScript",
+"base": "CharacterBody2D",
+"class": &"Projectile",
+"language": &"GDScript",
 "path": "res://scenes/projectile/projectile.gd"
 }, {
 "base": "Button",
-"class": "Slot",
-"language": "GDScript",
+"class": &"Slot",
+"language": &"GDScript",
 "path": "res://scenes/slot-button.gd"
 }, {
 "base": "Node2D",
-"class": "Tower",
-"language": "GDScript",
+"class": &"Tower",
+"language": &"GDScript",
 "path": "res://scenes/tower/tower.gd"
 }, {
-"base": "Reference",
-"class": "TowerType",
-"language": "GDScript",
+"base": "RefCounted",
+"class": &"TowerType",
+"language": &"GDScript",
 "path": "res://scenes/tower/tower_type.gd"
 }, {
 "base": "Resource",
-"class": "Tower_Resource",
-"language": "GDScript",
+"class": &"Tower_Resource",
+"language": &"GDScript",
 "path": "res://scenes/tower/tower_resource.gd"
 }, {
 "base": "CanvasLayer",
-"class": "Transitions",
-"language": "GDScript",
+"class": &"Transitions",
+"language": &"GDScript",
 "path": "res://scenes/transitions/transitions.gd"
 }, {
 "base": "Node2D",
-"class": "WaveManager",
-"language": "GDScript",
+"class": &"WaveManager",
+"language": &"GDScript",
 "path": "res://scenes/enemy_wave/enemy_waves_manager.gd"
-} ]
+}]
 _global_script_class_icons={
 "Enemy": "",
 "EnemyCallButton": "",
@@ -112,8 +112,9 @@ _global_script_class_icons={
 
 config/name="defending-todot"
 run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.0")
 boot_splash/image="res://assets/splash.png"
-boot_splash/bg_color=Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+boot_splash/bg_color=Color(0.0862745, 0.0862745, 0.0862745, 1)
 config/icon="res://assets/sprites/icon.png"
 
 [autoload]
@@ -126,27 +127,26 @@ GameSave="*res://scenes/commons/persistence.gd"
 
 [display]
 
-window/size/width=1600
-window/size/height=900
-window/size/test_width=1280
-window/size/test_height=720
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
 
 [input]
 
 pause={
 "deadzone": 0.5,
-"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
- ]
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":11,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":0,"unicode":0,"echo":false,"script":null)
+]
 }
 
 [locale]
 
 fallback="it"
-locale_filter=[ 0, [  ] ]
-translations=PoolStringArray( "res://resources/localization.en.translation", "res://resources/localization.it.translation", "res://resources/localization.es.translation" )
+locale_filter=[0, []]
+translations=PackedStringArray("res://resources/localization.en.translation", "res://resources/localization.it.translation", "res://resources/localization.es.translation")
 
 [rendering]
 

@@ -13,6 +13,6 @@ func pre_start(params):
 
 
 func _on_Yes_pressed() -> void:
-	Game.change_scene("res://scenes/gameplay/gameplay.tscn", {
+	Game.change_scene_to_file("res://scenes/gameplay/gameplay.tscn", {
 		"level_path": level_to_load
 		})

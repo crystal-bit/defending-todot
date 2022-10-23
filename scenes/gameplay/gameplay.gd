@@ -1,8 +1,8 @@
 extends Node2D
 
-onready var level = $Level
-onready var ui = $UI
-onready var bgm = $BGM
+@onready var level = $Level
+@onready var ui = $UI
+@onready var bgm = $BGM
 var wave_manager: WaveManager
 
 
@@ -24,12 +24,12 @@ func pre_start(params):
 func start():
 	for ha in get_tree().get_nodes_in_group("HitAreas"):
 		var hit_area: HitArea = ha
-		hit_area.connect("enemy_arrived", self, "_on_HitArea_enemy_arrived")
+		hit_area.connect("enemy_arrived",Callable(self,"_on_HitArea_enemy_arrived"))
 	wave_manager = get_tree().get_nodes_in_group("WaveManager")[0]
 	update_ui()
 	# update refence from InstancePlaceholder to Node2D (level)
-	level = get_node("Level")
-	level.connect("level_ended", self, "_on_level_ended")
+	level = find_child("Level*")
+	level.connect("level_ended", Callable(self,"_on_level_ended"))
 
 
 func _on_level_ended():
@@ -37,7 +37,9 @@ func _on_level_ended():
 
 
 func load_level(level_scene_path):
-	level.replace_by_instance(load(level_scene_path))
+	print("TODO: load level")
+#	var new_level = load(level_scene_path).instantiate()
+#	level.replace_by(new_level)
 
 
 func update_ui():
@@ -45,7 +47,7 @@ func update_ui():
 	ui.wave.set_wave(0, wave_manager.waves.size())
 	ui.hp.set_hp(20)
 	ui.money.set_money(Game.money)
-	wave_manager.connect("wave_started", self, "_on_wave_manager_wave_started")
+	wave_manager.connect("wave_started",Callable(self,"_on_wave_manager_wave_started"))
 	ui.insufficient_money_popup.register_signals()
 
 

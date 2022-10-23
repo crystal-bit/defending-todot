@@ -1,13 +1,13 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/slot-button.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile227.png" type="Texture" id=2]
-[ext_resource path="res://assets/sprites/ui/png/ok.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/tower-defense-top-down/png/tower-defense_tile227.png" type="Texture2D" id=2]
+[ext_resource path="res://assets/sprites/ui/png/ok.png" type="Texture2D" id=3]
 [ext_resource path="res://assets/audio/tower-negative-sound.wav" type="AudioStream" id=4]
-[ext_resource path="res://assets/fonts/military_font_7/military_font_7.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/fonts/military_font_7/military_font_7.ttf" type="FontFile" id=5]
 [ext_resource path="res://resources/theme/theme.tres" type="Theme" id=6]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 size = 13
 font_data = ExtResource( 5 )
 
@@ -21,7 +21,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Decoration" type="Sprite" parent="."]
+[node name="Decoration" type="Sprite2D" parent="."]
 visible = false
 position = Vector2( 35, 35 )
 scale = Vector2( 0.4, 0.4 )
@@ -30,10 +30,10 @@ texture = ExtResource( 3 )
 
 [node name="DecorationBG" type="ColorRect" parent="Decoration"]
 show_behind_parent = true
-margin_left = -75.0
-margin_top = -75.0
-margin_right = 75.0
-margin_bottom = 75.0
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
 mouse_filter = 1
 color = Color( 0.513726, 0.529412, 0.588235, 1 )
 __meta__ = {
@@ -48,17 +48,17 @@ __meta__ = {
 }
 
 [node name="TowerName" type="Label" parent="VBoxContainer"]
-margin_right = 1600.0
-margin_bottom = 22.0
+offset_right = 1600.0
+offset_bottom = 22.0
 custom_fonts/font = SubResource( 1 )
 text = "Bunker"
 align = 1
 valign = 1
 
 [node name="TowerIcon" type="TextureRect" parent="VBoxContainer"]
-margin_top = 26.0
-margin_right = 1600.0
-margin_bottom = 874.0
+offset_top = 26.0
+offset_right = 1600.0
+offset_bottom = 874.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 2 )
@@ -69,9 +69,9 @@ __meta__ = {
 }
 
 [node name="TowerCost" type="Label" parent="VBoxContainer"]
-margin_top = 878.0
-margin_right = 1600.0
-margin_bottom = 900.0
+offset_top = 878.0
+offset_right = 1600.0
+offset_bottom = 900.0
 custom_fonts/font = SubResource( 1 )
 text = "100"
 align = 1

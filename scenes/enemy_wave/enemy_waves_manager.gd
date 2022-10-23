@@ -27,6 +27,9 @@ var wave_counter := -1
 var is_last_wave := false
 var total_enemies_count = 0
 
+signal waves_loaded
+var loading = true
+
 
 func _ready():
 	# Add every children enemy_wave to waves
@@ -34,9 +37,12 @@ func _ready():
 		#if children.is_class(EnemyWave.CLASS_NAME):
 		if children is EnemyWave:
 			waves.append(children)
-			children.connect("last_enemy_spawned", self, "_on_EnemyWave_last_enemy_spawned")
-			children.connect("spawn_enemy", self, "_on_EnemyWave_spawn_enemy")
+			children.connect("last_enemy_spawned",Callable(self,"_on_EnemyWave_last_enemy_spawned"))
+			children.connect("spawn_enemy",Callable(self,"_on_EnemyWave_spawn_enemy"))
 	total_enemies_count = get_total_enemies_count()
+	print(total_enemies_count)
+	loading = false
+	emit_signal("waves_loaded")
 
 
 func get_total_enemies_count():

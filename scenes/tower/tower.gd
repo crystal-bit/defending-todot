@@ -1,18 +1,18 @@
 extends Node2D
 class_name Tower
 
-export(Resource) var tower_resource
+@export var tower_resource: Tower_Resource
 
 const TOWER_ROTATION_OFFSET = PI / 2
 
-onready var attack_range_area: Area2D = $AttackRange/AttackRange
-onready var rally_point = $RallyPoint
-onready var sprite = $Sprite
-onready var fire_timer = $FireTimer
-onready var missile_scene = preload("res://scenes/projectile/missile/missile.tscn")
-onready var bullet_scene = preload("res://scenes/projectile/bullet/bullet.tscn")
-onready var sierra_scene = preload("res://scenes/projectile/sierra_bullet/sierra_bullet.tscn")
-onready var anim = $AnimationPlayer
+@onready var attack_range_area: Area2D = $AttackRange/AttackRange
+@onready var rally_point = $RallyPoint
+@onready var sprite = $Sprite2D
+@onready var fire_timer = $FireTimer
+@onready var missile_scene = preload("res://scenes/projectile/missile/missile.tscn")
+@onready var bullet_scene = preload("res://scenes/projectile/bullet/bullet.tscn")
+@onready var sierra_scene = preload("res://scenes/projectile/sierra_bullet/sierra_bullet.tscn")
+@onready var anim = $AnimationPlayer
 
 var alpha_area_show : float = .5
 var alpha_area_hide : float = 0
@@ -47,19 +47,19 @@ func _process(delta):
 
 
 func _draw() -> void:
-	var blue_color: Color = Color.blue
+	var blue_color: Color = Color.BLUE
 	blue_color.a = alpha_area
 	draw_circle(Vector2.ZERO, tower_resource.attack_radius, blue_color)
 
 
 func _on_AttackRangeShowArea_mouse_entered() -> void:
 	alpha_area = alpha_area_show
-	update()
+	queue_redraw()
 
 
 func _on_AttackRangeShowArea_mouse_exited() -> void:
 	alpha_area = alpha_area_hide
-	update()
+	queue_redraw()
 
 
 func _on_Area2D_body_entered(body):
@@ -88,7 +88,7 @@ func _on_FireTimer_timeout():
 
 
 func change_state(new_state: int):
-	assert(new_state in TOWER_STATES.values(), "Tower state not in TOWER_STATES list")
+	assert(new_state in TOWER_STATES.values()) #,"Tower state not in TOWER_STATES list")
 	if new_state == TOWER_STATES.GAMEPLAY:
 		attack_range_area.monitoring = true
 	if new_state == TOWER_STATES.PREVIEW:
@@ -106,7 +106,7 @@ func set_rally_point(position : Vector2):
 
 func load_resource_data(p_tower_resource : Tower_Resource):
 	sprite.texture = p_tower_resource.texture
-	attack_range_area.find_node("CollisionShape2D").shape.radius = p_tower_resource.attack_radius
+	attack_range_area.find_child("CollisionShape2D").shape.radius = p_tower_resource.attack_radius
 	fire_timer.wait_time = p_tower_resource.fire_rate
 
 
@@ -125,13 +125,13 @@ func fire(_target: Enemy): #when finished match tower_type and level of the towe
 func get_missile_by_tower_type(tower_type: int):
 	match tower_type:
 		TowerType.Type.BUNKER:
-			return bullet_scene.instance()
+			return bullet_scene.instantiate()
 		TowerType.Type.MISSILE:
-			return sierra_scene.instance()
+			return sierra_scene.instantiate()
 		TowerType.Type.SNIPER:
-			return missile_scene.instance()
+			return missile_scene.instantiate()
 		_:
-			return missile_scene.instance()
+			return missile_scene.instantiate()
 
 
 func apply_additional_effect(obj: Projectile):

@@ -1,15 +1,19 @@
 [remap]
 
-importer="ogg_vorbis"
-type="AudioStreamOGGVorbis"
-path="res://.import/458396__befig__monkey-cry.ogg-9f48b2456bd93536254dab6c43f1b101.oggstr"
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://81hd1hqk1n5s"
+path="res://.godot/imported/458396__befig__monkey-cry.ogg-9f48b2456bd93536254dab6c43f1b101.oggvorbisstr"
 
 [deps]
 
 source_file="res://assets/audio/458396__befig__monkey-cry.ogg"
-dest_files=[ "res://.import/458396__befig__monkey-cry.ogg-9f48b2456bd93536254dab6c43f1b101.oggstr" ]
+dest_files=["res://.godot/imported/458396__befig__monkey-cry.ogg-9f48b2456bd93536254dab6c43f1b101.oggvorbisstr"]
 
 [params]
 
 loop=true
 loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

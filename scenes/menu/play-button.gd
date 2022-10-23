@@ -1,6 +1,6 @@
 extends Button
 
-onready var audio = get_node("../AudioStreamPlayer")
+@onready var audio = get_node("../AudioStreamPlayer")
 
 
 func _ready():
@@ -10,7 +10,7 @@ func _ready():
 
 func _on_Button_pressed():
 	audio.play()
-	yield(audio, "finished")
+	await audio.finished
 	var params = {
 		"a_number": 10,
 		"a_string": "Ciao mondo!",
@@ -20,4 +20,4 @@ func _on_Button_pressed():
 			"val": 15
 		},
 	}
-	Game.change_scene("res://scenes/gameplay/map/map.tscn", params)
+	Game.change_scene_to_file("res://scenes/gameplay/map/map.tscn", params)

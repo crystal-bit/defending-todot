@@ -1,11 +1,11 @@
 extends Node2D
 
-onready var icon_cp = $Area2D/IconCP
-onready var stars_cp = $Area2D/StarsCP
-onready var anim = $AnimationPlayer
-onready var level_selected_audio = $LevelSelectedAudio
-onready var level_locked = $LevelLocked
-onready var pressed = $Pressed
+@onready var icon_cp = $Area2D/IconCP
+@onready var stars_cp = $Area2D/StarsCP
+@onready var anim = $AnimationPlayer
+@onready var level_selected_audio = $LevelSelectedAudio
+@onready var level_locked = $LevelLocked
+@onready var pressed = $Pressed
 
 const check_lock = "res://assets/sprites/map/checkLock.png"
 const check_todo = "res://assets/sprites/map/checkToDo.png"
@@ -19,8 +19,8 @@ enum CHECKPOINT_STATE {
 	DONE # 2
 }
 
-export var scene_load = 1
-export(CHECKPOINT_STATE) var check_state = CHECKPOINT_STATE.LOCKED
+@export var scene_load = 1
+@export var check_state: CHECKPOINT_STATE = CHECKPOINT_STATE.LOCKED
 var stars = -1
 
 func _ready():
@@ -69,7 +69,7 @@ func load_level():
 		level_selected_audio.play()
 		pressed.play()
 		anim.play("pressed")
-		yield(level_selected_audio, "finished")
-		Game.change_scene("res://scenes/gameplay/gameplay.tscn", params)
+		await level_selected_audio.finished
+		Game.change_scene_to_file("res://scenes/gameplay/gameplay.tscn", params)
 	else:
 		level_locked.play()
