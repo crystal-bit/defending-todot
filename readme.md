@@ -9,7 +9,7 @@ The project is made with the open source [Godot Engine v3.2.3](https://godotengi
 ## 🎮 Play it now
 
 - [Browser HTML5](https://crystal-bit.github.io/defending-todot/)
-- [Linux / Windows / Mac builds](https://github.com/crystal-bit/defending-todot/actions)
+- [Linux / Windows / Mac builds](https://drive.google.com/drive/folders/1H2wCL-JRmq1q4rwSx1jNuRuP9x058Xkf?usp=drive_link)
 
 ## Discuss with the community
 
